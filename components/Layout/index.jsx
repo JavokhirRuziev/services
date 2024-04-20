@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Box } from "@mui/material";
 
-export default ({ children }: { children: any }) => {
+export default ({ children }) => {
   return (
     <>
       <Header />
