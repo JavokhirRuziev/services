@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { dropDownContainerStyles } from "./styles";
 import Categories from "./Categories";
 
 const DropDown = ({ el }) => {
@@ -20,3 +19,19 @@ const DropDown = ({ el }) => {
 };
 
 export default DropDown;
+
+const dropDownContainerStyles = {
+  "&:hover .categories": {
+    display: "flex",
+  },
+
+  ".categories": {
+    display: "none",
+    position: "absolute",
+    left: "0px",
+    width: "350px",
+  },
+
+  cursor: "pointer",
+  position: "relative",
+};

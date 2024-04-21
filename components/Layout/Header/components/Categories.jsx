@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { gridItemWrapper } from "./styles";
 
 export default function Categories({ category }) {
   const { push } = useRouter();
@@ -28,3 +27,14 @@ export default function Categories({ category }) {
     </Paper>
   );
 }
+
+const gridItemWrapper = {
+  display: "flex",
+  columnGap: "5px",
+  padding: "8px",
+  borderRadius: "4px",
+
+  "&:hover": {
+    bgcolor: "warning.main",
+  },
+};

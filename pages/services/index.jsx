@@ -3,7 +3,6 @@ import { Box } from "@mui/material";
 import Map from "./components/Map";
 import { top_10_arr } from "@/public/data/top_10";
 import Card from "./components/Card";
-import { cardWrapperStyles } from "./components/styles";
 
 export default () => {
   return (
@@ -19,4 +18,13 @@ export default () => {
       </Box>
     </Layout>
   );
+};
+
+const cardWrapperStyles = {
+  display: "flex",
+  flexDirection: "column",
+  rowGap: "20px",
+  p: 2,
+  overflow: "scroll",
+  height: "100vh",
 };
