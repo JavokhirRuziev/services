@@ -5,10 +5,26 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import ReviewsStar from "./components/ReviewsStar";
-import { actions_arr } from "./components/data";
+import ReviewsStar from "./Stars";
 import { Card, Avatar, Box, IconButton } from "@mui/material";
 import { red } from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import { Reviews, Save } from "@mui/icons-material";
+
+const cardActionsWrapperStyles = {
+  display: "flex",
+  justifyContent: "space-around",
+  width: "100%",
+  p: 0,
+};
+
+const actions_arr = [
+  { icon: <FavoriteIcon /> },
+  { icon: <ShareIcon /> },
+  { icon: <Save /> },
+  { icon: <Reviews /> },
+];
 
 const CardComponent = ({ el }) => {
   return (
@@ -42,14 +58,7 @@ const CardComponent = ({ el }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "100%",
-            p: 0,
-          }}
-        >
+        <Box sx={cardActionsWrapperStyles}>
           {actions_arr.map((el, index) => (
             <IconButton key={index}>{el?.icon}</IconButton>
           ))}

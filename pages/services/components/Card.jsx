@@ -1,15 +1,12 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import ReviewsStar from "./ReviewsStar";
+import ReviewsStar from "./Stars";
 
 export default function MediaControlCard({ el }) {
-  const theme = useTheme();
-
   return (
     <Box>
       <Card sx={{ display: "flex", height: 200 }}>

@@ -1,22 +1,11 @@
 import { Box, Container, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
-import SuggestionsCard from "../Cards/SuggestionsCard";
-
-const typographyStyle = {
-  textAlign: "center",
-  marginBottom: "15px",
-};
-
-const cardWrapperStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  columnGap: "30px",
-  rowGap: "30px",
-};
-
-const containerStyle = {
-  marginTop: "50px",
-};
+import SuggestionsCard from "./components/SuggestionsCard";
+import {
+  cardWrapperStyle,
+  containerStyle,
+  typographyStyle,
+} from "./components/styles";
 
 export default () => {
   return (

@@ -1,11 +1,11 @@
 import Suggestions from "@/components/Home/Suggestions";
 import Layout from "@/components/Layout";
-import HomeSlider from "@/components/Sliders/HomeSlider";
+import Slider from "@/components/Home/Slider";
 
 export default function HomePage() {
   return (
     <Layout>
-      <HomeSlider />
+      <Slider />
       <Suggestions />
     </Layout>
   );

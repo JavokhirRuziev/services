@@ -1,26 +1,11 @@
 import { Box, Typography } from "@mui/material";
-import BasicTable from "./Table";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { dropDownContainerStyles } from "./styles";
+import Categories from "./Categories";
 
 const DropDown = ({ el }) => {
   return (
-    <Box
-      sx={{
-        "&:hover .categories": {
-          display: "flex",
-        },
-
-        ".categories": {
-          display: "none",
-          position: "absolute",
-          left: "0px",
-          width: "350px",
-        },
-
-        cursor: "pointer",
-        position: "relative",
-      }}
-    >
+    <Box sx={dropDownContainerStyles}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography variant="p" color="white">
           {el?.name}
@@ -28,7 +13,7 @@ const DropDown = ({ el }) => {
         <KeyboardArrowDownIcon sx={{ color: "white" }} />
       </Box>
       <Box className="categories">
-        <BasicTable category={el?.category} />
+        <Categories category={el?.category} />
       </Box>
     </Box>
   );
