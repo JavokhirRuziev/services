@@ -11,6 +11,7 @@ import {
   Pagination,
 } from "swiper/modules";
 import { Box } from "@mui/material";
+import { theme } from "@/theme";
 
 export default () => {
   return (
@@ -54,22 +55,25 @@ const sliderWrapperStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    background:
+      "linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2))",
     zIndex: 9,
   },
 
   ".swiper-pagination-bullet": {
-    backgroundColor: "#3f88b5",
+    backgroundColor: "#fff",
     width: "20px",
     height: "20px",
+    opacity: 0.8,
   },
 
-  ".swiper-pagination": {
-    left: 0,
-  },
+  ".swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets":
+    {
+      left: 10,
+    },
 
   ".swiper-pagination-bullet-active": {
-    background: "#3f88b5",
+    background: `${theme.palette.secondary.main}`,
   },
 };
 

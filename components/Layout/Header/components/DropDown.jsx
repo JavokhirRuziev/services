@@ -1,15 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Categories from "./Categories";
+import { theme } from "@/theme";
 
-const DropDown = ({ el }) => {
+export default ({ el, isHome }) => {
   return (
     <Box sx={dropDownContainerStyles}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="p" color="white">
+        <Typography variant="custom" color={isHome ? "white" : "black"}>
           {el?.name}
         </Typography>
-        <KeyboardArrowDownIcon sx={{ color: "white" }} />
+        <KeyboardArrowDownIcon sx={{ color: isHome ? "white" : "black" }} />
       </Box>
       <Box className="categories">
         <Categories category={el?.category} />
@@ -18,20 +19,24 @@ const DropDown = ({ el }) => {
   );
 };
 
-export default DropDown;
-
 const dropDownContainerStyles = {
   "&:hover .categories": {
-    display: "flex",
+    display: "block",
+  },
+  "&:hover": {
+    borderBottom: `3px solid ${theme.palette.secondary.light}`,
   },
 
   ".categories": {
     display: "none",
     position: "absolute",
     left: "0px",
-    width: "350px",
+    top: 36,
   },
 
   cursor: "pointer",
   position: "relative",
+  pb: "10px",
+  zIndex: 9999,
+  borderBottom: "3px solid transparent",
 };

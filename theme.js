@@ -17,27 +17,27 @@ export let theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#af0606",
-      light: "#333",
+      main: "#144e80",
+      light: "#2482d4",
       contrastText: "#fff",
     },
     secondary: {
-      main: "#3f88b5",
-      light: "#666",
+      main: "#89d67e",
+      light: "#a5ff99",
       contrastText: "#777",
     },
     error: {
-      main: "#0077b6",
-      light: "#666",
+      main: "#ff1e4c",
+      light: "#ff456a",
       contrastText: "#777",
     },
     warning: {
-      main: "#cfcfcf",
+      main: "#ffeb56",
       light: "#666",
       contrastText: "#777",
     },
     info: {
-      main: "#f5f5f5",
+      main: "#989cdd",
       light: "#666",
       contrastText: "#777",
     },
@@ -48,6 +48,16 @@ export let theme = createTheme({
     },
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)", // Your desired shadow
+          "&:hover": {
+            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
+          },
+        },
+      },
+    },
     MuiContainer: {
       defaultProps: {
         disableGutters: true,
@@ -95,13 +105,13 @@ theme = createTheme(theme, {
     MuiButton: {
       styleOverrides: {
         sizeSmall: {
-          borderRadius: "5px",
+          borderRadius: "4px",
         },
         sizeMedium: {
-          borderRadius: "5px",
+          borderRadius: "4px",
         },
         sizeLarge: {
-          borderRadius: "10px",
+          borderRadius: "4px",
         },
       },
     },
@@ -124,11 +134,11 @@ theme = createTheme(theme, {
           fontFamily: "'Poppins-SemiBold',sans-serif",
         },
         p: {
-          fontSize: 18,
+          fontSize: 16,
           fontFamily: "'Poppins-Light',sans-serif",
         },
         custom: {
-          fontSize: 18,
+          fontSize: 14,
           fontFamily: "'Poppins-Light',sans-serif",
         },
       },

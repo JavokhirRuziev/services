@@ -6,24 +6,30 @@ export default function Categories({ category }) {
   const { push } = useRouter();
   const handleGo = () => push("/services");
   return (
-    <Paper sx={{ background: "white", padding: "10px", mt: "20px" }}>
-      <Grid container spacing={1}>
-        {category?.map((el, index) => (
-          <Grid
-            item
-            desktop={6}
-            tablet={6}
-            mobile={6}
-            key={index}
-            onClick={handleGo}
-          >
-            <Box sx={gridItemWrapper}>
-              {el?.icon}
-              <Typography variant="p">{el?.name}</Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+    <Paper
+      sx={{
+        background: "white",
+        padding: "10px",
+        borderTopLeftRadius: 0,
+        display: "grid", // Change display to grid
+        gridAutoRows: "min-content", // Automatically size rows based on content
+        gridRowGap: "8px", // Adjust spacing between rows
+        gridTemplateColumns: "1fr 1fr", // Adjust column size and layout
+        maxHeight: 180,
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      {category?.map((el, index) => (
+        <Box key={index} onClick={handleGo}>
+          <Box sx={gridItemWrapper}>
+            {el?.icon}
+            <Typography variant="custom" whiteSpace={"nowrap"}>
+              {el?.name}
+            </Typography>
+          </Box>
+        </Box>
+      ))}
     </Paper>
   );
 }
@@ -33,8 +39,10 @@ const gridItemWrapper = {
   columnGap: "5px",
   padding: "8px",
   borderRadius: "4px",
+  alignItems: "center",
 
   "&:hover": {
-    bgcolor: "warning.main",
+    bgcolor: "secondary.light",
   },
+  opacity: 0.8,
 };

@@ -6,8 +6,10 @@ export default () => {
   return (
     <Container sx={{ marginTop: "50px" }}>
       <Typography
-        variant="h1"
-        sx={{ textAlign: "center", marginBottom: "15px" }}
+        sx={{ textAlign: "center", marginBottom: "70px" }}
+        fontWeight={"bold"}
+        letterSpacing={1}
+        fontSize={70}
       >
         Suggestions
       </Typography>

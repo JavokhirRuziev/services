@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import { Map, NavigationControl, GeolocateControl } from "react-map-gl";
+import { Box, Tooltip, Typography, Zoom } from "@mui/material";
+import { Map, NavigationControl, GeolocateControl, Marker } from "react-map-gl";
 
 const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiamFtZXNhdG9tIiwiYSI6ImNsdXh5bzV5cDB1NmEycG52OWhkcjJkYWEifQ._8rm2H-2gwkbKgtX5pbz0w";
@@ -11,18 +11,28 @@ const state = {
   zoom: 14,
 };
 
-export default function Home() {
+export default () => {
   return (
     <Map
       mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
       initialViewState={state}
-      style={{ width: "100vw", height: "100vh" }}
+      // style={{ width: "100vw", height: "100vh" }}
       mapStyle="mapbox://styles/mapbox/streets-v10"
     >
+      <Marker longitude={state.longitude} latitude={state.latitude}>
+        <Tooltip
+          title="Starting Point"
+          placement="top"
+          arrow
+          TransitionComponent={Zoom}
+        >
+          <Typography>this is marker</Typography>
+        </Tooltip>
+      </Marker>
       <Box sx={{ position: "absolute", top: 10, right: 10 }}>
         <NavigationControl />
         <GeolocateControl />
       </Box>
     </Map>
   );
-}
+};
