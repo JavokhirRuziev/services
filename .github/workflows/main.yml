@@ -22,5 +22,5 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Deploy to Vercel
-        run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes
+      # - name: Deploy to Vercel
+      #   run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes
