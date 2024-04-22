@@ -18,12 +18,11 @@ export default () => {
     <Box sx={sliderWrapperStyles}>
       <Swiper
         loop={true}
-        grabCursor
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         freeMode={true}
-        modules={[Autoplay, FreeMode, Mousewheel, Pagination, A11y]}
+        modules={[Autoplay, Pagination]}
         direction="vertical"
-        pagination
+        pagination={{ clickable: true }}
       >
         {slider_arr.map((el) => (
           <SwiperSlide key={el?.img}>
@@ -46,7 +45,8 @@ export default () => {
 const sliderWrapperStyles = {
   ".swiper": {
     width: "100%",
-    height: "70vh",
+    height: "80vh",
+    pointerEvents: "none",
   },
 
   ".slider-image-container": {
@@ -65,6 +65,7 @@ const sliderWrapperStyles = {
     width: "20px",
     height: "20px",
     opacity: 0.8,
+    pointerEvents: "auto", // Enable pointer events on pagination bullets
   },
 
   ".swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets":

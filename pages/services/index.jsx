@@ -7,22 +7,22 @@ import Filters from "./components/Filters";
 
 export default () => {
   return (
-    <Layout>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "250px 800px 1fr",
-        }}
-      >
-        <Filters />
+    // <Layout>
+    //   <Box
+    //     sx={{
+    //       display: "grid",
+    //       gridTemplateColumns: "250px 800px 1fr",
+    //     }}
+    //   >
+    /* <Filters />
         <Box sx={cardWrapperStyles}>
           {top_10_arr.map((el) => (
             <Card {...{ el }} />
           ))}
-        </Box>
-        <Map />
-      </Box>
-    </Layout>
+        </Box> */
+    <Map />
+    //   </Box>
+    // </Layout>
   );
 };
 
