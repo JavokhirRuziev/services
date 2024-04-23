@@ -1,18 +1,34 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Link, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
 import SuggestionsCard from "./components/SuggestionsCard";
+import TooltipClick from "../Layout/Header/components/TooltipClick";
+import { useState } from "react";
 
 export default () => {
+  const [open, setOpen] = useState(false);
+
+  const handleTooltipClose = () => {
+    setOpen(false);
+  };
+
+  const handleTooltipOpen = () => {
+    setOpen(true);
+  };
   return (
-    <Container sx={{ marginTop: "50px" }}>
-      <Typography
-        sx={{ textAlign: "center", marginBottom: "70px" }}
-        fontWeight={"bold"}
-        letterSpacing={1}
-        fontSize={70}
+    <Container sx={{ margin: "50px auto 150px" }}>
+      <TooltipClick
+        {...{ open, handleTooltipClose, content: "tooltipContent" }}
       >
-        Suggestions
-      </Typography>
+        <Link onClick={handleTooltipOpen} underline="hover">
+          <Typography
+            sx={{ textAlign: "center", marginBottom: "70px" }}
+            fontWeight={"bold"}
+            variant="h2"
+          >
+            Suggestions
+          </Typography>
+        </Link>
+      </TooltipClick>
       <Box sx={cardWrapperStyle}>
         {suggestions_arr.map((el) => {
           return <SuggestionsCard {...{ el }} />;

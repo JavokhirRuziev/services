@@ -24,40 +24,35 @@ export let theme = createTheme({
     secondary: {
       main: "#89d67e",
       light: "#a5ff99",
-      contrastText: "#777",
+      contrastText: "#fff",
     },
     error: {
       main: "#ff1e4c",
       light: "#ff456a",
-      contrastText: "#777",
+      contrastText: "#fff",
     },
     warning: {
       main: "#ffeb56",
       light: "#666",
-      contrastText: "#777",
+      contrastText: "#fff",
     },
     info: {
       main: "#989cdd",
       light: "#666",
-      contrastText: "#777",
+      contrastText: "#fff",
     },
     success: {
       main: "#4bc95b",
       light: "#666",
-      contrastText: "#777",
+      contrastText: "#fff",
     },
   },
+  shadows: [
+    "none",
+    "0px 0px 16px rgba(0, 0, 0, 0.08)", // desired shadow
+    "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
+  ],
   components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)", // Your desired shadow
-          "&:hover": {
-            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
-          },
-        },
-      },
-    },
     MuiContainer: {
       defaultProps: {
         disableGutters: true,
@@ -75,10 +70,6 @@ export let theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)", // Your desired shadow
-          "&:hover": {
-            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
-          },
         },
       },
     },
@@ -105,9 +96,9 @@ theme = createTheme(theme, {
         tooltip: {
           backgroundColor: theme.palette.common.white,
           color: "rgba(0, 0, 0, 0.87)",
-          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)",
+          boxShadow: theme.shadows[1],
           "&:hover": {
-            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)",
+            boxShadow: theme.shadows[2],
           },
           fontSize: 11,
           ".MuiTooltip-arrow": {
@@ -116,7 +107,46 @@ theme = createTheme(theme, {
         },
       },
     },
-
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.common.black,
+          position: "relative",
+        },
+        overline: {
+          color: theme.palette.common.white,
+        },
+        underlineHover: {
+          textDecoration: "none !important",
+          "&::after": {
+            content: `''`,
+            position: "absolute",
+            width: 48,
+            transform: "scaleX(0)",
+            height: 3,
+            bottom: -6,
+            left: 0,
+            backgroundColor: theme.palette.common.white,
+            transformOrigin: "bottom left",
+            transition: "transform 0.25s ease-in-out",
+          },
+          "&:hover::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "bottom left",
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: theme.shadows[1],
+          "&:hover": {
+            boxShadow: theme.shadows[2],
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         sizeSmall: {
@@ -127,6 +157,12 @@ theme = createTheme(theme, {
         },
         sizeLarge: {
           borderRadius: "4px",
+        },
+        root: {
+          boxShadow: theme.shadows[1],
+          "&:hover": {
+            boxShadow: theme.shadows[2], // Hover shadow
+          },
         },
       },
     },

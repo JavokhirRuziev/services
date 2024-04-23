@@ -3,7 +3,7 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import StarIcon from "@mui/icons-material/Star";
 
-export default ({ review }) => {
+export default ({ review }: { review: any }) => {
   const fullStars = Math.floor(review);
   const halfStars = review - fullStars >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStars;

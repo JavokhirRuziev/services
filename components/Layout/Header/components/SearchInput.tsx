@@ -29,7 +29,7 @@ export default () => {
 const paperStyles = {
   display: "flex",
   alignItems: "center",
-  maxWidth: 800,
+  maxWidth: 600,
   width: "100%",
   mx: "50px",
 };
