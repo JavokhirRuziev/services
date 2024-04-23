@@ -4,10 +4,19 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import ReviewsStar from "./Stars";
 import Rating from "@/components/Rating";
 
-export default function MediaControlCard({ el }) {
+type cardTypes = {
+  el: {
+    img: string;
+    author_name: string;
+    organization_name: string;
+    review: number;
+    description: string;
+  };
+};
+
+export default function MediaControlCard({ el }: cardTypes) {
   return (
     <Box>
       <Card sx={{ display: "flex", height: 200, cursor: "pointer" }}>

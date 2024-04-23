@@ -75,11 +75,9 @@ export let theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-        },
-        containedInfo: {
-          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)",
+          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)", // Your desired shadow
           "&:hover": {
-            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)",
+            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
           },
         },
       },
@@ -102,6 +100,23 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: theme.palette.common.white,
+          color: "rgba(0, 0, 0, 0.87)",
+          boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.08)",
+          "&:hover": {
+            boxShadow: "0px 0px 32px rgba(0, 0, 0, 0.12)",
+          },
+          fontSize: 11,
+          ".MuiTooltip-arrow": {
+            color: theme.palette.common.white,
+          },
+        },
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         sizeSmall: {

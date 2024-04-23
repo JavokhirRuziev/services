@@ -3,11 +3,19 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Categories from "./Categories";
 import { theme } from "@/theme";
 
-export default ({ el, isHome }) => {
+type DropDownTypes = {
+  el: {
+    name: string;
+    category: { name: string; icon: JSX.Element }[]; // Update the category property to match the structure
+  };
+  isHome: boolean;
+};
+
+export default ({ el, isHome }: DropDownTypes) => {
   return (
     <Box sx={dropDownContainerStyles}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="custom" color={isHome ? "white" : "black"}>
+        <Typography color={isHome ? "white" : "black"} variant="custom">
           {el?.name}
         </Typography>
         <KeyboardArrowDownIcon sx={{ color: isHome ? "white" : "black" }} />

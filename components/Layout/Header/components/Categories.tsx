@@ -1,8 +1,12 @@
 import * as React from "react";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 
-export default function Categories({ category }) {
+type categoryTypes = {
+  category: { name: string; icon: JSX.Element }[];
+};
+
+export default function Categories({ category }: categoryTypes) {
   const { push } = useRouter();
   const handleGo = () => push("/services");
   return (

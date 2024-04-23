@@ -50,7 +50,7 @@ export default () => {
     </Box>
   );
 };
-const headerContainerStyles = (isHome) => ({
+const headerContainerStyles = (isHome: boolean) => ({
   p: "10px 0px",
   position: isHome ? "absolute" : "relative",
   zIndex: 2,
