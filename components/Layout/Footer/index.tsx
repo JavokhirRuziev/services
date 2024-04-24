@@ -53,7 +53,7 @@ export default () => {
       </Container>
       <Box sx={bottomStyles}>
         <Typography
-          variant="p"
+          variant="body1"
           color={"white"}
           fontWeight={"bold"}
           letterSpacing={2}
@@ -100,7 +100,7 @@ const SubTitle = ({ children, link, onClick }: any) => (
     {...{ onClick }}
   >
     <Typography
-      variant="p"
+      variant="body1"
       fontWeight={400}
       color={"white"}
       letterSpacing={2}

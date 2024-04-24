@@ -15,7 +15,7 @@ export default ({ el, isHome }: DropDownTypes) => {
   return (
     <Box sx={dropDownContainerStyles}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Typography color={isHome ? "white" : "black"} variant="custom">
+        <Typography color={isHome ? "white" : "black"} variant="body2">
           {el?.name}
         </Typography>
         <KeyboardArrowDownIcon sx={{ color: isHome ? "white" : "black" }} />

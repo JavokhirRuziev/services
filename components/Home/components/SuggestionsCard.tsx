@@ -5,23 +5,14 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import {
-  Card,
-  Avatar,
-  Box,
-  IconButton,
-  ButtonGroup,
-  Button,
-  OutlinedInput,
-} from "@mui/material";
-import { red } from "@mui/material/colors";
+import { Card, Avatar, Box, IconButton } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { Reviews, Save } from "@mui/icons-material";
 import Rating from "@/components/Rating";
 import { theme } from "@/theme";
 
-const CardComponent = ({ el }) => {
+const CardComponent = ({ el }: any) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -65,8 +56,8 @@ const CardComponent = ({ el }) => {
   );
 };
 
-export default function SuggestionsCard({ el }) {
-  return <CardComponent el={el} />;
+export default function SuggestionsCard({ el }: any) {
+  return <CardComponent {...{ el }} />;
 }
 
 const cardActionsWrapperStyles = {

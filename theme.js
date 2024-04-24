@@ -184,11 +184,11 @@ theme = createTheme(theme, {
           fontSize: 20,
           fontFamily: "'Poppins-SemiBold',sans-serif",
         },
-        p: {
+        body1: {
           fontSize: 16,
           fontFamily: "'Poppins-Light',sans-serif",
         },
-        custom: {
+        body2: {
           fontSize: 14,
           fontFamily: "'Poppins-Light',sans-serif",
         },
