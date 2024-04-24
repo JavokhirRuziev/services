@@ -2,15 +2,54 @@ import { theme } from "@/theme";
 import { Box, Container, Link, Tooltip, Typography } from "@mui/material";
 import { footer_links_arr } from "@/public/data/footer_data";
 import TooltipClick from "../../Tooltips/TooltipClick";
-import { useState } from "react";
+import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Hover from "@/components/Buttons/Hover";
+import Title from "./components/Title";
+import Subtitle from "./components/Subtitle";
 
 export default () => {
-  // states  ///////////////////////////////////////////////////////////
   const [open, setOpen] = useState({ lang: false, countries: false });
+  const [selectedState, setSelectedState] = useState({
+    lang: "English",
+    countries: "United states",
+  });
 
-  // functions  ///////////////////////////////////////////////////////////
+  const handleSetState = (key: string, value: string) => {
+    setSelectedState({ ...selectedState, [key]: value });
+  };
+
+  const actions_arr = [
+    {
+      title: "Languages",
+      children: selectedState["lang"],
+      content: (
+        <Box sx={tooltipContentStyles}>
+          {["Русский", "English", "O'zbekcha"].map((el) => (
+            <Hover onClick={() => handleSetState("lang", el)} key={el}>
+              {el}
+            </Hover>
+          ))}
+        </Box>
+      ),
+      action: "lang",
+    },
+    {
+      title: "Countries",
+      children: selectedState["countries"],
+      content: (
+        <Box sx={tooltipContentStyles}>
+          {["United states", "Brazil", "Uzbekistan", "India"].map((el) => (
+            <Hover onClick={() => handleSetState("countries", el)} key={el}>
+              {el}
+            </Hover>
+          ))}
+        </Box>
+      ),
+      action: "countries",
+    },
+  ];
+
   const handleTooltipClose = (action: string) => {
     setOpen({ ...open, [action as "lang" | "countries"]: false });
   };
@@ -19,23 +58,24 @@ export default () => {
     setOpen({ ...open, [action as "lang" | "countries"]: true });
   };
 
-  // content  ///////////////////////////////////////////////////////////
-
   return (
     <Box sx={footerWrapper}>
       <Container>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {footer_links_arr.map((el) => (
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column" }}
+              key={el?.title}
+            >
               <Title>{el?.title}</Title>
               {el?.children.map((el) => (
-                <SubTitle>{el?.name}</SubTitle>
+                <Subtitle key={el?.name}>{el?.name}</Subtitle>
               ))}
             </Box>
           ))}
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             {actions_arr.map((el) => (
-              <>
+              <React.Fragment key={el.title}>
                 <Title>{el.title}</Title>
                 <TooltipClick
                   placement={"top"}
@@ -66,7 +106,7 @@ export default () => {
                     <KeyboardArrowDownIcon sx={{ color: "white" }} />
                   </Link>
                 </TooltipClick>
-              </>
+              </React.Fragment>
             ))}
           </Box>
         </Box>
@@ -84,8 +124,6 @@ export default () => {
     </Box>
   );
 };
-
-// styles  ///////////////////////////////////////////////////////////
 
 const tooltipContentStyles = {
   width: 200,
@@ -109,63 +147,3 @@ const bottomStyles = {
   mt: 6.5,
   bgcolor: "secondary.main",
 };
-
-// components  ///////////////////////////////////////////////////////////
-
-const Title = ({ children }: any) => (
-  <Typography
-    variant="h6"
-    color={"white"}
-    letterSpacing={3}
-    mb={2}
-    fontWeight={"bold"}
-  >
-    {children}
-  </Typography>
-);
-
-const SubTitle = ({ children, link }: { children: any; link?: string }) => (
-  <Link
-    {...(link && { href: link })}
-    underline="hover"
-    style={{ cursor: "pointer", marginBottom: "10px" }}
-  >
-    <Typography
-      variant="body1"
-      fontWeight={400}
-      color={"white"}
-      letterSpacing={2}
-    >
-      {children}
-    </Typography>
-  </Link>
-);
-
-// datas ///////////////////////////////////////////////////////////
-
-const actions_arr = [
-  {
-    title: "Languages",
-    children: "English",
-    content: (
-      <Box sx={tooltipContentStyles}>
-        {["Русский", "English", "O'zbekcha"].map((el) => (
-          <Hover>{el}</Hover>
-        ))}
-      </Box>
-    ),
-    action: "lang",
-  },
-  {
-    title: "Countries",
-    children: "United states",
-    content: (
-      <Box sx={tooltipContentStyles}>
-        {["United states", "Brazil", "Uzbekistan", "India"].map((el) => (
-          <Hover>{el}</Hover>
-        ))}
-      </Box>
-    ),
-    action: "countries",
-  },
-];

@@ -16,25 +16,21 @@ const CardComponent = ({ el }: any) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        role="region"
         avatar={
-          <Avatar sx={{ bgcolor: "error.light" }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "error.light" }}>
             {el?.author_name.slice(0, 1)}
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
+          <IconButton>
             <MoreVertIcon />
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image={el?.img}
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="194" image={el?.img} alt={el?.img} />
       <Box sx={{ display: "flex", m: "10px" }}>
         <Rating rating={el?.review} />
       </Box>
@@ -46,7 +42,11 @@ const CardComponent = ({ el }: any) => {
       <CardActions>
         <Box sx={cardActionsWrapperStyles}>
           {actions_arr.map((el, index) => (
-            <IconButton key={index} sx={{ path: { fill: el?.color } }}>
+            <IconButton
+              aria-label="favorite"
+              key={index}
+              sx={{ path: { fill: el?.color } }}
+            >
               {el?.icon}
             </IconButton>
           ))}

@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import SearchInput from "./components/SearchInput";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import React, { useState } from "react";
@@ -12,6 +12,7 @@ import Hover from "@/components/Buttons/Hover";
 import Business from "@/public/icons/Business";
 import Check from "@/public/icons/Check";
 import LogIn from "@/public/icons/LogIn";
+import Account from "@/public/icons/Account";
 
 export default () => {
   const { pathname } = useRouter();
@@ -27,19 +28,19 @@ export default () => {
   };
 
   const rightBlockArr = [
-    <TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
-      <Button variant="outlined" color="secondary" onClick={handleTooltipOpen}>
-        SolveMe for Bussiness
-        <KeyboardArrowDownIcon sx={{ color: "inherit" }} />
-      </Button>
-    </TooltipClick>,
+    // <TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
+    //   <Button variant="outlined" color="secondary" onClick={handleTooltipOpen}>
+    //     SolveMe for Bussiness
+    //     <KeyboardArrowDownIcon sx={{ color: "inherit" }} />
+    //   </Button>
+    // </TooltipClick>,
 
-    <Button variant="outlined" color="secondary">
-      Write a Review
-    </Button>,
-    // <Avatar sx={{ bgcolor: "secondary.main" }}>
-    //   <AccountCircleIcon />
-    // </Avatar>,
+    // <Button variant="outlined" color="secondary">
+    //   Write a Review
+    // </Button>,
+    <Avatar sx={{ bgcolor: "secondary.main" }}>
+      <Account />
+    </Avatar>,
     <Button variant="outlined" color="secondary">
       Log In
     </Button>,

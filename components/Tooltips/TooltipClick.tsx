@@ -7,6 +7,13 @@ export default ({
   content,
   placement,
 }: any) => {
+  // Wrap children in a div if it's an array
+  const tooltipChildren = Array.isArray(children) ? (
+    <div>{children}</div>
+  ) : (
+    children
+  );
+
   return (
     <ClickAwayListener onClickAway={handleTooltipClose}>
       <Tooltip
@@ -20,7 +27,7 @@ export default ({
         sx={{ maxWidth: 300 }}
         placement={placement || "bottom"}
       >
-        {children}
+        {tooltipChildren}
       </Tooltip>
     </ClickAwayListener>
   );
