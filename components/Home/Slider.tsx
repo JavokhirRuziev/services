@@ -20,32 +20,6 @@ export default () => {
     setCompletedSlides(swiper.realIndex + 1);
   };
 
-  type ActiveBulletStyles = {
-    [key: string]: {
-      position: string;
-      backgroundColor: string;
-      width: string;
-      height: string;
-      pointerEvents: string;
-      borderRadius: number;
-      overflow: string;
-      opacity: number;
-    };
-  };
-
-  let activeBulletStyles: ActiveBulletStyles = {
-    ".swiper-pagination-bullet": {
-      position: "relative",
-      backgroundColor: "#fff",
-      width: "10px",
-      height: "50px",
-      pointerEvents: "auto",
-      borderRadius: 10,
-      overflow: "hidden",
-      opacity: 0.8,
-    },
-  };
-
   for (let i = 1; i <= completedSlides; i++) {
     activeBulletStyles[`.swiper-pagination-bullet:nth-child(${i - 1})`] = {
       position: "relative",
@@ -163,6 +137,32 @@ const sliderWrapperStyles = {
     "100%": {
       transform: "scaleY(1)",
     },
+  },
+};
+
+type ActiveBulletStyles = {
+  [key: string]: {
+    position: string;
+    backgroundColor: string;
+    width: string;
+    height: string;
+    pointerEvents: string;
+    borderRadius: number;
+    overflow: string;
+    opacity: number;
+  };
+};
+
+let activeBulletStyles: ActiveBulletStyles = {
+  ".swiper-pagination-bullet": {
+    position: "relative",
+    backgroundColor: "#fff",
+    width: "10px",
+    height: "50px",
+    pointerEvents: "auto",
+    borderRadius: 10,
+    overflow: "hidden",
+    opacity: 0.8,
   },
 };
 

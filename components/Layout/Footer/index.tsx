@@ -4,9 +4,9 @@ import { footer_links_arr } from "@/public/data/footer_data";
 import TooltipClick from "../../Tooltips/TooltipClick";
 import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Hover from "@/components/Buttons/Hover";
 import Title from "./components/Title";
 import Subtitle from "./components/Subtitle";
+import { actions_arr } from "./components/data";
 
 export default () => {
   const [open, setOpen] = useState({ lang: false, countries: false });
@@ -18,42 +18,6 @@ export default () => {
   const handleSetState = (key: string, value: string) => {
     setSelectedState({ ...selectedState, [key]: value });
   };
-
-  const actions_arr = [
-    {
-      title: "Languages",
-      children: selectedState["lang"],
-      content: (
-        <Box sx={tooltipContentStyles}>
-          {["Русский", "English", "O'zbekcha"].map((el) => (
-            <Hover
-              onClick={() => handleSetState("lang", el)}
-              key={el}
-              text={el}
-            />
-          ))}
-        </Box>
-      ),
-      action: "lang",
-    },
-    {
-      title: "Countries",
-      children: selectedState["countries"],
-      content: (
-        <Box sx={tooltipContentStyles}>
-          {["United states", "Brazil", "Uzbekistan", "India"].map((el) => (
-            <Hover
-              onClick={() => handleSetState("countries", el)}
-              key={el}
-              text={el}
-            />
-          ))}
-        </Box>
-      ),
-      action: "countries",
-    },
-  ];
-
   const handleTooltipClose = (action: string) => {
     setOpen({ ...open, [action as "lang" | "countries"]: false });
   };
@@ -78,7 +42,7 @@ export default () => {
             </Box>
           ))}
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {actions_arr.map((el) => (
+            {actions_arr({ selectedState, handleSetState }).map((el) => (
               <React.Fragment key={el.title}>
                 <Title>{el.title}</Title>
                 <TooltipClick
@@ -127,14 +91,6 @@ export default () => {
       </Box>
     </Box>
   );
-};
-
-const tooltipContentStyles = {
-  width: 200,
-  display: "flex",
-  flexDirection: "column",
-  rowGap: 1,
-  p: 1,
 };
 
 const footerWrapper = {
