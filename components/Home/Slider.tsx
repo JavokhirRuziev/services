@@ -87,7 +87,7 @@ export default () => {
                   variant="h1"
                   fontWeight={"bold"}
                   color={"white"}
-                  maxWidth={400}
+                  maxWidth={500}
                 >
                   {el?.description}
                 </Typography>

@@ -169,28 +169,54 @@ theme = createTheme(theme, {
     MuiTypography: {
       styleOverrides: {
         h1: {
-          fontSize: 50,
-          fontFamily: "'Poppins-Regular',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 46,
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 62,
+          },
         },
         h2: {
-          fontSize: 40,
-          fontFamily: "'Poppins-Medium',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 32,
+            lineHeight: "40px",
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 48,
+            lineHeight: "56px",
+          },
         },
         h3: {
-          fontSize: 30,
-          fontFamily: "'Poppins-Regular',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 18,
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 20,
+          },
         },
         h4: {
-          fontSize: 20,
-          fontFamily: "'Poppins-SemiBold',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 16,
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 18,
+          },
         },
         body1: {
-          fontSize: 16,
-          fontFamily: "'Poppins-Light',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 14,
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 16,
+          },
         },
         body2: {
-          fontSize: 14,
-          fontFamily: "'Poppins-Light',sans-serif",
+          [theme.breakpoints.down("desktop")]: {
+            fontSize: 12,
+          },
+          [theme.breakpoints.up("desktop")]: {
+            fontSize: 14,
+          },
         },
       },
     },

@@ -14,7 +14,7 @@ import { theme } from "@/theme";
 
 const CardComponent = ({ el }: any) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, cursor: "pointer" }}>
       <CardHeader
         role="region"
         avatar={
@@ -28,14 +28,18 @@ const CardComponent = ({ el }: any) => {
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        subheader={
+          <Typography variant="body2" color={"gray"}>
+            September 14, 2016
+          </Typography>
+        }
       />
       <CardMedia component="img" height="194" image={el?.img} alt={el?.img} />
       <Box sx={{ display: "flex", m: "10px" }}>
         <Rating rating={el?.review} />
       </Box>
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color="text.secondary">
           {el?.description}
         </Typography>
       </CardContent>

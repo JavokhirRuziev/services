@@ -29,7 +29,7 @@ const paperStyles = {
   gridAutoRows: "min-content",
   gridRowGap: "8px",
   gridTemplateColumns: "1fr 1fr",
-  maxHeight: 180,
+  maxHeight: 200,
   width: "100%",
   height: "100%",
 };

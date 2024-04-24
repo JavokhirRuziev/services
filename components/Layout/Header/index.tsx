@@ -2,8 +2,6 @@ import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import SearchInput from "./components/SearchInput";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import React, { useState } from "react";
-import DropDown from "./components/DropDown";
-import { services_data } from "../../../public/data/services_data";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import TooltipClick from "../../Tooltips/TooltipClick";
