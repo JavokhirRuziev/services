@@ -129,7 +129,7 @@ const sliderWrapperStyles = {
   ".swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets":
     {
       left: 10,
-      maxWidth: 1000,
+      maxWidth: 890,
       mx: "auto",
     },
 
@@ -172,7 +172,7 @@ const sliderTextStyles = {
   top: "50%",
   transform: "translateX(-50%) translateY(-50%)",
   zIndex: 9999,
-  maxWidth: 930,
+  maxWidth: 840,
   width: "100%",
 };
 

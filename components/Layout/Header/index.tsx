@@ -28,25 +28,25 @@ export default () => {
   };
 
   const rightBlockArr = [
-    // <TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
-    //   <Button variant="outlined" color="secondary" onClick={handleTooltipOpen}>
-    //     SolveMe for Bussiness
-    //     <KeyboardArrowDownIcon sx={{ color: "inherit" }} />
-    //   </Button>
-    // </TooltipClick>,
+    <TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
+      <Button variant="outlined" color="secondary" onClick={handleTooltipOpen}>
+        SolveMe for Bussiness
+        <KeyboardArrowDownIcon sx={{ color: "inherit" }} />
+      </Button>
+    </TooltipClick>,
 
-    // <Button variant="outlined" color="secondary">
-    //   Write a Review
-    // </Button>,
+    <Button variant="outlined" color="secondary">
+      Write a Review
+    </Button>,
     <Avatar sx={{ bgcolor: "secondary.main" }}>
       <Account />
     </Avatar>,
-    <Button variant="outlined" color="secondary">
-      Log In
-    </Button>,
-    <Button variant="contained" color="secondary">
-      Sign Up
-    </Button>,
+    // <Button variant="outlined" color="secondary">
+    //   Log In
+    // </Button>,
+    // <Button variant="contained" color="secondary">
+    //   Sign Up
+    // </Button>,
   ];
 
   return (
@@ -75,11 +75,6 @@ export default () => {
             {rightBlockArr.map((el) => el)}
           </Box>
         </Box>
-        <Box sx={dropDownWrapperStyles}>
-          {services_data?.map((el) => (
-            <DropDown {...{ el, isHome }} />
-          ))}
-        </Box>
       </Box>
     </Box>
   );
@@ -93,14 +88,6 @@ const headerContainerStyles = (isHome: boolean) => ({
   left: "50%",
   transform: "translateX(-50%)",
 });
-
-const dropDownWrapperStyles = {
-  maxWidth: 950,
-  mx: "auto",
-  mt: "10px",
-  display: "flex",
-  columnGap: 2,
-};
 
 const logoStyles = {
   textDecoration: "none",
