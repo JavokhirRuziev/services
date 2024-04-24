@@ -9,7 +9,7 @@ const Subtitle = ({ children, link }: any) => {
       role="link"
     >
       <Typography
-        variant="body1"
+        variant="body2"
         fontWeight={400}
         color={"white"}
         letterSpacing={2}

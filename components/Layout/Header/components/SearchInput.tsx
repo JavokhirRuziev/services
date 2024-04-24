@@ -15,7 +15,13 @@ export default () => {
     <Box sx={Wrapper}>
       <Paper component="form">
         <ButtonGroup fullWidth>
-          <InputBase fullWidth placeholder="Categories" sx={{ ml: 2 }} />
+          <InputBase
+            fullWidth
+            placeholder="Categories"
+            sx={{
+              ml: 2,
+            }}
+          />
           <Divider orientation="vertical" sx={{ height: 28, margin: 0.5 }} />
           <InputBase fullWidth placeholder="Location" sx={{ ml: 2 }} />
           <Button

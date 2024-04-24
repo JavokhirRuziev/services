@@ -46,6 +46,23 @@ export let theme = createTheme({
       light: "#666",
       contrastText: "#fff",
     },
+    grey: {
+      100: "#1B191810",
+      200: "#D9D9D9",
+      300: "#999999",
+      500: "#64748B",
+      600: "#717171",
+    },
+  },
+  typography: {
+    fontFamily: `"QuickRegular", sans-serif`,
+  },
+  fontFamily: {
+    Bold: `"QuickBold", sans-serif`,
+    SemiBold: `"QuickSemiBold", sans-serif`,
+    Medium: `"QuickMedium", sans-serif`,
+    Regular: `"QuickRegular", sans-serif`,
+    Light: `"QuickLight", sans-serif`,
   },
   shadows: [
     "none",
@@ -171,51 +188,61 @@ theme = createTheme(theme, {
         h1: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 46,
+            fontFamily: `"QuickBold", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 62,
+            fontFamily: `"QuickBold", sans-serif`,
           },
         },
         h2: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 32,
-            lineHeight: "40px",
+            fontFamily: `"QuickSemiBold", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 48,
-            lineHeight: "56px",
+            fontFamily: `"QuickSemiBold", sans-serif`,
           },
         },
         h3: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 18,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 20,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
         },
         h4: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 16,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 18,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
         },
         body1: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 14,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 16,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
         },
         body2: {
           [theme.breakpoints.down("desktop")]: {
             fontSize: 12,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
             fontSize: 14,
+            fontFamily: `"QuickMedium", sans-serif`,
           },
         },
       },

@@ -87,7 +87,7 @@ export default () => {
                   variant="h1"
                   fontWeight={"bold"}
                   color={"white"}
-                  maxWidth={500}
+                  maxWidth={600}
                 >
                   {el?.description}
                 </Typography>
@@ -109,6 +109,9 @@ export default () => {
 };
 
 const sliderWrapperStyles = {
+  position: "sticky",
+  top: 0,
+  zIndex: -1,
   ".swiper": {
     width: "100%",
     height: "70vh",

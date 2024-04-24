@@ -26,9 +26,11 @@ export default () => {
       content: (
         <Box sx={tooltipContentStyles}>
           {["Русский", "English", "O'zbekcha"].map((el) => (
-            <Hover onClick={() => handleSetState("lang", el)} key={el}>
-              {el}
-            </Hover>
+            <Hover
+              onClick={() => handleSetState("lang", el)}
+              key={el}
+              text={el}
+            />
           ))}
         </Box>
       ),
@@ -40,9 +42,11 @@ export default () => {
       content: (
         <Box sx={tooltipContentStyles}>
           {["United states", "Brazil", "Uzbekistan", "India"].map((el) => (
-            <Hover onClick={() => handleSetState("countries", el)} key={el}>
-              {el}
-            </Hover>
+            <Hover
+              onClick={() => handleSetState("countries", el)}
+              key={el}
+              text={el}
+            />
           ))}
         </Box>
       ),
@@ -136,7 +140,6 @@ const tooltipContentStyles = {
 const footerWrapper = {
   bgcolor: "secondary.main",
   padding: "50px 0px 0px",
-  margin: "50px 0px 0px",
 };
 
 const bottomStyles = {

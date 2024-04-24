@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "QuickBold";
+  src: local("QuickBold"), local("QuickBold"),
+    url("Quicksand-Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "QuickSemiBold";
+  src: local("QuickSemiBold"), local("QuickSemiBold"),
+    url("Quicksand-SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "QuickMedium";
+  src: local("QuickMedium"), local("QuickMedium"),
+    url("Quicksand-Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "QuickRegular";
+  src: local("QuickRegular"), local("QuickRegular"),
+    url("Quicksand-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "QuickLight";
+  src: local("QuickLight"), local("QuickLight"),
+    url("Quicksand-Light.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 300;
+}

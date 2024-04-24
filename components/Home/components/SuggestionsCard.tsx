@@ -15,7 +15,7 @@ import { theme } from "@/theme";
 const CardComponent = ({ el }: any) => {
   return (
     <Card sx={{ maxWidth: 345, cursor: "pointer" }}>
-      <CardHeader
+      {/* <CardHeader
         role="region"
         avatar={
           <Avatar sx={{ bgcolor: "error.light" }}>
@@ -33,7 +33,7 @@ const CardComponent = ({ el }: any) => {
             September 14, 2016
           </Typography>
         }
-      />
+      /> */}
       <CardMedia component="img" height="194" image={el?.img} alt={el?.img} />
       <Box sx={{ display: "flex", m: "10px" }}>
         <Rating rating={el?.review} />
