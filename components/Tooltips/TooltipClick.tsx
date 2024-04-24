@@ -17,7 +17,7 @@ export default ({
         disableHoverListener
         disableTouchListener
         title={content}
-        sx={{ maxWidth: 300, zIndex: 99999999 }}
+        sx={{ maxWidth: 300 }}
         placement={placement || "bottom"}
       >
         {children}

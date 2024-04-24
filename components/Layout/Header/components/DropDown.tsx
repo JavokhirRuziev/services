@@ -6,7 +6,7 @@ import { theme } from "@/theme";
 type DropDownTypes = {
   el: {
     name: string;
-    category: { name: string; icon: JSX.Element }[]; // Update the category property to match the structure
+    category: { name: string; icon: JSX.Element }[];
   };
   isHome: boolean;
 };

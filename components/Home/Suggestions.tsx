@@ -1,7 +1,7 @@
 import { Box, Container, Link, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
 import SuggestionsCard from "./components/SuggestionsCard";
-import TooltipClick from "../Layout/Header/components/TooltipClick";
+import TooltipClick from "../Tooltips/TooltipClick";
 import { useState } from "react";
 
 export default () => {

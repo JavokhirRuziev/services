@@ -6,7 +6,7 @@ import DropDown from "./components/DropDown";
 import { services_data } from "../../../public/data/services_data";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import TooltipClick from "./components/TooltipClick";
+import TooltipClick from "../../Tooltips/TooltipClick";
 import Logo from "@/public/icons/Logo";
 import Hover from "@/components/Buttons/Hover";
 import Business from "@/public/icons/Business";

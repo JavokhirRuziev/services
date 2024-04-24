@@ -42,7 +42,7 @@ export default () => {
       pointerEvents: "auto",
       borderRadius: 10,
       overflow: "hidden",
-      opacity: 0.5,
+      opacity: 0.8,
     },
   };
 
@@ -55,7 +55,7 @@ export default () => {
       pointerEvents: "auto",
       borderRadius: 10,
       overflow: "hidden",
-      opacity: 1,
+      opacity: 0.8,
     };
   }
 
@@ -150,7 +150,7 @@ const sliderWrapperStyles = {
     animation: "progressAnimation 2200ms linear",
     transformOrigin: "top",
     borderRadius: 10,
-    opacity: "1 !important",
+    opacity: 0.8,
   },
 
   "@keyframes progressAnimation": {

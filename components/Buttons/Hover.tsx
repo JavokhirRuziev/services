@@ -3,8 +3,8 @@ import { Box, Typography } from "@mui/material";
 export default ({ children, text, onClick, variant }: any) => {
   return (
     <Box sx={wrapperStyles} {...{ onClick }}>
-      {children}
-      <Typography variant={variant || "custom"} whiteSpace={"nowrap"}>
+      {children && children}
+      <Typography variant={variant || "body1"} whiteSpace={"nowrap"}>
         {text}
       </Typography>
     </Box>

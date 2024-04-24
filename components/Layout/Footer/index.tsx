@@ -1,24 +1,25 @@
 import { theme } from "@/theme";
 import { Box, Container, Link, Tooltip, Typography } from "@mui/material";
 import { footer_links_arr } from "@/public/data/footer_data";
-import TooltipClick from "../Header/components/TooltipClick";
-import { useEffect, useState } from "react";
+import TooltipClick from "../../Tooltips/TooltipClick";
+import { useState } from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Hover from "@/components/Buttons/Hover";
 
 export default () => {
-  const [open, setOpen] = useState(false);
+  // states  ///////////////////////////////////////////////////////////
+  const [open, setOpen] = useState({ lang: false, countries: false });
 
-  const handleTooltipClose = () => {
-    setOpen(false);
+  // functions  ///////////////////////////////////////////////////////////
+  const handleTooltipClose = (action: string) => {
+    setOpen({ ...open, [action as "lang" | "countries"]: false });
   };
 
-  const handleTooltipOpen = () => {
-    setOpen(true);
-    console.log("asasass");
+  const handleTooltipOpen = (action: string) => {
+    setOpen({ ...open, [action as "lang" | "countries"]: true });
   };
 
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
+  // content  ///////////////////////////////////////////////////////////
 
   return (
     <Box sx={footerWrapper}>
@@ -33,21 +34,40 @@ export default () => {
             </Box>
           ))}
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Title>Languages</Title>
-            {/* <TooltipClick
-              placement={"top"}
-              {...{
-                open,
-                handleTooltipClose,
-                content: <Box>"tooltipContent"</Box>,
-              }}
-            > */}
-            <Tooltip title="workgin">
-              <SubTitle onClick={handleTooltipOpen}>English</SubTitle>
-            </Tooltip>
-            {/* </TooltipClick> */}
-            <Title>Countries</Title>
-            <SubTitle>United States</SubTitle>
+            {actions_arr.map((el) => (
+              <>
+                <Title>{el.title}</Title>
+                <TooltipClick
+                  placement={"top"}
+                  {...{
+                    open: open && open[el.action as keyof typeof open],
+                    handleTooltipClose: () => handleTooltipClose(el.action),
+                    content: el.content,
+                  }}
+                >
+                  <Link
+                    underline="hover"
+                    style={{
+                      cursor: "pointer",
+                      marginBottom: "10px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                    onClick={() => handleTooltipOpen(el.action)}
+                  >
+                    <Typography
+                      variant="body1"
+                      fontWeight={400}
+                      color={"white"}
+                      letterSpacing={2}
+                    >
+                      {el.children}
+                    </Typography>
+                    <KeyboardArrowDownIcon sx={{ color: "white" }} />
+                  </Link>
+                </TooltipClick>
+              </>
+            ))}
           </Box>
         </Box>
       </Container>
@@ -65,6 +85,16 @@ export default () => {
   );
 };
 
+// styles  ///////////////////////////////////////////////////////////
+
+const tooltipContentStyles = {
+  width: 200,
+  display: "flex",
+  flexDirection: "column",
+  rowGap: 1,
+  p: 1,
+};
+
 const footerWrapper = {
   bgcolor: "secondary.main",
   padding: "50px 0px 0px",
@@ -80,6 +110,8 @@ const bottomStyles = {
   bgcolor: "secondary.main",
 };
 
+// components  ///////////////////////////////////////////////////////////
+
 const Title = ({ children }: any) => (
   <Typography
     variant="h6"
@@ -92,21 +124,48 @@ const Title = ({ children }: any) => (
   </Typography>
 );
 
-const SubTitle = ({ children, link, onClick }: any) => (
+const SubTitle = ({ children, link }: { children: any; link?: string }) => (
   <Link
-    href={link}
+    {...(link && { href: link })}
     underline="hover"
     style={{ cursor: "pointer", marginBottom: "10px" }}
-    {...{ onClick }}
   >
     <Typography
       variant="body1"
       fontWeight={400}
       color={"white"}
       letterSpacing={2}
-      mb={3}
     >
       {children}
     </Typography>
   </Link>
 );
+
+// datas ///////////////////////////////////////////////////////////
+
+const actions_arr = [
+  {
+    title: "Languages",
+    children: "English",
+    content: (
+      <Box sx={tooltipContentStyles}>
+        {["Русский", "English", "O'zbekcha"].map((el) => (
+          <Hover>{el}</Hover>
+        ))}
+      </Box>
+    ),
+    action: "lang",
+  },
+  {
+    title: "Countries",
+    children: "United states",
+    content: (
+      <Box sx={tooltipContentStyles}>
+        {["United states", "Brazil", "Uzbekistan", "India"].map((el) => (
+          <Hover>{el}</Hover>
+        ))}
+      </Box>
+    ),
+    action: "countries",
+  },
+];
