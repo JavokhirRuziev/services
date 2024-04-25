@@ -11,6 +11,7 @@ const StarRating: React.FC<Props> = ({ rating }) => {
   return (
     <Rating
       name="simple-controlled"
+      data-testid="rating"
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue || 0); // Ensure newValue is not null

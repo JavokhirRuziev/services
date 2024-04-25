@@ -47,7 +47,7 @@ const CardComponent = ({ el }: any) => {
         <Box sx={cardActionsWrapperStyles}>
           {actions_arr.map((el, index) => (
             <IconButton
-              aria-label="favorite"
+              role="button"
               key={index}
               sx={{ path: { fill: el?.color } }}
             >
