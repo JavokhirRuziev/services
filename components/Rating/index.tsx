@@ -2,11 +2,11 @@ import * as React from "react";
 import Rating from "@mui/material/Rating";
 
 interface Props {
-  rating: number | null; // Allow null for the rating prop
+  rating: number | null;
 }
 
 const StarRating: React.FC<Props> = ({ rating }) => {
-  const [value, setValue] = React.useState<number>(rating || 0); // Provide a default value of 0 if rating is null
+  const [value, setValue] = React.useState<number>(rating || 0);
 
   return (
     <Rating
@@ -14,7 +14,7 @@ const StarRating: React.FC<Props> = ({ rating }) => {
       data-testid="rating"
       value={value}
       onChange={(event, newValue) => {
-        setValue(newValue || 0); // Ensure newValue is not null
+        setValue(newValue || 0);
       }}
     />
   );

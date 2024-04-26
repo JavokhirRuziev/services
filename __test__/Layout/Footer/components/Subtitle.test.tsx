@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event"; // For richer user interactions
-import Subtitle from "../../../../Layout/Footer/components/Subtitle";
+import Subtitle from "../../../../components/Layout/Footer/components/Subtitle";
 
 describe("Subtitle Component", () => {
   test("renders the children text correctly", () => {

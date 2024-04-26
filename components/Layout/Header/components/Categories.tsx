@@ -13,7 +13,7 @@ export default function Categories({ category }: categoryTypes) {
   return (
     <Paper sx={paperStyles}>
       {category?.map((el, index) => (
-        <Box key={index} onClick={handleGo}>
+        <Box role="button" key={index} onClick={handleGo}>
           <Hover text={el?.name}>{el?.icon}</Hover>
         </Box>
       ))}

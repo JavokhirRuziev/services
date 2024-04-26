@@ -66,8 +66,8 @@ export let theme = createTheme({
   },
   shadows: [
     "none",
-    "0px 0px 16px rgba(0, 0, 0, 0.08)", // desired shadow
-    "0px 0px 32px rgba(0, 0, 0, 0.12)", // Hover shadow
+    "0 3px 7px 0 rgba(0, 0, 0, .13), 0 1px 2px 0 rgba(0, 0, 0, .11)", // desired shadow
+    "0px 9px 20px rgba(13, 38, 76, 0.19)", // Hover shadow
   ],
   components: {
     MuiContainer: {
