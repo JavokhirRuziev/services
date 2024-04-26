@@ -5,7 +5,16 @@ import SuggestionsCard from "./components/SuggestionsCard";
 export default () => {
   return (
     <Box sx={{ bgcolor: "white" }}>
-      <Box sx={{ p: "50px 0 150px", bgcolor: "grey.100" }}>
+      <Box
+        sx={{
+          p: {
+            mobile: "25px 0 50px",
+            tablet: "40px 0 125px",
+            desktop: "50px 0 150px",
+          },
+          bgcolor: "grey.100",
+        }}
+      >
         <Container sx={{ mx: "auto" }}>
           <Typography
             sx={{ textAlign: "center", marginBottom: "70px" }}
@@ -29,4 +38,5 @@ const cardWrapperStyle = {
   flexWrap: "wrap",
   columnGap: "30px",
   rowGap: "30px",
+  justifyContent: "center",
 };

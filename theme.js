@@ -168,6 +168,9 @@ theme = createTheme(theme, {
       styleOverrides: {
         sizeSmall: {
           borderRadius: "4px",
+          paddingLeft: "8px !important",
+          paddingRight: "8px !important",
+          minWidth: "auto",
         },
         sizeMedium: {
           borderRadius: "4px",

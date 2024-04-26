@@ -19,10 +19,25 @@ export default ({ el, isHome }: DropDownTypes) => {
       data-testid="dropdown-component"
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Typography color={isHome ? "white" : "black"} variant="body2">
+        <Typography
+          color={{
+            mobile: "black",
+            tablet: "black",
+            desktop: isHome ? "white" : "black",
+          }}
+          variant="body2"
+        >
           {el?.name}
         </Typography>
-        <KeyboardArrowDownIcon sx={{ color: isHome ? "white" : "black" }} />
+        <KeyboardArrowDownIcon
+          sx={{
+            color: {
+              mobile: "black",
+              tablet: "black",
+              desktop: isHome ? "white" : "black",
+            },
+          }}
+        />
       </Box>
       <Box className="categories">
         <Categories category={el?.category} />
@@ -42,7 +57,7 @@ const dropDownContainerStyles = {
   ".categories": {
     display: "none",
     position: "absolute",
-    left: "0px",
+    left: { mobile: "-50px", tablet: "0px", desktop: "0px" },
     top: 36,
   },
 

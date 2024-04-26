@@ -29,7 +29,7 @@ export default () => {
   return (
     <Box sx={footerWrapper} data-testid="footer-component">
       <Container>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={footerLinksWrapperStyles}>
           {footer_links_arr.map((el) => (
             <Box
               sx={{ display: "flex", flexDirection: "column" }}
@@ -41,7 +41,13 @@ export default () => {
               ))}
             </Box>
           ))}
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: { mobile: 140, tablet: 150, desktop: "auto" },
+            }}
+          >
             {actions_arr({ selectedState, handleSetState }).map((el) => (
               <React.Fragment key={el.title}>
                 <Title>{el.title}</Title>
@@ -105,4 +111,12 @@ const bottomStyles = {
   p: 2,
   mt: 6.5,
   bgcolor: "secondary.main",
+};
+
+const footerLinksWrapperStyles = {
+  display: "flex",
+  justifyContent: "space-between",
+  flexWrap: "wrap",
+  rowGap: "30px",
+  columnGap: "30px",
 };
