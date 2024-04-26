@@ -13,7 +13,11 @@ type DropDownTypes = {
 
 export default ({ el, isHome }: DropDownTypes) => {
   return (
-    <Box sx={dropDownContainerStyles}>
+    <Box
+      sx={dropDownContainerStyles}
+      role="button"
+      data-testid="dropdown-component"
+    >
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography color={isHome ? "white" : "black"} variant="body2">
           {el?.name}

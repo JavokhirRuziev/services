@@ -20,7 +20,7 @@ export default () => {
   };
 
   return (
-    <Box sx={headerWrapperStyles(isHome)}>
+    <Box sx={headerWrapperStyles(isHome)} data-testid="header-component">
       <Box sx={headerContainerStyles(isHome)}>
         <Box sx={headerAppbarWrapperStyles}>
           <Link href={"/"} style={logoStyles}>
@@ -41,9 +41,12 @@ export default () => {
               alignItems: "center",
               whiteSpace: "nowrap",
             }}
+            data-testid="right-block-element"
           >
             {rightBlockArr({ open, handleTooltipClose, handleTooltipOpen }).map(
-              (el) => el
+              (el, index) => (
+                <React.Fragment key={index}>{el}</React.Fragment>
+              )
             )}
           </Box>
         </Box>

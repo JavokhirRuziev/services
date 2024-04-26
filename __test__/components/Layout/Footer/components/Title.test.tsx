@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Title from "../../../../components/Layout/Footer/components/Title";
+import Title from "../../../../../components/Layout/Footer/components/Title";
 
 describe("Subtitle", () => {
   test("renders the children text correctly", () => {

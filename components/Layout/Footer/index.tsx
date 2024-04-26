@@ -27,7 +27,7 @@ export default () => {
   };
 
   return (
-    <Box sx={footerWrapper}>
+    <Box sx={footerWrapper} data-testid="footer-component">
       <Container>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {footer_links_arr.map((el) => (

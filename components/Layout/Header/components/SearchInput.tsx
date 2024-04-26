@@ -13,7 +13,7 @@ import { services_data } from "@/public/data/services_data";
 export default () => {
   return (
     <Box sx={Wrapper}>
-      <Paper component="form">
+      <Paper component="form" data-testid="search-input">
         <ButtonGroup fullWidth>
           <InputBase
             fullWidth
@@ -41,7 +41,7 @@ export default () => {
       </Paper>
       <Box sx={dropDownWrapperStyles}>
         {services_data?.map((el) => (
-          <DropDown {...{ el, isHome: true }} />
+          <DropDown key={el?.name} {...{ el, isHome: true }} />
         ))}
       </Box>
     </Box>
