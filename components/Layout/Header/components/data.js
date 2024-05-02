@@ -7,6 +7,7 @@ import Account from "@/public/icons/Account";
 import TooltipClick from "../../../Tooltips/TooltipClick";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Logo from "@/public/icons/Logo";
+import AuthModal from "@/components/Modals/Auth";
 
 export const rightBlockArr = ({
   open,
@@ -23,15 +24,14 @@ export const rightBlockArr = ({
   <Button variant="outlined" color="secondary">
     Write a Review
   </Button>,
-  <Avatar sx={{ bgcolor: "secondary.main" }}>
-    <Account />
-  </Avatar>,
-  //   <Button variant="outlined" color="secondary">
-  //     Log In
-  //   </Button>,
-  //   <Button variant="contained" color="secondary">
-  //     Sign Up
-  //   </Button>,
+  true ? (
+    <AuthModal />
+  ) : (
+    <Avatar sx={{ bgcolor: "secondary.main" }}>
+      <Account />
+    </Avatar>
+  ),
+  ,
 ];
 
 const tooltipContent = (

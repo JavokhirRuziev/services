@@ -2,8 +2,9 @@ import Suggestions from "@/components/Home/Suggestions";
 import Layout from "@/components/Layout";
 import Slider from "@/components/Home/Slider";
 import Popular from "@/components/Home/Popular";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import breakpoints from "utils/breakpoints";
+import Image from "next/image";
 
 export default function Home() {
   const { mobile, tablet } = breakpoints();

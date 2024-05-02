@@ -23,7 +23,7 @@ export let theme = createTheme({
     },
     secondary: {
       main: "#89d67e",
-      light: "#a5ff99",
+      light: "#a1e099",
       contrastText: "#fff",
     },
     error: {
@@ -210,11 +210,11 @@ theme = createTheme(theme, {
         },
         h3: {
           [theme.breakpoints.down("desktop")]: {
-            fontSize: 18,
+            fontSize: 22,
             fontFamily: `"QuickMedium", sans-serif`,
           },
           [theme.breakpoints.up("desktop")]: {
-            fontSize: 20,
+            fontSize: 34,
             fontFamily: `"QuickMedium", sans-serif`,
           },
         },
