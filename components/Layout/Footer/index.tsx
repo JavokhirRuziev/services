@@ -9,114 +9,119 @@ import Subtitle from "./components/Subtitle";
 import { actions_arr } from "./components/data";
 
 export default () => {
-  const [open, setOpen] = useState({ lang: false, countries: false });
-  const [selectedState, setSelectedState] = useState({
-    lang: "English",
-    countries: "United states",
-  });
+	const [open, setOpen] = useState({ lang: false, countries: false });
+	const [selectedState, setSelectedState] = useState({
+		lang: "English",
+		countries: "United states"
+	});
 
-  const handleSetState = (key: string, value: string) => {
-    setSelectedState({ ...selectedState, [key]: value });
-  };
-  const handleTooltipClose = (action: string) => {
-    setOpen({ ...open, [action as "lang" | "countries"]: false });
-  };
+	const handleSetState = (key: string, value: string) => {
+		setSelectedState({ ...selectedState, [key]: value });
+	};
+	const handleTooltipClose = (action: string) => {
+		setOpen({ ...open, [action as "lang" | "countries"]: false });
+	};
 
-  const handleTooltipOpen = (action: string) => {
-    setOpen({ ...open, [action as "lang" | "countries"]: true });
-  };
+	const handleTooltipOpen = (action: string) => {
+		setOpen({ ...open, [action as "lang" | "countries"]: true });
+	};
 
-  return (
-    <Box sx={footerWrapper} data-testid="footer-component">
-      <Container>
-        <Box sx={footerLinksWrapperStyles}>
-          {footer_links_arr.map((el) => (
-            <Box
-              sx={{ display: "flex", flexDirection: "column" }}
-              key={el?.title}
-            >
-              <Title>{el?.title}</Title>
-              {el?.children.map((el) => (
-                <Subtitle key={el?.name}>{el?.name}</Subtitle>
-              ))}
-            </Box>
-          ))}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: { mobile: 140, tablet: 150, desktop: "auto" },
-            }}
-          >
-            {actions_arr({ selectedState, handleSetState }).map((el) => (
-              <React.Fragment key={el.title}>
-                <Title>{el.title}</Title>
-                <TooltipClick
-                  placement={"top"}
-                  {...{
-                    open: open && open[el.action as keyof typeof open],
-                    handleTooltipClose: () => handleTooltipClose(el.action),
-                    content: el.content,
-                  }}
-                >
-                  <Link
-                    underline="hover"
-                    style={{
-                      cursor: "pointer",
-                      marginBottom: "10px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                    onClick={() => handleTooltipOpen(el.action)}
-                  >
-                    <Typography
-                      variant="body1"
-                      fontWeight={400}
-                      color={"white"}
-                      letterSpacing={2}
-                    >
-                      {el.children}
-                    </Typography>
-                    <KeyboardArrowDownIcon sx={{ color: "white" }} />
-                  </Link>
-                </TooltipClick>
-              </React.Fragment>
-            ))}
-          </Box>
-        </Box>
-      </Container>
-      <Box sx={bottomStyles}>
-        <Typography
-          variant="body1"
-          color={"white"}
-          fontWeight={"bold"}
-          letterSpacing={2}
-        >
-          Copyright © 2004–2024 SolveMe
-        </Typography>
-      </Box>
-    </Box>
-  );
+	return (
+		<Box sx={footerWrapper} data-testid="footer-component">
+			<Container>
+				<Box sx={footerLinksWrapperStyles}>
+					{footer_links_arr.map((el) => (
+						<Box
+							sx={{ display: "flex", flexDirection: "column" }}
+							key={el?.title}>
+							<Title>{el?.title}</Title>
+							{el?.children.map((el) => (
+								<Subtitle key={el?.name}>{el?.name}</Subtitle>
+							))}
+						</Box>
+					))}
+					<Box
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							width: { mobile: 140, tablet: 150, desktop: "auto" }
+						}}>
+						{actions_arr({ selectedState, handleSetState }).map(
+							(el) => (
+								<React.Fragment key={el.title}>
+									<Title>{el.title}</Title>
+									<TooltipClick
+										placement={"top"}
+										{...{
+											open:
+												open &&
+												open[
+													el.action as keyof typeof open
+												],
+											handleTooltipClose: () =>
+												handleTooltipClose(el.action),
+											content: el.content
+										}}>
+										<Link
+											underline="hover"
+											style={{
+												cursor: "pointer",
+												marginBottom: "10px",
+												display: "flex",
+												alignItems: "center"
+											}}
+											onClick={() =>
+												handleTooltipOpen(el.action)
+											}>
+											<Typography
+												variant="body1"
+												fontWeight={400}
+												color={"white"}
+												letterSpacing={2}>
+												{el.children}
+											</Typography>
+											<KeyboardArrowDownIcon
+												sx={{ color: "white" }}
+											/>
+										</Link>
+									</TooltipClick>
+								</React.Fragment>
+							)
+						)}
+					</Box>
+				</Box>
+			</Container>
+			<Box sx={bottomStyles}>
+				<Typography
+					variant="body1"
+					color={"white"}
+					fontWeight={"bold"}
+					letterSpacing={2}>
+					Copyright © 2004–2024 SolveMe
+				</Typography>
+			</Box>
+		</Box>
+	);
 };
 
 const footerWrapper = {
-  bgcolor: "secondary.main",
-  padding: "50px 0px 0px",
+	bgcolor: "secondary.main",
+	padding: "50px 0px 0px"
 };
 
 const bottomStyles = {
-  display: "flex",
-  justifyContent: "center",
-  boxShadow: theme.shadows[1],
-  p: 2,
-  mt: 6.5,
-  bgcolor: "secondary.main",
+	display: "flex",
+	justifyContent: "center",
+	boxShadow: theme.shadows[1],
+	p: 2,
+	mt: 6.5,
+	bgcolor: "secondary.main"
 };
 
 const footerLinksWrapperStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  flexWrap: "wrap",
-  rowGap: "30px",
-  columnGap: "30px",
+	display: "flex",
+	justifyContent: "space-between",
+	flexWrap: "wrap",
+	rowGap: "30px",
+	columnGap: "30px"
 };

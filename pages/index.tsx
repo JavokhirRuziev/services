@@ -7,19 +7,19 @@ import breakpoints from "utils/breakpoints";
 import Image from "next/image";
 
 export default function Home() {
-  const { mobile, tablet } = breakpoints();
+	const { mobile, tablet } = breakpoints();
 
-  return (
-    <Layout>
-      {!mobile && !tablet && <Slider />}
-      <Popular />
-      <Divider
-        sx={{
-          bgcolor: "grey.400",
-          height: { mobile: 50, tablet: 75, desktop: 100 },
-        }}
-      />
-      <Suggestions />
-    </Layout>
-  );
+	return (
+		<Layout>
+			{!mobile && !tablet && <Slider />}
+			<Popular />
+			<Divider
+				sx={{
+					bgcolor: "grey.400",
+					height: { mobile: 50, tablet: 75, desktop: 100 }
+				}}
+			/>
+			<Suggestions />
+		</Layout>
+	);
 }

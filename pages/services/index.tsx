@@ -6,32 +6,31 @@ import Card from "./components/Card";
 import Filters from "./components/Filters";
 
 export default () => {
-  return (
-    <Layout>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "250px 800px 1fr",
-        }}
-      >
-        <Filters />
-        <Box sx={cardWrapperStyles}>
-          {top_10_arr.map((el) => (
-            <Card {...{ el }} />
-          ))}
-        </Box>
-        <Map />
-      </Box>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<Box
+				sx={{
+					display: "grid",
+					gridTemplateColumns: "250px 800px 1fr"
+				}}>
+				<Filters />
+				<Box sx={cardWrapperStyles}>
+					{top_10_arr.map((el) => (
+						<Card {...{ el }} />
+					))}
+				</Box>
+				<Map />
+			</Box>
+		</Layout>
+	);
 };
 
 const cardWrapperStyles = {
-  display: "flex",
-  flexDirection: "column",
-  rowGap: "20px",
-  p: 3,
-  overflow: "scroll",
-  height: "100vh",
-  scrollbarWidth: "none",
+	display: "flex",
+	flexDirection: "column",
+	rowGap: "20px",
+	p: 3,
+	overflow: "scroll",
+	height: "100vh",
+	scrollbarWidth: "none"
 };

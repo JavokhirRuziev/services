@@ -12,38 +12,37 @@ import Rating from "@/components/Rating";
 import { theme } from "@/theme";
 
 const CardComponent = ({ el }: any) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
+	const containerRef = React.useRef<HTMLDivElement>(null);
+	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (containerRef.current) {
-      const { left, top, width, height } =
-        containerRef.current.getBoundingClientRect();
-      const xOffset = (event.clientX - left) / 30; // Use a divisor for offset sensitivity
-      const yOffset = (event.clientY - top) / 30;
+	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+		if (containerRef.current) {
+			const { left, top, width, height } =
+				containerRef.current.getBoundingClientRect();
+			const xOffset = (event.clientX - left) / 30; // Use a divisor for offset sensitivity
+			const yOffset = (event.clientY - top) / 30;
 
-      const dynamicShadow = theme.shadows[2]; // Using your subtle shadow
-      const updatedShadow = `${xOffset}px ${yOffset}px 8px ${dynamicShadow}`;
+			const dynamicShadow = theme.shadows[2]; // Using your subtle shadow
+			const updatedShadow = `${xOffset}px ${yOffset}px 8px ${dynamicShadow}`;
 
-      // Update the shadow in React state
-      setShadowPosition({ x: xOffset, y: yOffset });
-    }
-  };
+			// Update the shadow in React state
+			setShadowPosition({ x: xOffset, y: yOffset });
+		}
+	};
 
-  return (
-    <Card
-      ref={containerRef}
-      sx={{
-        maxWidth: 345,
-        cursor: "pointer",
-        ":hover": {
-          boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 20px 10px ${theme.palette.grey[400]}`, // Adjust the shadow format
-        },
-        transition: "none",
-      }}
-      onMouseMove={handleMouseMove}
-    >
-      {/* <CardHeader
+	return (
+		<Card
+			ref={containerRef}
+			sx={{
+				maxWidth: 345,
+				cursor: "pointer",
+				":hover": {
+					boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 20px 10px ${theme.palette.grey[400]}` // Adjust the shadow format
+				},
+				transition: "none"
+			}}
+			onMouseMove={handleMouseMove}>
+			{/* <CardHeader
         role="region"
         avatar={
           <Avatar sx={{ bgcolor: "error.light" }}>
@@ -62,46 +61,50 @@ const CardComponent = ({ el }: any) => {
           </Typography>
         }
       /> */}
-      <CardMedia component="img" height="194" image={el?.img} alt={el?.img} />
-      <Box sx={{ display: "flex", m: "10px" }}>
-        <Rating rating={el?.review} />
-      </Box>
-      <CardContent>
-        <Typography variant="body1" color="text.secondary">
-          {el?.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Box sx={cardActionsWrapperStyles}>
-          {actions_arr.map((el, index) => (
-            <IconButton
-              role="button"
-              key={index}
-              sx={{ path: { fill: el?.color } }}
-            >
-              {el?.icon}
-            </IconButton>
-          ))}
-        </Box>
-      </CardActions>
-    </Card>
-  );
+			<CardMedia
+				component="img"
+				height="194"
+				image={el?.img}
+				alt={el?.img}
+			/>
+			<Box sx={{ display: "flex", m: "10px" }}>
+				<Rating rating={el?.review} />
+			</Box>
+			<CardContent>
+				<Typography variant="body1" color="text.secondary">
+					{el?.description}
+				</Typography>
+			</CardContent>
+			<CardActions>
+				<Box sx={cardActionsWrapperStyles}>
+					{actions_arr.map((el, index) => (
+						<IconButton
+							role="button"
+							key={index}
+							sx={{ path: { fill: el?.color } }}>
+							{el?.icon}
+						</IconButton>
+					))}
+				</Box>
+			</CardActions>
+		</Card>
+	);
 };
 
 export default function SuggestionsCard({ el }: any) {
-  return <CardComponent {...{ el }} />;
+	return <CardComponent {...{ el }} />;
 }
 
 const cardActionsWrapperStyles = {
-  display: "flex",
-  justifyContent: "space-around",
-  width: "100%",
-  p: 0,
+	display: "flex",
+	justifyContent: "space-around",
+	width: "100%",
+	p: 0
 };
 
 const actions_arr = [
-  { icon: <FavoriteIcon />, color: theme.palette.error.main },
-  { icon: <ShareIcon />, color: theme.palette.warning.light },
-  { icon: <Save />, color: theme.palette.info.main },
-  { icon: <Reviews />, color: theme.palette.primary.main },
+	{ icon: <FavoriteIcon />, color: theme.palette.error.main },
+	{ icon: <ShareIcon />, color: theme.palette.warning.light },
+	{ icon: <Save />, color: theme.palette.info.main },
+	{ icon: <Reviews />, color: theme.palette.primary.main }
 ];
