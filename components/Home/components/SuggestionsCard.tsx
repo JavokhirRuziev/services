@@ -33,6 +33,7 @@ const CardComponent = ({ el }: any) => {
 	return (
 		<Card
 			ref={containerRef}
+			data-testid="suggestion-card"
 			sx={{
 				maxWidth: 345,
 				cursor: "pointer",

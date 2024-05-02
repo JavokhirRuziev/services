@@ -62,6 +62,7 @@ export default () => {
 	return (
 		<Box sx={{ ...sliderWrapperStyles, ...activeBulletStyles }}>
 			<Swiper
+				data-testid="slider"
 				loop={true}
 				autoplay={{ delay: 2000, disableOnInteraction: false }}
 				freeMode={true}

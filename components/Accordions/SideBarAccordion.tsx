@@ -24,13 +24,13 @@ export default function SideBarAccordion() {
 
 	return rightBlockArr.map((el, index) => (
 		<Accordion
+			data-testid={`panel${index + 1}`}
+			key={index}
 			{...(el.children && { expanded: expanded === `panel${index + 1}` })}
 			{...(el.children && {
 				onChange: handleChange(`panel${index + 1}`)
 			})}>
 			<AccordionSummary
-				aria-controls="panel2d-content"
-				id="panel2d-header"
 				{...(el.children && {
 					expandIcon: (
 						<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />
@@ -40,7 +40,11 @@ export default function SideBarAccordion() {
 			</AccordionSummary>
 			{el.children && (
 				<AccordionDetails>
-					{el.children.map((el) => el.content)}
+					{el.children.map((el, index) => (
+						<React.Fragment key={index}>
+							{el.content}
+						</React.Fragment>
+					))}
 				</AccordionDetails>
 			)}
 		</Accordion>

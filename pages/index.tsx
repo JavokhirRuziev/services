@@ -2,9 +2,8 @@ import Suggestions from "@/components/Home/Suggestions";
 import Layout from "@/components/Layout";
 import Slider from "@/components/Home/Slider";
 import Popular from "@/components/Home/Popular";
-import { Box, Divider } from "@mui/material";
+import { Divider } from "@mui/material";
 import breakpoints from "utils/breakpoints";
-import Image from "next/image";
 
 export default function Home() {
 	const { mobile, tablet } = breakpoints();
@@ -14,6 +13,7 @@ export default function Home() {
 			{!mobile && !tablet && <Slider />}
 			<Popular />
 			<Divider
+				data-testid="divider"
 				sx={{
 					bgcolor: "grey.400",
 					height: { mobile: 50, tablet: 75, desktop: 100 }

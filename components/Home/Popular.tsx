@@ -4,7 +4,7 @@ import SuggestionsCard from "./components/SuggestionsCard";
 
 export default () => {
 	return (
-		<Box sx={{ bgcolor: "white" }}>
+		<Box sx={{ bgcolor: "white" }} data-testid="popular">
 			<Box
 				sx={{
 					p: {
@@ -21,8 +21,8 @@ export default () => {
 						Popular properties in Tashkent
 					</Typography>
 					<Box sx={cardWrapperStyle}>
-						{suggestions_arr.map((el) => {
-							return <SuggestionsCard {...{ el }} />;
+						{suggestions_arr.map((el, index) => {
+							return <SuggestionsCard {...{ el }} key={index} />;
 						})}
 					</Box>
 				</Container>

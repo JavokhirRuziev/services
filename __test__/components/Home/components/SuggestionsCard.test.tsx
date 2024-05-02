@@ -4,38 +4,36 @@ import userEvent from "@testing-library/user-event";
 import SuggestionsCard from "@/components/Home/components/SuggestionsCard";
 
 describe("SuggestionsCard", () => {
-  // Sample mock data
-  const mockData = {
-    author_name: "John Doe",
-    img: "/images/card2.jpeg",
-    review: 4.5,
-    description: "This is a test suggestion",
-  };
+	const mockData = {
+		author_name: "John Doe",
+		img: "/images/card2.jpeg",
+		review: 4.5,
+		description: "This is a test suggestion"
+	};
 
-  it("renders the image", () => {
-    render(<SuggestionsCard el={mockData} />);
-    const image = screen.getByAltText(mockData.img);
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("src", mockData.img);
-  });
+	it("renders the image", () => {
+		render(<SuggestionsCard el={mockData} />);
+		const image = screen.getByAltText(mockData.img);
+		expect(image).toBeInTheDocument();
+		expect(image).toHaveAttribute("src", mockData.img);
+	});
 
-  it("renders the rating", () => {
-    render(<SuggestionsCard el={mockData} />);
+	it("renders the rating", () => {
+		render(<SuggestionsCard el={mockData} />);
 
-    // Add data-testid="rating" to the relevant element in your SuggestionsCard
-    const ratingElement = screen.getByTestId("rating");
-    expect(ratingElement).toBeInTheDocument();
-  });
+		const ratingElement = screen.getByTestId("rating");
+		expect(ratingElement).toBeInTheDocument();
+	});
 
-  it("renders the description", () => {
-    render(<SuggestionsCard el={mockData} />);
-    expect(screen.getByText(mockData.description)).toBeInTheDocument();
-  });
-  it("renders the correct number of action icons", () => {
-    render(<SuggestionsCard el={mockData} />);
-    const actionIcons = screen.getAllByRole("button");
-    expect(actionIcons).toHaveLength(4);
-  });
+	it("renders the description", () => {
+		render(<SuggestionsCard el={mockData} />);
+		expect(screen.getByText(mockData.description)).toBeInTheDocument();
+	});
+	it("renders the correct number of action icons", () => {
+		render(<SuggestionsCard el={mockData} />);
+		const actionIcons = screen.getAllByRole("button");
+		expect(actionIcons).toHaveLength(4);
+	});
 });
 
 // it("renders the author name", () => {
