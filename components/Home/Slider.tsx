@@ -115,9 +115,9 @@ const sliderWrapperStyles = {
 	zIndex: -1,
 	".swiper": {
 		width: "100%",
-		height: "70vh",
+		height: "80vh",
 		pointerEvents: "none",
-		minHeight: 462
+		minHeight: 682
 	},
 
 	".slider-image-container": {

@@ -7,11 +7,8 @@ export default () => {
 	return (
 		<Box
 			sx={{
-				bgcolor: "white !important"
-				// background:
-				// "url(/images/TashkentCity.jpeg) no-repeat center/cover"
-			}}
-			data-testid="popular">
+				bgcolor: "white"
+			}}>
 			<Box sx={wrapper}>
 				<Container>
 					<Typography variant="h2" mb={"34px"} textAlign={"center"}>
@@ -38,8 +35,7 @@ const wrapper = {
 		mobile: "25px 0 50px",
 		tablet: "40px 0 125px",
 		desktop: "70px 0px"
-	},
-	bgcolor: "grey.100"
+	}
 };
 
 const cardWrapperStyle = {

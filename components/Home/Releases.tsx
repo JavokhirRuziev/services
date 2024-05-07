@@ -2,18 +2,27 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
 import CardLarge from "../Cards/CardLarge";
 import React from "react";
+import Image from "next/image";
 
 export default () => {
 	return (
-		<Box
-			sx={{
-				bgcolor: "white !important"
-				// background:
-				// "url(/images/TashkentCity.jpeg) no-repeat center/cover"
-			}}
-			data-testid="popular">
-			<Box sx={wrapper}>
-				<Container>
+		<Box bgcolor={"white"}>
+			<Box sx={wrapper} className="releases">
+				<Container sx={{ position: "relative", zIndex: 1 }}>
+					<Image
+						src={"/images/new.png"}
+						width={205}
+						height={88}
+						alt="new"
+						style={{
+							position: "absolute",
+							transform: "rotate(25deg)",
+							right: -80,
+							top: 50,
+							zIndex: -1,
+							opacity: 0.5
+						}}
+					/>
 					<Typography variant="h2" mb={0.5}>
 						New Releases
 					</Typography>
@@ -44,8 +53,7 @@ const wrapper = {
 		mobile: "25px 0 50px",
 		tablet: "40px 0 125px",
 		desktop: "70px 0px"
-	},
-	bgcolor: "grey.100"
+	}
 };
 
 const cardWrapperStyle = {

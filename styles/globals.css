@@ -11,6 +11,59 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.popular {
+	opacity: 0.16;
+	background: url(/images/TashkentCity.jpeg) lightgray 50% / cover no-repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+.budget {
+	opacity: 0.16;
+	background: url(/images/budget.jpeg) lightgray 50% / cover no-repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+.popular {
+	opacity: 0.16;
+	background: url(/images/TashkentCity.jpeg) lightgray 50% / cover no-repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+.releases {
+	background: linear-gradient(
+			90deg,
+			rgba(61, 107, 214, 0) 64.83%,
+			rgba(61, 107, 214, 0.18) 100%
+		),
+		linear-gradient(
+			270deg,
+			rgba(61, 107, 214, 0) 64.58%,
+			rgba(61, 107, 214, 0.22) 100%
+		);
+}
+
+.wrapper {
+	position: relative;
+	background: lightgray 50%;
+	z-index: 1;
+}
+
+.css-1gw87ba-MuiTypography-root-MuiLink-root::after {
+	background-color: #64748b;
 }

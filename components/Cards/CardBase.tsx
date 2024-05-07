@@ -67,16 +67,11 @@ const CardComponent = ({ el }: any) => {
 				<Button
 					size="small"
 					color="secondary"
-					sx={{
-						mb: 2,
-						cursor: "auto",
-						boxShadow: "none",
-						":hover": {
-							bgcolor: "secondary.main",
-							color: "white",
-							boxShadow: "none"
-						}
-					}}>
+					disableElevation
+					disableFocusRipple
+					disableRipple
+					disableTouchRipple
+					sx={cheapStyles}>
 					Cheapest in the past 10 months
 				</Button>
 			</CardContent>
@@ -113,6 +108,17 @@ const cardActionsWrapperStyles = {
 	width: "100%",
 	p: 0,
 	justifyContent: "space-between"
+};
+
+const cheapStyles = {
+	mb: 2,
+	cursor: "auto",
+	boxShadow: "none",
+	":hover": {
+		bgcolor: "secondary.main",
+		color: "white",
+		boxShadow: "none"
+	}
 };
 
 const actions_arr = [

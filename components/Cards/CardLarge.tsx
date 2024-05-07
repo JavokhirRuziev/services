@@ -96,7 +96,14 @@ const CardComponent = ({ el, isCheap, sale, cashback }: any) => {
 				</Box>
 
 				{isCheap && (
-					<Button size="small" color="secondary" sx={cheapStyles}>
+					<Button
+						size="small"
+						color="secondary"
+						disableElevation
+						disableFocusRipple
+						disableRipple
+						disableTouchRipple
+						sx={cheapStyles}>
 						Cheapest in the past 10 months
 					</Button>
 				)}

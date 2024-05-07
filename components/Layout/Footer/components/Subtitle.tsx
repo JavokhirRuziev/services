@@ -6,20 +6,14 @@ const Subtitle = ({ children, link }: any) => {
 		<Link
 			{...(link && { href: link })}
 			underline={"hover"}
-			style={{
+			sx={{
 				cursor: "pointer",
 				marginBottom: "10px",
-				textDecorationColor: theme.palette.grey[500],
-				color: theme.palette.grey[500]
+				color: "grey.500",
+				...theme.typography.body2
 			}}
 			role="link">
-			<Typography
-				variant="body2"
-				fontWeight={400}
-				letterSpacing={2}
-				color={"grey.500"}>
-				{children}
-			</Typography>
+			{children}
 		</Link>
 	);
 };

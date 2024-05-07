@@ -1,14 +1,14 @@
 export const slider_arr = [
 	{
 		name: "first image",
-		img: "/images/slider1.jpeg",
+		img: "/images/slider6.jpeg",
 		description: "Get the perfect fit",
 		buttonText: "Sewing alternations",
 		link: "/"
 	},
 	{
 		name: "second image",
-		img: "/images/slider2.webp",
+		img: "/images/slider7.jpeg",
 		description: "Weekend on a plate",
 		buttonText: "Brunch",
 		link: "/"

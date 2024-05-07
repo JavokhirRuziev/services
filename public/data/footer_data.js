@@ -22,7 +22,7 @@ export const footer_links_arr = [
 		]
 	},
 	{
-		title: "Yelp for Business",
+		title: "CityShahar for Business",
 		children: [
 			{ name: "About SolveMe Business", link: "/" },
 			{ name: "Investor Relations", link: "/" },

@@ -58,13 +58,14 @@ export default () => {
 											content: el.content
 										}}>
 										<Link
-											underline="hover"
-											style={linkStyles}
+											underline="none"
+											color={"secondary"}
+											sx={linkStyles}
 											onClick={() =>
 												handleTooltipOpen(el.action)
 											}>
 											<Typography
-												variant="body1"
+												variant="body2"
 												fontWeight={400}
 												letterSpacing={2}
 												color={theme.palette.grey[500]}>
@@ -77,31 +78,27 @@ export default () => {
 							)
 						)}
 					</Box>
+					<Box sx={bottomStyles}>
+						<Typography
+							variant="body1"
+							fontWeight={"bold"}
+							letterSpacing={2}>
+							Copyright © 2004–2024 CityShahar Inc.
+						</Typography>
+					</Box>
 				</Box>
 			</Container>
-			<Box sx={bottomStyles}>
-				<Typography
-					variant="body1"
-					fontWeight={"bold"}
-					letterSpacing={2}>
-					Copyright © 2004–2024 SolveMe
-				</Typography>
-			</Box>
 		</Box>
 	);
 };
 
 const footerWrapper = {
 	bgcolor: "grey.300",
-	padding: "50px 0px 0px"
+	padding: "60px 0px 60px"
 };
 
 const bottomStyles = {
-	display: "flex",
-	justifyContent: "center",
-	boxShadow: theme.shadows[1],
-	p: 2,
-	mt: 6.5,
+	mt: "60px",
 	bgcolor: "grey.300"
 };
 

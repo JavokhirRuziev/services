@@ -9,13 +9,8 @@ import Image from "next/image";
 
 export default () => {
 	return (
-		<Box
-			sx={{
-				bgcolor: "white !important"
-				// background:
-				// "url(/images/TashkentCity.jpeg) no-repeat center/cover"
-			}}
-			data-testid="popular">
+		<Box className="wrapper">
+			<Box className="popular" />
 			<Box sx={wrapper}>
 				<Container>
 					<Typography variant="h2" mb={2}>
@@ -120,7 +115,7 @@ const contentWrapper = {
 
 const decorationStyles = {
 	maxWidth: 267,
-	height: 300,
+	height: 314,
 	position: "relative",
 	width: "100%",
 	borderRadius: "4px"
@@ -133,7 +128,8 @@ const overlayStyles = {
 	bottom: 0,
 	left: 0,
 	right: 0,
-	zIndex: 0
+	zIndex: 0,
+	borderRadius: "4px"
 };
 
 const buttonStyles = {
