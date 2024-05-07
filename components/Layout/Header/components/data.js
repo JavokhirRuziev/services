@@ -10,17 +10,18 @@ import Logo from "@/public/icons/Logo";
 import AuthModal from "@/components/Modals/Auth";
 
 export const rightBlockArr = ({
-  open,
-  handleTooltipClose,
-  handleTooltipOpen,
+	open,
+	handleTooltipClose,
+	handleTooltipOpen
 }) => [
-  <TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
-    <Button variant="outlined" color="secondary" onClick={handleTooltipOpen}>
-      SolveMe for Bussiness
-      <KeyboardArrowDownIcon sx={{ color: "inherit" }} />
-    </Button>
-  </TooltipClick>,
+	<TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
+		<Button variant="outlined" color="info" onClick={handleTooltipOpen}>
+			SolveMe for Bussiness
+			<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
+		</Button>
+	</TooltipClick>,
 
+<<<<<<< HEAD
   <Button variant="outlined" color="secondary">
     Write a Review
   </Button>,
@@ -32,22 +33,35 @@ export const rightBlockArr = ({
     </Avatar>
   ),
   ,
+=======
+	<Button variant="outlined" color="info">
+		Write a Review
+	</Button>,
+	true ? (
+		<AuthModal />
+	) : (
+		<Avatar sx={{ bgcolor: "secondary.main" }}>
+			<Account />
+		</Avatar>
+	),
+	,
+>>>>>>> main
 ];
 
 const tooltipContent = (
-  <Box sx={{ display: "flex", flexDirection: "column", rowGap: 1 }}>
-    <Hover text={"Add a Bussiness"}>
-      <Business />
-    </Hover>
-    <Hover text={"Claim our Bussiness"}>
-      <Check />
-    </Hover>
-    <Hover text={"Log in to Bussiness Account"}>
-      <LogIn />
-    </Hover>
-    <Divider />
-    <Hover text={"Explore SolveMe for Bussiness"}>
-      <Logo color="inherit" />
-    </Hover>
-  </Box>
+	<Box sx={{ display: "flex", flexDirection: "column", rowGap: 1 }}>
+		<Hover text={"Add a Bussiness"}>
+			<Business />
+		</Hover>
+		<Hover text={"Claim our Bussiness"}>
+			<Check />
+		</Hover>
+		<Hover text={"Log in to Bussiness Account"}>
+			<LogIn />
+		</Hover>
+		<Divider />
+		<Hover text={"Explore SolveMe for Bussiness"}>
+			<Logo color="inherit" />
+		</Hover>
+	</Box>
 );

@@ -1,26 +1,30 @@
 import { Box, Typography } from "@mui/material";
 
 export default ({ children, text, onClick }: any) => {
-  return (
-    <Box sx={wrapperStyles} {...{ onClick }}>
-      {children && children}
-      <Typography variant={"body1"} whiteSpace={"nowrap"}>
-        {text}
-      </Typography>
-    </Box>
-  );
+	return (
+		<Box sx={wrapperStyles} {...{ onClick }}>
+			{children && children}
+			<Typography id="text" variant={"body1"} whiteSpace={"nowrap"}>
+				{text}
+			</Typography>
+		</Box>
+	);
 };
 
 const wrapperStyles = {
-  display: "flex",
-  columnGap: "5px",
-  padding: "8px",
-  borderRadius: "4px",
-  alignItems: "center",
-  opacity: 0.8,
-  cursor: "pointer",
+	display: "flex",
+	columnGap: "5px",
+	padding: "10px 16px",
+	borderRadius: "4px",
+	alignItems: "center",
+	opacity: 0.8,
+	cursor: "pointer",
 
-  "&:hover": {
-    bgcolor: "secondary.light",
-  },
+	"&:hover": {
+		bgcolor: "secondary.light",
+		path: { fill: "white" },
+		"#text": {
+			color: "white"
+		}
+	}
 };
