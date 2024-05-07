@@ -63,7 +63,7 @@ export default function AuthModal() {
 	return (
 		<>
 			<Button onClick={handleOpen} variant="contained" color="secondary">
-				Sign Up
+				LogIn / SignUp
 			</Button>
 			<Modal
 				aria-labelledby="spring-modal-title"

@@ -65,7 +65,7 @@ export default () => {
 			<Swiper
 				data-testid="slider"
 				loop={true}
-				autoplay={{ delay: 2000, disableOnInteraction: false }}
+				autoplay={{ delay: 4000, disableOnInteraction: false }}
 				freeMode={true}
 				modules={[Autoplay, Pagination]}
 				direction="vertical"
@@ -151,7 +151,7 @@ const sliderWrapperStyles = {
 		right: 0,
 		zIndex: 1,
 		background: `${theme.palette.common.white}`,
-		animation: "progressAnimation 2200ms linear",
+		animation: "progressAnimation 4200ms linear",
 		transformOrigin: "top",
 		borderRadius: 10
 	},

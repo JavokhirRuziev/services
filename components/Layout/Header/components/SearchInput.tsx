@@ -59,7 +59,7 @@ export default ({
 const Wrapper = {
 	position: "relative",
 	mx: { mobile: "20px", tablet: "30px", desktop: "50px" },
-	maxWidth: 707,
+	maxWidth: 1007,
 	width: "100%",
 	minWidth: 250
 };

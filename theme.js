@@ -187,8 +187,8 @@ theme = createTheme(theme, {
 					borderRadius: "4px",
 					paddingRight: "16px",
 					paddingLeft: "16px",
-					paddingTop: "10px",
-					paddingBottom: "10px",
+					paddingTop: "8px",
+					paddingBottom: "8px",
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 14,
 						fontFamily: `"PoppinsRegular", sans-serif`
@@ -277,11 +277,11 @@ theme = createTheme(theme, {
 				h6: {
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 14,
-						fontFamily: `"PoppinsRegular", sans-serif`
+						fontFamily: `"PoppinsMedium", sans-serif`
 					},
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 16,
-						fontFamily: `"PoppinsRegular", sans-serif`
+						fontFamily: `"PoppinsMedium", sans-serif`
 					}
 				},
 				body1: {

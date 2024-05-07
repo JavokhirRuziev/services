@@ -15,23 +15,27 @@ export const rightBlockArr = ({
 	handleTooltipOpen
 }) => [
 	<TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
-		<Button variant="outlined" color="info" onClick={handleTooltipOpen}>
-			SolveMe for Bussiness
+		<Button
+			variant="outlined"
+			color="info"
+			onClick={handleTooltipOpen}
+			sx={buttonStyles}>
+			CityShahar for Bussiness
 			<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
 		</Button>
 	</TooltipClick>,
 
-	<Button variant="outlined" color="info">
+	<Button variant="outlined" color="info" sx={buttonStyles}>
 		Write a Review
 	</Button>,
-	true ? (
-		<AuthModal />
-	) : (
-		<Avatar sx={{ bgcolor: "secondary.main" }}>
-			<Account />
-		</Avatar>
-	),
-	,
+	// <Button variant="outlined" color="info">
+	// 	Log In
+	// </Button>,
+	<AuthModal />
+
+	// <Avatar sx={{ bgcolor: "secondary.main" }}>
+	// 	<Account />
+	// </Avatar>
 ];
 
 const tooltipContent = (
@@ -51,3 +55,14 @@ const tooltipContent = (
 		</Hover>
 	</Box>
 );
+
+const buttonStyles = {
+	border: "none",
+	boxShadow: "none",
+	":hover": {
+		border: "none",
+		boxShadow: "none",
+		bgcolor: "rgba(255,255,255,0.3)"
+	},
+	fontSize: "14px !important"
+};
