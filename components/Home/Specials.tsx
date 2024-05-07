@@ -45,7 +45,7 @@ const wrapper = {
 	p: {
 		mobile: "25px 0 50px",
 		tablet: "40px 0 125px",
-		desktop: "70px 0px"
+		desktop: "70px 0px 120px"
 	}
 };
 
