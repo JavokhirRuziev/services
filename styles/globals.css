@@ -64,6 +64,6 @@ input[type="number"]::-webkit-outer-spin-button {
 	z-index: 1;
 }
 
-.css-1gw87ba-MuiTypography-root-MuiLink-root::after {
+.MuiLink-underlineHover::after {
 	background-color: #64748b;
 }
