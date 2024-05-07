@@ -30,33 +30,33 @@ export default () => {
 			pointerEvents: string;
 			borderRadius: number;
 			overflow: string;
-			opacity: number;
+			opacity: number | string;
 		};
 	};
 
 	let activeBulletStyles: ActiveBulletStyles = {
 		".swiper-pagination-bullet": {
 			position: "relative",
-			backgroundColor: "#fff",
+			backgroundColor: `rgba(255,255,255,0.4)`,
 			width: "10px",
 			height: "90px",
 			pointerEvents: "auto",
 			borderRadius: 10,
 			overflow: "hidden",
-			opacity: 0.8
+			opacity: 1
 		}
 	};
 
 	for (let i = 1; i <= completedSlides; i++) {
 		activeBulletStyles[`.swiper-pagination-bullet:nth-child(${i - 1})`] = {
 			position: "relative",
-			backgroundColor: theme.palette.secondary.main,
+			backgroundColor: theme.palette.common.white,
 			width: "10px",
 			height: "90px",
 			pointerEvents: "auto",
 			borderRadius: 10,
 			overflow: "hidden",
-			opacity: 0.8
+			opacity: 1
 		};
 	}
 
@@ -139,8 +139,7 @@ const sliderWrapperStyles = {
 		},
 
 	".swiper-pagination-bullet-active": {
-		poaition: "relative",
-		backgroundColor: "rgba(255,255,255,0.8)"
+		background: `${theme.palette.common.white}`
 	},
 
 	".swiper-pagination-bullet-active::before": {
@@ -151,13 +150,11 @@ const sliderWrapperStyles = {
 		bottom: 0,
 		right: 0,
 		zIndex: 1,
-		background: `${theme.palette.secondary.main}`,
+		background: `${theme.palette.common.white}`,
 		animation: "progressAnimation 2200ms linear",
 		transformOrigin: "top",
-		borderRadius: 10,
-		opacity: 0.8
+		borderRadius: 10
 	},
-
 	"@keyframes progressAnimation": {
 		"0%": {
 			transform: "scaleY(0)"
