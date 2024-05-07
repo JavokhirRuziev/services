@@ -6,13 +6,13 @@ export const slider_arr = [
 		buttonText: "Sewing alternations",
 		link: "/"
 	},
-	{
-		name: "second image",
-		img: "/images/slider7.jpeg",
-		description: "Weekend on a plate",
-		buttonText: "Brunch",
-		link: "/"
-	},
+	// {
+	// 	name: "second image",
+	// 	img: "/images/slider7.jpeg",
+	// 	description: "Weekend on a plate",
+	// 	buttonText: "Brunch",
+	// 	link: "/"
+	// },
 	{
 		name: "third image",
 		img: "/images/slider3.webp",
