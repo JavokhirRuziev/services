@@ -6,12 +6,21 @@ import {
 	InputBase,
 	Paper
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import DropDown from "./DropDown";
 import { services_data } from "@/public/data/services_data";
 import breakpoints from "@/utils/breakpoints";
+import Search from "@/public/icons/Search";
+import { theme } from "@/theme";
 
-export default ({ search, setSearch }: { search: string; setSearch: any }) => {
+export default ({
+	search,
+	setSearch,
+	isHome
+}: {
+	search: string;
+	setSearch: any;
+	isHome: boolean;
+}) => {
 	const { mobile, tablet } = breakpoints();
 	const handleSearch = (e: any) => setSearch(e.target.value);
 
@@ -21,10 +30,8 @@ export default ({ search, setSearch }: { search: string; setSearch: any }) => {
 				<ButtonGroup fullWidth sx={buttonGroupStyles}>
 					<InputBase
 						fullWidth
-						placeholder="Categories"
-						sx={{
-							ml: 2
-						}}
+						placeholder="Location"
+						sx={inputStyles}
 						value={search}
 						onChange={handleSearch}
 					/>
@@ -35,19 +42,14 @@ export default ({ search, setSearch }: { search: string; setSearch: any }) => {
 							variant="contained"
 							color="secondary"
 							sx={{ maxWidth: 50 }}>
-							<SearchIcon
-								sx={{
-									color: "primary.contrastText",
-									height: "100%"
-								}}
-							/>
+							<Search />
 						</Button>
 					)}
 				</ButtonGroup>
 			</Paper>
 			<Box sx={dropDownWrapperStyles}>
 				{services_data?.map((el) => (
-					<DropDown key={el?.name} {...{ el, isHome: true }} />
+					<DropDown key={el?.name} {...{ el, isHome }} />
 				))}
 			</Box>
 		</Box>
@@ -57,7 +59,7 @@ export default ({ search, setSearch }: { search: string; setSearch: any }) => {
 const Wrapper = {
 	position: "relative",
 	mx: { mobile: "20px", tablet: "30px", desktop: "50px" },
-	maxWidth: 600,
+	maxWidth: 707,
 	width: "100%",
 	minWidth: 250
 };
@@ -72,7 +74,8 @@ const dropDownWrapperStyles = {
 
 const buttonGroupStyles = {
 	display: "flex",
-	flexDirection: { mobile: "column", tablet: "row", desktop: "row" }
+	flexDirection: { mobile: "column", tablet: "row", desktop: "row" },
+	height: { mobile: "auto", tablet: "auto", desktop: 48 }
 };
 
 const inputSearchActionLogic = ({
@@ -88,34 +91,40 @@ const inputSearchActionLogic = ({
 		<>
 			<Divider
 				orientation={mobile ? "horizontal" : "vertical"}
-				sx={{
-					height: { mobile: 1, tablet: 28, desktop: 28 },
-					margin: 0.5
-				}}
+				sx={dividerStyles}
 			/>
-			<InputBase fullWidth placeholder="Location" sx={{ ml: 2 }} />
+			<InputBase fullWidth placeholder="Location" sx={inputStyles} />
 		</>
 	) : tablet && !mobile ? (
 		<>
 			<Divider
 				orientation={mobile ? "horizontal" : "vertical"}
-				sx={{
-					height: { mobile: 1, tablet: 28, desktop: 28 },
-					margin: 0.5
-				}}
+				sx={dividerStyles}
 			/>
-			<InputBase fullWidth placeholder="Location" sx={{ ml: 2 }} />
+			<InputBase fullWidth placeholder="Location" sx={inputStyles} />
 		</>
 	) : !tablet && !mobile ? (
 		<>
 			<Divider
 				orientation={mobile ? "horizontal" : "vertical"}
-				sx={{
-					height: { mobile: 1, tablet: 28, desktop: 28 },
-					margin: 0.5
-				}}
+				sx={dividerStyles}
 			/>
-			<InputBase fullWidth placeholder="Location" sx={{ ml: 2 }} />
+			<InputBase fullWidth placeholder="Location" sx={inputStyles} />
 		</>
 	) : null;
+};
+
+const inputStyles = {
+	ml: 2,
+	".MuiInputBase-input": {
+		height: 48,
+		"::placeholder": {
+			...theme.typography.body1
+		}
+	}
+};
+
+const dividerStyles = {
+	height: { mobile: 1, tablet: 40, desktop: 40 },
+	margin: 0.5
 };

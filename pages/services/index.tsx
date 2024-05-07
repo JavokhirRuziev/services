@@ -2,10 +2,12 @@ import Layout from "@/components/Layout";
 import { Box } from "@mui/material";
 import Map from "./components/Map";
 import { top_10_arr } from "@/public/data/top_10";
-import Card from "./components/Card";
+import ServicesCard from "../../components/Cards/ServicesCard";
 import Filters from "./components/Filters";
+import { useState } from "react";
 
 export default () => {
+	const [hoveredCardId, setHoveredCardId] = useState(null);
 	return (
 		<Layout>
 			<Box
@@ -16,10 +18,12 @@ export default () => {
 				<Filters />
 				<Box sx={cardWrapperStyles}>
 					{top_10_arr.map((el) => (
-						<Card {...{ el }} />
+						<ServicesCard
+							{...{ el, setHoveredCardId, hoveredCardId }}
+						/>
 					))}
 				</Box>
-				<Map />
+				<Map arr={top_10_arr} hoveredCardId={hoveredCardId} />
 			</Box>
 		</Layout>
 	);
@@ -30,7 +34,5 @@ const cardWrapperStyles = {
 	flexDirection: "column",
 	rowGap: "20px",
 	p: 3,
-	overflow: "scroll",
-	height: "100vh",
 	scrollbarWidth: "none"
 };

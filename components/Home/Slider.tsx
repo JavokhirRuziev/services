@@ -8,6 +8,7 @@ import { theme } from "@/theme";
 import { Autoplay, Pagination } from "swiper/modules";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Search from "@/public/icons/Search";
 
 export default () => {
 	const { push } = useRouter();
@@ -82,21 +83,23 @@ export default () => {
 								objectFit="cover"
 								layout="fill"
 							/>
-							<Box sx={sliderTextStyles}>
-								<Typography
-									variant="h1"
-									fontWeight={"bold"}
-									color={"white"}
-									maxWidth={600}>
-									{el?.description}
-								</Typography>
-								<Box>
-									<Button
-										onClick={() => handleGoToLink(el?.link)}
-										color="secondary">
-										{el?.buttonText}
-									</Button>
-								</Box>
+						</Box>
+						<Box sx={sliderTextStyles}>
+							<Typography
+								variant="h1"
+								fontWeight={"bold"}
+								color={"white"}
+								maxWidth={600}>
+								{el?.description}
+							</Typography>
+							<Box>
+								<Button
+									onClick={() => handleGoToLink(el?.link)}
+									color="secondary"
+									size="large"
+									startIcon={<Search />}>
+									{el?.buttonText}
+								</Button>
 							</Box>
 						</Box>
 					</SwiperSlide>
@@ -113,7 +116,8 @@ const sliderWrapperStyles = {
 	".swiper": {
 		width: "100%",
 		height: "70vh",
-		pointerEvents: "none"
+		pointerEvents: "none",
+		minHeight: 462
 	},
 
 	".slider-image-container": {
@@ -123,14 +127,14 @@ const sliderWrapperStyles = {
 		right: 0,
 		bottom: 0,
 		background:
-			"linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2))",
+			"linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
 		zIndex: 9
 	},
 
 	".swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets":
 		{
 			left: 10,
-			maxWidth: 890,
+			maxWidth: 1200,
 			mx: "auto"
 		},
 
@@ -173,7 +177,7 @@ const sliderTextStyles = {
 	top: "50%",
 	transform: "translateX(-50%) translateY(-50%)",
 	zIndex: 9999,
-	maxWidth: 840,
+	maxWidth: 1140,
 	width: "100%"
 };
 

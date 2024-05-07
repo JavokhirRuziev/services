@@ -17,38 +17,38 @@ export const services_data = [
 		category: [
 			{ name: "Sell", icon: <Apartment /> },
 			{ name: "Residential", icon: <FactoryIcon /> },
-			{ name: "Rent", icon: <BusinessIcon /> },
-			{ name: "For business", icon: <VillaIcon /> },
-			{ name: "Fixing", icon: <BusAlertIcon /> },
-			{ name: "Service", icon: <ElectricRickshawIcon /> },
-			{ name: "Rent", icon: <LocalShippingIcon /> },
-			{ name: "Pitstop", icon: <CarRepairIcon /> }
-		]
-	},
-	{
-		name: "Cars",
-		category: [
-			{ name: "Fixing", icon: <BusAlertIcon /> },
-			{ name: "Service", icon: <ElectricRickshawIcon /> },
-			{ name: "Rent", icon: <LocalShippingIcon /> },
-			{ name: "Pitstop", icon: <CarRepairIcon /> },
-			{ name: "Fixing", icon: <BusAlertIcon /> },
-			{ name: "Service", icon: <ElectricRickshawIcon /> },
-			{ name: "Rent", icon: <LocalShippingIcon /> },
-			{ name: "Pitstop", icon: <CarRepairIcon /> }
-		]
-	},
-	{
-		name: "Home cleaning",
-		category: [
-			{ name: "Window", icon: <ScreenshotMonitorIcon /> },
-			{ name: "Carpet", icon: <SanitizerIcon /> },
-			{ name: "Clothes", icon: <DryCleaningIcon /> },
-			{ name: "Other", icon: <DevicesOtherIcon /> },
-			{ name: "Window", icon: <ScreenshotMonitorIcon /> },
-			{ name: "Carpet", icon: <SanitizerIcon /> },
-			{ name: "Clothes", icon: <DryCleaningIcon /> },
-			{ name: "Other", icon: <DevicesOtherIcon /> }
+			{ name: "Rent", icon: <BusinessIcon /> }
+			// { name: "For business", icon: <VillaIcon /> },
+			// { name: "Fixing", icon: <BusAlertIcon /> }
+			// { name: "Service", icon: <ElectricRickshawIcon /> },
+			// { name: "Rent", icon: <LocalShippingIcon /> },
+			// { name: "Pitstop", icon: <CarRepairIcon /> }
 		]
 	}
+	// {
+	// 	name: "Cars",
+	// 	category: [
+	// 		{ name: "Fixing", icon: <BusAlertIcon /> },
+	// 		{ name: "Service", icon: <ElectricRickshawIcon /> },
+	// 		{ name: "Rent", icon: <LocalShippingIcon /> },
+	// 		{ name: "Pitstop", icon: <CarRepairIcon /> },
+	// 		{ name: "Fixing", icon: <BusAlertIcon /> },
+	// 		{ name: "Service", icon: <ElectricRickshawIcon /> },
+	// 		{ name: "Rent", icon: <LocalShippingIcon /> },
+	// 		{ name: "Pitstop", icon: <CarRepairIcon /> }
+	// 	]
+	// },
+	// {
+	// 	name: "Home cleaning",
+	// 	category: [
+	// 		{ name: "Window", icon: <ScreenshotMonitorIcon /> },
+	// 		{ name: "Carpet", icon: <SanitizerIcon /> },
+	// 		{ name: "Clothes", icon: <DryCleaningIcon /> },
+	// 		{ name: "Other", icon: <DevicesOtherIcon /> },
+	// 		{ name: "Window", icon: <ScreenshotMonitorIcon /> },
+	// 		{ name: "Carpet", icon: <SanitizerIcon /> },
+	// 		{ name: "Clothes", icon: <DryCleaningIcon /> },
+	// 		{ name: "Other", icon: <DevicesOtherIcon /> }
+	// 	]
+	// }
 ];

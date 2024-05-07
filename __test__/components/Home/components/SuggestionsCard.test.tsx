@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import SuggestionsCard from "@/components/Home/components/SuggestionsCard";
+import SuggestionsCard from "@/components/Cards/CardBase";
 
 describe("SuggestionsCard", () => {
 	const mockData = {

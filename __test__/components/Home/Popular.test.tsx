@@ -1,4 +1,4 @@
-import Popular from "@/components/Home/Popular";
+import Popular from "@/components/Home/Universities";
 import { suggestions_arr } from "@/public/data/suggestions_data";
 import { render, screen } from "@testing-library/react";
 

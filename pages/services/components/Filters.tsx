@@ -3,78 +3,86 @@ import {
 	Button,
 	ButtonGroup,
 	Checkbox,
+	Divider,
+	FormControl,
 	FormControlLabel,
 	FormGroup,
+	Radio,
+	RadioGroup,
 	Typography
 } from "@mui/material";
 
 export default () => {
 	return (
-		<Box sx={{ p: 3 }}>
-			<Typography>Filters</Typography>
-			<ButtonGroup variant="outlined" aria-label="Basic button group">
-				<Button>One</Button>
-				<Button>Two</Button>
-				<Button>Three</Button>
+		<Box sx={wrapperStyles}>
+			<Typography variant="h4" mb={4}>
+				Filters
+			</Typography>
+			<Typography variant="body1" mb={2}>
+				Price
+			</Typography>
+			<ButtonGroup color="secondary" variant="outlined" sx={{ mb: 3 }}>
+				<Button variant="contained">$</Button>
+				<Button>$$</Button>
+				<Button>$$$</Button>
+				<Button>$$$$</Button>dd
 			</ButtonGroup>
-			<FormGroup>
+			<Divider sx={{ mb: 3 }} />
+			<Typography variant="body1" mb={2}>
+				Suggested
+			</Typography>
+			<FormGroup sx={{ mb: 2 }}>
 				<FormControlLabel
-					control={<Checkbox defaultChecked />}
-					label="Label"
+					control={<Checkbox color="secondary" defaultChecked />}
+					label="Open Now"
 				/>
 				<FormControlLabel
-					required
-					control={<Checkbox />}
-					label="Required"
+					control={<Checkbox color="secondary" />}
+					label="Reservation"
 				/>
 				<FormControlLabel
-					disabled
-					control={<Checkbox />}
-					label="Disabled"
+					control={<Checkbox color="secondary" />}
+					label="Offers delivery"
+				/>
+				<FormControlLabel
+					control={<Checkbox color="secondary" />}
+					label="Offers takeout"
 				/>
 			</FormGroup>
-			<ButtonGroup variant="outlined" aria-label="Basic button group">
-				<Button>One</Button>
-				<Button>Two</Button>
-				<Button>Three</Button>
-			</ButtonGroup>
-			<FormGroup>
-				<FormControlLabel
-					control={<Checkbox defaultChecked />}
-					label="Label"
-				/>
-				<FormControlLabel
-					required
-					control={<Checkbox />}
-					label="Required"
-				/>
-				<FormControlLabel
-					disabled
-					control={<Checkbox />}
-					label="Disabled"
-				/>
-			</FormGroup>
-			<ButtonGroup variant="outlined" aria-label="Basic button group">
-				<Button>One</Button>
-				<Button>Two</Button>
-				<Button>Three</Button>
-			</ButtonGroup>
-			<FormGroup>
-				<FormControlLabel
-					control={<Checkbox defaultChecked />}
-					label="Label"
-				/>
-				<FormControlLabel
-					required
-					control={<Checkbox />}
-					label="Required"
-				/>
-				<FormControlLabel
-					disabled
-					control={<Checkbox />}
-					label="Disabled"
-				/>
-			</FormGroup>
+			<Divider sx={{ mb: 3 }} />
+			<FormControl>
+				<Typography variant="body1" mb={2}>
+					Another
+				</Typography>
+
+				<RadioGroup>
+					<FormControlLabel
+						control={<Radio color="secondary" />}
+						label="Offers takeout"
+					/>
+					<FormControlLabel
+						control={<Radio color="secondary" />}
+						label="Offers delivery"
+					/>
+					<FormControlLabel
+						control={<Radio color="secondary" />}
+						label="Reservation"
+					/>
+					<FormControlLabel
+						control={<Radio color="secondary" />}
+						label="Open now"
+					/>
+				</RadioGroup>
+			</FormControl>
 		</Box>
 	);
+};
+
+const wrapperStyles = {
+	p: 3,
+	position: "sticky",
+	top: 0,
+	height: "100vh",
+	overflow: "scroll",
+	scrollbarWidth: "none"
 };

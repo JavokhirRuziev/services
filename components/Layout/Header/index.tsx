@@ -9,6 +9,7 @@ import breakpoints from "utils/breakpoints";
 import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SearchIcon from "@mui/icons-material/Search";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
+import Search from "@/public/icons/Search";
 
 export default () => {
 	const { pathname } = useRouter();
@@ -41,7 +42,7 @@ export default () => {
 		<Box sx={headerWrapperStyles(isHome)} data-testid="header-component">
 			<Box sx={headerContainerStyles(isHome)}>
 				<Box sx={headerAppbarWrapperStyles}>
-					<Link href={"/"} style={logoStyles}>
+					{/* <Link href={"/"} style={logoStyles}>
 						{!mobile && (
 							<Typography
 								variant="h4"
@@ -51,8 +52,8 @@ export default () => {
 							</Typography>
 						)}
 						<Logo color={logoColor} />
-					</Link>
-					<SearchInput {...{ search, setSearch }} />
+					</Link> */}
+					<SearchInput {...{ search, setSearch, isHome }} />
 					{!mobile && !tablet ? (
 						<Box
 							sx={rightBlockClasses}
@@ -73,12 +74,7 @@ export default () => {
 							variant="contained"
 							color="secondary"
 							sx={{ maxWidth: 50 }}>
-							<SearchIcon
-								sx={{
-									color: "primary.contrastText",
-									height: "100%"
-								}}
-							/>
+							<Search />
 						</Button>
 					) : (
 						<HeaderDrawer>
@@ -96,7 +92,7 @@ const headerContainerStyles = (isHome: boolean) => ({
 	p: {
 		mobile: "20px 0px 40px",
 		tablet: "20px 0px 40px",
-		desktop: "20px 0px"
+		desktop: isHome ? "20px 0px" : "20px 0px 45px"
 	},
 	position: {
 		mobile: "relative",

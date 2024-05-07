@@ -11,7 +11,7 @@ export default function Categories({ category }: categoryTypes) {
 	const { push } = useRouter();
 	const handleGo = () => push("/services");
 	return (
-		<Paper sx={paperStyles}>
+		<Paper sx={paperStyles({ category })}>
 			{category?.map((el, index) => (
 				<Box role="button" key={index} onClick={handleGo}>
 					<Hover text={el?.name}>{el?.icon}</Hover>
@@ -21,15 +21,17 @@ export default function Categories({ category }: categoryTypes) {
 	);
 }
 
-const paperStyles = {
-	background: "white",
-	padding: "10px",
-	borderTopLeftRadius: 0,
-	display: "grid",
-	gridAutoRows: "min-content",
-	gridRowGap: "8px",
-	gridTemplateColumns: "1fr 1fr",
-	maxHeight: 200,
-	width: "100%",
-	height: "100%"
+const paperStyles = ({ category }: categoryTypes) => {
+	return {
+		background: "white",
+		padding: "10px",
+		borderTopLeftRadius: 0,
+		display: "grid",
+		gridAutoRows: "min-content",
+		gridRowGap: "8px",
+		gridTemplateColumns: category?.length > 4 ? "1fr 1fr" : "1fr",
+		maxHeight: 200,
+		width: "100%",
+		height: "100%"
+	};
 };

@@ -40,12 +40,7 @@ export default () => {
 							))}
 						</Box>
 					))}
-					<Box
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							width: { mobile: 140, tablet: 150, desktop: "auto" }
-						}}>
+					<Box sx={tooltipClickStyles}>
 						{actions_arr({ selectedState, handleSetState }).map(
 							(el) => (
 								<React.Fragment key={el.title}>
@@ -64,25 +59,18 @@ export default () => {
 										}}>
 										<Link
 											underline="hover"
-											style={{
-												cursor: "pointer",
-												marginBottom: "10px",
-												display: "flex",
-												alignItems: "center"
-											}}
+											style={linkStyles}
 											onClick={() =>
 												handleTooltipOpen(el.action)
 											}>
 											<Typography
 												variant="body1"
 												fontWeight={400}
-												color={"white"}
-												letterSpacing={2}>
+												letterSpacing={2}
+												color={theme.palette.grey[500]}>
 												{el.children}
 											</Typography>
-											<KeyboardArrowDownIcon
-												sx={{ color: "white" }}
-											/>
+											<KeyboardArrowDownIcon />
 										</Link>
 									</TooltipClick>
 								</React.Fragment>
@@ -94,7 +82,6 @@ export default () => {
 			<Box sx={bottomStyles}>
 				<Typography
 					variant="body1"
-					color={"white"}
 					fontWeight={"bold"}
 					letterSpacing={2}>
 					Copyright © 2004–2024 SolveMe
@@ -105,7 +92,7 @@ export default () => {
 };
 
 const footerWrapper = {
-	bgcolor: "secondary.main",
+	bgcolor: "grey.300",
 	padding: "50px 0px 0px"
 };
 
@@ -115,7 +102,7 @@ const bottomStyles = {
 	boxShadow: theme.shadows[1],
 	p: 2,
 	mt: 6.5,
-	bgcolor: "secondary.main"
+	bgcolor: "grey.300"
 };
 
 const footerLinksWrapperStyles = {
@@ -124,4 +111,17 @@ const footerLinksWrapperStyles = {
 	flexWrap: "wrap",
 	rowGap: "30px",
 	columnGap: "30px"
+};
+
+const linkStyles = {
+	cursor: "pointer",
+	marginBottom: "10px",
+	display: "flex",
+	alignItems: "center"
+};
+
+const tooltipClickStyles = {
+	display: "flex",
+	flexDirection: "column",
+	width: { mobile: 140, tablet: 150, desktop: "auto" }
 };

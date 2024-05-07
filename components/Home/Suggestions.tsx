@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
-import SuggestionsCard from "./components/SuggestionsCard";
+import CardBase from "../Cards/CardBase";
 
 export default () => {
 	return (
@@ -23,7 +23,7 @@ export default () => {
 					</Typography>
 					<Box sx={cardWrapperStyle}>
 						{suggestions_arr.map((el, index) => {
-							return <SuggestionsCard {...{ el }} key={index} />;
+							return <CardBase {...{ el }} key={index} />;
 						})}
 					</Box>
 				</Container>

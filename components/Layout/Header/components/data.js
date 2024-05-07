@@ -15,16 +15,13 @@ export const rightBlockArr = ({
 	handleTooltipOpen
 }) => [
 	<TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
-		<Button
-			variant="outlined"
-			color="secondary"
-			onClick={handleTooltipOpen}>
+		<Button variant="outlined" color="info" onClick={handleTooltipOpen}>
 			SolveMe for Bussiness
 			<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
 		</Button>
 	</TooltipClick>,
 
-	<Button variant="outlined" color="secondary">
+	<Button variant="outlined" color="info">
 		Write a Review
 	</Button>,
 	true ? (
