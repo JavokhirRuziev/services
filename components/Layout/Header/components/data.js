@@ -21,19 +21,6 @@ export const rightBlockArr = ({
 		</Button>
 	</TooltipClick>,
 
-<<<<<<< HEAD
-  <Button variant="outlined" color="secondary">
-    Write a Review
-  </Button>,
-  true ? (
-    <AuthModal />
-  ) : (
-    <Avatar sx={{ bgcolor: "secondary.main" }}>
-      <Account />
-    </Avatar>
-  ),
-  ,
-=======
 	<Button variant="outlined" color="info">
 		Write a Review
 	</Button>,
@@ -45,7 +32,6 @@ export const rightBlockArr = ({
 		</Avatar>
 	),
 	,
->>>>>>> main
 ];
 
 const tooltipContent = (

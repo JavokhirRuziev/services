@@ -33,17 +33,17 @@ export default () => {
 							</Box>
 						))}
 					</Box>
-					<Box
-						sx={{
-							mb: "41px",
-							display: "flex",
-							justifyContent: "space-between"
-						}}>
-						{categoriesArr?.map((el) => (
+					<Box sx={categoriesWrapperStyles}>
+						{categoriesArr?.map((el, index) => (
 							<Button
-								color={el?.variant}
+								color={
+									el?.variant === "primary"
+										? "primary"
+										: "info"
+								}
 								size="medium"
-								sx={buttonStyles}>
+								sx={buttonStyles}
+								key={index}>
 								{el?.name}
 							</Button>
 						))}
@@ -139,6 +139,12 @@ const overlayStyles = {
 const buttonStyles = {
 	fontSize: "14px !important",
 	fontFamily: "'PoppinsLight',sans-serif !important"
+};
+
+const categoriesWrapperStyles = {
+	mb: "41px",
+	display: "flex",
+	justifyContent: "space-between"
 };
 
 const stickersArr = [

@@ -8,7 +8,7 @@ import Rating from "@/components/Rating";
 import { theme } from "@/theme";
 import Walk from "@/public/icons/Walk";
 import Car from "@/public/icons/Car";
-import TransPort from "@/public/icons/TransPort";
+import TransPort from "@/public/icons/Transport";
 
 const CardComponent = ({ el }: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
@@ -47,18 +47,18 @@ const CardComponent = ({ el }: any) => {
 				alt={el?.img}
 			/>
 			<CardContent sx={{ p: "10px 16px 0px" }}>
-				<Typography variant="body3" mb={1}>
+				<Typography variant="subtitle1" mb={1}>
 					{el?.author_name}
 				</Typography>
 				<Typography
-					variant="body4"
+					variant="subtitle2"
 					component={"div"}
 					color={"grey.600"}
 					mb={1}>
 					From{" "}
 					<Typography
 						component={"span"}
-						variant="body3"
+						variant="subtitle1"
 						color={"primary.main"}>
 						$322
 					</Typography>{" "}

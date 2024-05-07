@@ -7,15 +7,6 @@ import { ApolloProvider } from "@apollo/client";
 import { apolloClient } from "@/utils/apolloClient";
 
 export default function App({ Component, pageProps }: AppProps) {
-<<<<<<< HEAD
-  return (
-    <ApolloProvider client={apolloClient}>
-      <ThemeProvider {...{ theme }}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </ApolloProvider>
-  );
-=======
 	return (
 		<ApolloProvider client={apolloClient}>
 			<ThemeProvider {...{ theme }}>
@@ -23,5 +14,4 @@ export default function App({ Component, pageProps }: AppProps) {
 			</ThemeProvider>
 		</ApolloProvider>
 	);
->>>>>>> main
 }

@@ -304,7 +304,7 @@ theme = createTheme(theme, {
 						fontFamily: `"PoppinsRegular", sans-serif`
 					}
 				},
-				body3: {
+				subtitle1: {
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 12,
 						fontFamily: `"PoppinsMedium", sans-serif`
@@ -314,7 +314,7 @@ theme = createTheme(theme, {
 						fontFamily: `"PoppinsMedium", sans-serif`
 					}
 				},
-				body4: {
+				subtitle2: {
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 8,
 						fontFamily: `"PoppinsRegular", sans-serif`
