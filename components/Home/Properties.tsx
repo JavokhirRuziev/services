@@ -16,7 +16,15 @@ export default () => {
 					</Typography>
 					<Box sx={cardWrapperStyle}>
 						{suggestions_arr.map((el, index) => {
-							return <CardLarge {...{ el }} key={index} />;
+							return (
+								<CardLarge
+									{...{
+										el,
+										voucher: Boolean(index % 2 === 0)
+									}}
+									key={index}
+								/>
+							);
 						})}
 					</Box>
 					<Box sx={{ display: "flex", justifyContent: "center" }}>

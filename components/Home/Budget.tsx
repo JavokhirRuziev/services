@@ -18,7 +18,14 @@ export default () => {
 					<Box sx={cardWrapperStyle}>
 						{suggestions_arr.map((el, index) => {
 							return (
-								<CardLarge {...{ el }} key={index} isCheap />
+								<CardLarge
+									{...{
+										el,
+										voucher: Boolean(index % 2 !== 0)
+									}}
+									key={index}
+									isCheap
+								/>
 							);
 						})}
 					</Box>

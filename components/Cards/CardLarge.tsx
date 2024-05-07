@@ -7,7 +7,7 @@ import { theme } from "@/theme";
 import Student from "@/public/icons/Student";
 import Sale from "@/public/icons/Sale";
 
-const CardComponent = ({ el, isCheap, sale, cashback }: any) => {
+const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
 
@@ -27,7 +27,8 @@ const CardComponent = ({ el, isCheap, sale, cashback }: any) => {
 		},
 		transition: "none",
 		border: `2px solid ${theme.palette.grey[200]}`,
-		width: "100%"
+		width: "100%",
+		position: "relative"
 	};
 
 	return (
@@ -38,10 +39,33 @@ const CardComponent = ({ el, isCheap, sale, cashback }: any) => {
 			onMouseMove={handleMouseMove}>
 			<CardMedia
 				component="img"
-				height="160"
+				height="195"
 				image={el?.img}
 				alt={el?.img}
 			/>
+			{voucher && (
+				<Box
+					sx={{
+						opacity: 0.5,
+						height: 32,
+						position: "absolute",
+						top: 163,
+						right: 0,
+						left: 0,
+						bgcolor: "secondary.main",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center"
+					}}>
+					<Typography
+						variant="body2"
+						color={"white"}
+						sx={{ zIndex: -1 }}>
+						$100 Uber voucher
+					</Typography>
+				</Box>
+			)}
+
 			<CardContent sx={{ p: "10px 16px 0px" }}>
 				<Typography variant="subtitle1" mb={1}>
 					{el?.author_name}
@@ -112,8 +136,14 @@ const CardComponent = ({ el, isCheap, sale, cashback }: any) => {
 	);
 };
 
-export default function SuggestionsCard({ el, isCheap, sale, cashback }: any) {
-	return <CardComponent {...{ el, isCheap, sale, cashback }} />;
+export default function SuggestionsCard({
+	el,
+	isCheap,
+	sale,
+	cashback,
+	voucher
+}: any) {
+	return <CardComponent {...{ el, isCheap, sale, cashback, voucher }} />;
 }
 
 const directionStyles = {

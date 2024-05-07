@@ -19,7 +19,10 @@ export default () => {
 						{suggestions_arr.map((el, index) => {
 							return (
 								<CardLarge
-									{...{ el }}
+									{...{
+										el,
+										voucher: Boolean(index % 2 !== 0)
+									}}
 									key={index}
 									sale
 									cashback

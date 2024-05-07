@@ -78,14 +78,11 @@ export default () => {
 							)
 						)}
 					</Box>
-					<Box sx={bottomStyles}>
-						<Typography
-							variant="body1"
-							fontWeight={"bold"}
-							letterSpacing={2}>
-							Copyright © 2004–2024 CityShahar Inc.
-						</Typography>
-					</Box>
+				</Box>
+				<Box sx={bottomStyles}>
+					<Typography variant="body2" color={"grey.500"}>
+						Copyright © 2004–2024 CityShahar Inc.
+					</Typography>
 				</Box>
 			</Container>
 		</Box>
