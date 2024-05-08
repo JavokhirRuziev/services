@@ -1,5 +1,8 @@
 import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
-import { Box, Tooltip, Typography, Zoom } from "@mui/material";
+import Box from "@mui/material/Box";
+import Zoom from "@mui/material/Zoom";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
 import LensIcon from "@mui/icons-material/Lens";
 import { theme } from "@/theme";
 import TooltipContent from "./TooltipContent";

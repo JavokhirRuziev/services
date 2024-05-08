@@ -1,5 +1,5 @@
 import { theme } from "@/theme";
-import { TextField as MuiTextField } from "@mui/material";
+import TextField from "@mui/material/TextField";
 
 export default ({
 	sx,
@@ -15,7 +15,7 @@ export default ({
 	placeholder: string;
 }) => {
 	return (
-		<MuiTextField
+		<TextField
 			fullWidth
 			{...{ value, onChange, type, placeholder }}
 			sx={{

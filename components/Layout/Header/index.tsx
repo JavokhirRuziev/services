@@ -1,13 +1,13 @@
-import { Box, Button, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import SearchInput from "./components/SearchInput";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import Logo from "@/public/icons/Logo";
+// import Link from "next/link";
+// import Logo from "@/public/icons/Logo";
 import { rightBlockArr } from "./components/data";
 import breakpoints from "utils/breakpoints";
 import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
-import SearchIcon from "@mui/icons-material/Search";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
 import Search from "@/public/icons/Search";
 

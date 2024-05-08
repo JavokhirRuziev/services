@@ -1,5 +1,8 @@
 import { theme } from "@/theme";
-import { Box, Container, Link, Tooltip, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import { footer_links_arr } from "@/public/data/footer_data";
 import TooltipClick from "../../Tooltips/TooltipClick";
 import React, { useState } from "react";

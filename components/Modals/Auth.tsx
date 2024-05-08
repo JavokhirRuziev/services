@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { useSpring, animated } from "@react-spring/web";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Registration from "./components/Registration";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import Logo from "@/public/icons/Logo";

@@ -1,6 +1,7 @@
 import { Formik, Field, Form } from "formik";
 import FormikField from "@/components/TextFields/FormikField";
-import { Button, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { useMutation, gql } from "@apollo/client";
 
 const SEND_VERIFICATION_CODE = gql`

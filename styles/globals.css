@@ -60,7 +60,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .wrapper {
 	position: relative;
-	background: lightgray 50%;
+	background: whitesmoke;
 	z-index: 1;
 }
 

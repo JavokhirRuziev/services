@@ -1,5 +1,6 @@
 import breakpoints from "@/utils/breakpoints";
-import { ClickAwayListener, Tooltip } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { useEffect, useRef } from "react";
 
 export default ({

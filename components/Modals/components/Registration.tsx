@@ -1,4 +1,7 @@
-import { Box, Divider, IconButton, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import GoogleIcon from "@mui/icons-material/Google";
 import Image from "next/image";
 import PhoneCheck from "./PhoneCheck";

@@ -1,16 +1,14 @@
-import {
-	Box,
-	Button,
-	ButtonGroup,
-	Checkbox,
-	Divider,
-	FormControl,
-	FormControlLabel,
-	FormGroup,
-	Radio,
-	RadioGroup,
-	Typography
-} from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Checkbox from "@mui/material/Checkbox";
+import Divider from "@mui/material/Divider";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 
 export default () => {
 	return (

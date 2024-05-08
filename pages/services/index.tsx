@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import Map from "./components/Map";
 import { top_10_arr } from "@/public/data/top_10";
 import ServicesCard from "../../components/Cards/ServicesCard";

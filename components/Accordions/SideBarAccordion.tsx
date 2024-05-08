@@ -6,7 +6,8 @@ import MuiAccordionSummary, {
 	AccordionSummaryProps
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Hover from "../Buttons/Hover";
 import Business from "@/public/icons/Business";
 import Check from "@/public/icons/Check";

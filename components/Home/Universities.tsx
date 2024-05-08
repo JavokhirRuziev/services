@@ -1,4 +1,3 @@
-import { Box, Button, Container, Typography } from "@mui/material";
 import { suggestions_arr } from "../../public/data/suggestions_data";
 import CardBase from "../Cards/CardBase";
 import Shield from "@/public/icons/Shield";
@@ -6,11 +5,15 @@ import React from "react";
 import Order from "@/public/icons/Order";
 import Certificate from "@/public/icons/Certificate";
 import Image from "next/image";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 export default () => {
 	return (
 		<Box className="wrapper">
-			<Box className="popular" />
+			{/* <Box className="popular" /> */}
 			<Box sx={wrapper}>
 				<Container>
 					<Typography variant="h2" mb={2}>
