@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import ButtonGradient from "../Buttons/ButtonGradient";
 
 export default () => {
 	return (
@@ -48,7 +49,15 @@ export default () => {
 					</Box>
 					<Box sx={cardWrapperStyle}>
 						{suggestions_arr.slice(0, 3).map((el, index) => {
-							return <CardBase {...{ el }} key={index} />;
+							return (
+								<CardBase
+									{...{
+										el,
+										voucher: Boolean(index % 2 === 0)
+									}}
+									key={index}
+								/>
+							);
 						})}
 						<Box sx={decorationStyles}>
 							<Image
@@ -74,9 +83,9 @@ export default () => {
 									More collected properties near University
 									College London
 								</Typography>
-								<Button color="primary" size="large" fullWidth>
+								<ButtonGradient size="large" fullWidth>
 									Check out
-								</Button>
+								</ButtonGradient>
 							</Box>
 						</Box>
 					</Box>

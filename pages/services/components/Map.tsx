@@ -1,13 +1,12 @@
 import { Map, Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 import Box from "@mui/material/Box";
 import Zoom from "@mui/material/Zoom";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import LensIcon from "@mui/icons-material/Lens";
 import { theme } from "@/theme";
 import TooltipContent from "./TooltipContent";
 import { useState } from "react";
 import breakpoints from "@/utils/breakpoints";
+import MarkerLocation from "@/public/icons/MarkerLocation";
 
 const MAPBOX_ACCESS_TOKEN =
 	"pk.eyJ1IjoiamFtZXNhdG9tIiwiYSI6ImNsdXh5bzV5cDB1NmEycG52OWhkcjJkYWEifQ._8rm2H-2gwkbKgtX5pbz0w";
@@ -54,17 +53,12 @@ export default ({ arr, hoveredCardId }: any) => {
 							onClose: handleTooltipClose
 						})}>
 						<Box
-							sx={markerStyles}
+							sx={{
+								...markerStyles,
+								...markerIconStyles(hoveredCardId, el.id)
+							}}
 							{...(mobile && { onClick: handleTooltipOpen })}>
-							<LensIcon
-								className="icon"
-								sx={markerIconStyles(hoveredCardId, el.id)}
-							/>
-							<Typography
-								className="order-text"
-								sx={markerTextStyles(hoveredCardId, el.id)}>
-								{index + 1}
-							</Typography>
+							<MarkerLocation content={index + 1} />
 						</Box>
 					</Tooltip>
 				</Marker>
@@ -93,21 +87,55 @@ const markerStyles = {
 };
 
 const markerIconStyles = (hoveredCardId: any, id: any) => ({
-	borderRadius: 9999999,
-	color: hoveredCardId === id ? "white" : "error.main",
 	transition: "0.3s",
-	border:
-		hoveredCardId === id ? `5px solid ${theme.palette.error.main}` : `none`
+	":hover": {
+		path: {
+			fill: "white",
+			stroke: "#A0DAFB"
+		},
+		text: {
+			fill: "#A0DAFB"
+		}
+	},
+	path: {
+		fill: hoveredCardId === id ? "white" : "error.main",
+		stroke: hoveredCardId === id ? "#A0DAFB" : "white"
+	},
+	text: {
+		fill: hoveredCardId === id ? "#A0DAFB" : "white",
+		fontSize: "17px",
+		fontFamily: '"PoppinsRegular", sans-serif',
+		textAnchor: "middle"
+	}
 });
 
-const markerTextStyles = (hoveredCardId: any, id: any) => ({
-	position: "absolute",
-	top: "42%",
-	left: "51%",
-	transform: "translateX(-50%) translateY(-50%)",
-	color: hoveredCardId === id ? theme.palette.error.main : "white",
-	fontWeight: "bold"
-});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // LATER NEED
 

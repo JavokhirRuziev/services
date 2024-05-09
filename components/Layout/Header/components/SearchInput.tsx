@@ -1,16 +1,14 @@
-import {
-	Box,
-	Button,
-	ButtonGroup,
-	Divider,
-	InputBase,
-	Paper
-} from "@mui/material";
-import DropDown from "./DropDown";
+import InputBase from "@mui/material/InputBase";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Divider from "@mui/material/Divider";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import DropDown from "../../../DropDowns/HeaderDropDown";
 import { services_data } from "@/public/data/services_data";
 import breakpoints from "@/utils/breakpoints";
 import Search from "@/public/icons/Search";
 import { theme } from "@/theme";
+import ButtonGradient from "@/components/Buttons/ButtonGradient";
 
 export default ({
 	search,
@@ -37,13 +35,9 @@ export default ({
 					/>
 					{inputSearchActionLogic({ search, mobile, tablet })}
 					{!mobile && (
-						<Button
-							size="medium"
-							variant="contained"
-							color="secondary"
-							sx={{ maxWidth: 50 }}>
+						<ButtonGradient size="medium" sx={{ maxWidth: 50 }}>
 							<Search />
-						</Button>
+						</ButtonGradient>
 					)}
 				</ButtonGroup>
 			</Paper>
@@ -58,7 +52,8 @@ export default ({
 
 const Wrapper = {
 	position: "relative",
-	mx: { mobile: "20px", tablet: "30px", desktop: "50px" },
+	mr: { mobile: "20px", tablet: "30px", desktop: "50px" },
+	ml: "10px",
 	maxWidth: 1007,
 	width: "100%",
 	minWidth: 250

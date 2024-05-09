@@ -3,13 +3,13 @@ import Button from "@mui/material/Button";
 import SearchInput from "./components/SearchInput";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-// import Link from "next/link";
-// import Logo from "@/public/icons/Logo";
-import { rightBlockArr } from "./components/data";
 import breakpoints from "utils/breakpoints";
 import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
 import Search from "@/public/icons/Search";
+import Link from "next/link";
+import Logo from "@/public/icons/Logo";
+import { rightBlockArr } from "@/public/data/header_data";
 
 export default () => {
 	const { pathname } = useRouter();
@@ -42,17 +42,9 @@ export default () => {
 		<Box sx={headerWrapperStyles(isHome)} data-testid="header-component">
 			<Box sx={headerContainerStyles(isHome)}>
 				<Box sx={headerAppbarWrapperStyles}>
-					{/* <Link href={"/"} style={logoStyles}>
-						{!mobile && (
-							<Typography
-								variant="h4"
-								fontWeight={"bold"}
-								color={logoTextColor}>
-								SolveMe
-							</Typography>
-						)}
+					<Link href={"/"} style={logoStyles}>
 						<Logo color={logoColor} />
-					</Link> */}
+					</Link>
 					<SearchInput {...{ search, setSearch, isHome }} />
 					{!mobile && !tablet ? (
 						<Box
@@ -61,7 +53,8 @@ export default () => {
 							{rightBlockArr({
 								open,
 								handleTooltipClose,
-								handleTooltipOpen
+								handleTooltipOpen,
+								isHome
 							}).map((el, index) => (
 								<React.Fragment key={index}>
 									{el}
@@ -101,7 +94,7 @@ const headerContainerStyles = (isHome: boolean) => ({
 	},
 	zIndex: 2,
 	width: "100%",
-	maxWidth: 1300,
+	maxWidth: 1460,
 	left: "50%",
 	transform: "translateX(-50%)"
 });

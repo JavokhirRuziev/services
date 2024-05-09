@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material";
-import Categories from "./Categories";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Categories from "../Layout/Header/components/Categories";
 import { theme } from "@/theme";
 import ArrowBottom from "@/public/icons/ArrowBottom";
 

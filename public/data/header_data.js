@@ -1,36 +1,36 @@
-import { Box, Button, Divider, Avatar } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
 import Hover from "@/components/Buttons/Hover";
 import Business from "@/public/icons/Business";
 import Check from "@/public/icons/Check";
 import LogIn from "@/public/icons/LogIn";
-import Account from "@/public/icons/Account";
-import TooltipClick from "../../../Tooltips/TooltipClick";
+// import Account from "@/public/icons/Account";
+// import  Avatar  from "@mui/material/Avatar";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Logo from "@/public/icons/Logo";
 import AuthModal from "@/components/Modals/Auth";
+import TooltipClick from "@/components/Tooltips/TooltipClick";
 
 export const rightBlockArr = ({
 	open,
 	handleTooltipClose,
-	handleTooltipOpen
+	handleTooltipOpen,
+	isHome
 }) => [
 	<TooltipClick {...{ open, handleTooltipClose, content: tooltipContent }}>
 		<Button
 			variant="outlined"
 			color="info"
 			onClick={handleTooltipOpen}
-			sx={buttonStyles}>
+			sx={buttonStyles(isHome)}>
 			CityShahar for Bussiness
 			<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
 		</Button>
 	</TooltipClick>,
-
-	<Button variant="outlined" color="info" sx={buttonStyles}>
+	<Button variant="outlined" color="info" sx={buttonStyles(isHome)}>
 		Write a Review
 	</Button>,
-	// <Button variant="outlined" color="info">
-	// 	Log In
-	// </Button>,
 	<AuthModal />
 
 	// <Avatar sx={{ bgcolor: "secondary.main" }}>
@@ -56,13 +56,15 @@ const tooltipContent = (
 	</Box>
 );
 
-const buttonStyles = {
+const buttonStyles = (isHome) => ({
 	border: "none",
 	boxShadow: "none",
+	color: isHome ? "#fff" : "#000",
 	":hover": {
 		border: "none",
 		boxShadow: "none",
-		bgcolor: "rgba(255,255,255,0.3)"
+		bgcolor: isHome ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)",
+		color: isHome ? "#fff" : "#000"
 	},
 	fontSize: "14px !important"
-};
+});

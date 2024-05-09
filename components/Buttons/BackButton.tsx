@@ -8,23 +8,7 @@ export default ({ goBack }: any) => {
 			display={"inline-block"}
 			data-testid="back-button"
 			onClick={goBack}>
-			<Box
-				sx={{
-					mb: 2,
-					display: "flex",
-					columnGap: 0.5,
-					alignItems: "center",
-					cursor: "pointer",
-					":hover": {
-						"#text": {
-							color: "grey.300"
-						},
-						"#arrow-back": {
-							fill: "grey"
-						}
-					},
-					width: "auto"
-				}}>
+			<Box sx={hoverButtonStyles}>
 				<ArrowBack color="black" />
 				<Typography id="text" data-testid="text">
 					Back
@@ -32,4 +16,21 @@ export default ({ goBack }: any) => {
 			</Box>
 		</Box>
 	);
+};
+
+const hoverButtonStyles = {
+	mb: 2,
+	display: "flex",
+	columnGap: 0.5,
+	alignItems: "center",
+	cursor: "pointer",
+	":hover": {
+		"#text": {
+			color: "grey.300"
+		},
+		"#arrow-back": {
+			fill: "grey"
+		}
+	},
+	width: "auto"
 };

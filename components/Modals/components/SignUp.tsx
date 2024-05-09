@@ -40,7 +40,7 @@ export default ({ goBack }: any) => {
 				onSubmit={(values) => {
 					alert("working");
 				}}>
-				{({ values }) => {
+				{({}) => {
 					return (
 						<Form>
 							<Field

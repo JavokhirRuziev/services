@@ -2,12 +2,12 @@ import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
 import { useSpring, animated } from "@react-spring/web";
 import Typography from "@mui/material/Typography";
 import Registration from "./components/Registration";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import Logo from "@/public/icons/Logo";
+import ButtonGradient from "../Buttons/ButtonGradient";
 interface FadeProps {
 	children: React.ReactElement;
 	in?: boolean;
@@ -62,9 +62,7 @@ export default function AuthModal() {
 
 	return (
 		<>
-			<Button onClick={handleOpen} variant="contained" color="secondary">
-				LogIn / SignUp
-			</Button>
+			<ButtonGradient onClick={handleOpen}>LogIn / SignUp</ButtonGradient>
 			<Modal
 				aria-labelledby="spring-modal-title"
 				aria-describedby="spring-modal-description"
@@ -85,7 +83,7 @@ export default function AuthModal() {
 								component={"div"}
 								sx={welcomeTextStyles}>
 								Welcome to Solve Me!
-								<Logo width="40" height="40" />
+								<Logo />
 							</Typography>
 						</Box>
 						<Box sx={{ p: 4, width: "70%" }}>

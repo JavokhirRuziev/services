@@ -1,11 +1,15 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default ({ children, text, onClick }: any) => {
+export default ({ children, text, onClick, sx }: any) => {
 	return (
 		<Box sx={wrapperStyles} {...{ onClick }}>
 			{children && children}
-			<Typography id="text" variant={"body1"} whiteSpace={"nowrap"}>
+			<Typography
+				id="text"
+				variant={"body1"}
+				whiteSpace={"nowrap"}
+				sx={{ ...sx }}>
 				{text}
 			</Typography>
 		</Box>
@@ -22,10 +26,10 @@ const wrapperStyles = {
 	cursor: "pointer",
 
 	"&:hover": {
-		bgcolor: "secondary.light",
-		path: { fill: "white" },
-		"#text": {
-			color: "white"
-		}
+		bgcolor: "secondary.light"
+		// path: { fill: "white" },
+		// "#text": {
+		// 	color: "white"
+		// }
 	}
 };

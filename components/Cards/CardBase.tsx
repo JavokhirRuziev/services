@@ -3,16 +3,15 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-import Rating from "@/components/Rating";
 import { theme } from "@/theme";
 import Walk from "@/public/icons/Walk";
 import Car from "@/public/icons/Car";
 import TransPort from "@/public/icons/Transport";
+import ButtonGradient from "../Buttons/ButtonGradient";
 
-const CardComponent = ({ el }: any) => {
+const CardComponent = ({ el, voucher }: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
 
@@ -31,7 +30,6 @@ const CardComponent = ({ el }: any) => {
 			boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 50px -5px ${theme.palette.grey[400]}`
 		},
 		transition: "none",
-		// maxHeight: 300,
 		border: `2px solid ${theme.palette.grey[200]}`,
 		width: "100%"
 	};
@@ -57,25 +55,29 @@ const CardComponent = ({ el }: any) => {
 					component={"div"}
 					color={"grey.600"}
 					mb={1}>
-					From{" "}
+					{voucher && (
+						<>
+							From{" "}
+							<Typography
+								component={"span"}
+								variant="subtitle2"
+								color={"grey.600"}
+								sx={{ textDecoration: "line-through" }}>
+								200${" "}
+							</Typography>
+						</>
+					)}{" "}
 					<Typography
 						component={"span"}
 						variant="subtitle1"
-						color={"primary.main"}>
+						color={"warning.main"}>
 						$322
 					</Typography>{" "}
 					/ week
 				</Typography>
-				<Button
-					size="small"
-					color="secondary"
-					disableElevation
-					disableFocusRipple
-					disableRipple
-					disableTouchRipple
-					sx={cheapStyles}>
+				<ButtonGradient {...buttonProps}>
 					Cheapest in the past 10 months
-				</Button>
+				</ButtonGradient>
 			</CardContent>
 			<CardActions sx={{ p: "0px 16px 16px" }}>
 				<Box sx={cardActionsWrapperStyles}>
@@ -101,8 +103,12 @@ const CardComponent = ({ el }: any) => {
 	);
 };
 
-export default function SuggestionsCard({ el }: any) {
-	return <CardComponent {...{ el }} />;
+export default function CardBase({ el, voucher }: any) {
+	return (
+		<Box>
+			<CardComponent {...{ el, voucher }} />
+		</Box>
+	);
 }
 
 const cardActionsWrapperStyles = {
@@ -129,8 +135,12 @@ const actions_arr = [
 	{ icon: <TransPort />, text: "23 mins" }
 ];
 
-const star = ({ el }: any) => (
-	<Box sx={{ display: "flex", m: "10px" }}>
-		<Rating rating={el?.review} />
-	</Box>
-);
+const buttonProps = {
+	size: "small",
+	color: "secondary",
+	disableElevation: true,
+	disableFocusRipple: true,
+	disableRipple: true,
+	disableTouchRipple: true,
+	sx: cheapStyles
+};

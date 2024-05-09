@@ -12,21 +12,19 @@ type contentTypes = {
 };
 
 export default ({ el }: contentTypes) => {
-	console.log(el);
 	return (
-		<Box sx={{ width: 250, height: 250, p: 1 }}>
-			<Box sx={{ width: "100%", height: "70%", position: "relative" }}>
+		<Box sx={{ width: 267, height: 250, py: "4px" }}>
+			<Box sx={{ width: "100%", height: "85%", position: "relative" }}>
 				<Image
 					src={el?.img}
 					objectFit="cover"
 					layout="fill"
 					alt="tooltip-image"
+					style={{ borderRadius: 4 }}
 				/>
 			</Box>
-			<Box sx={{ mt: 1 }}>
-				<Typography variant="h4" mb={2}>
-					{el?.author_name}
-				</Typography>
+			<Box sx={bottomWrapperStyles}>
+				<Typography variant="h6">{el?.author_name}</Typography>
 				<Box
 					sx={{
 						display: "flex",
@@ -34,9 +32,19 @@ export default ({ el }: contentTypes) => {
 						columnGap: 1
 					}}>
 					<StarRating {...{ rating: el?.review }} />{" "}
-					<Typography variant="body2">{el?.review}</Typography>
+					<Typography variant="body2" color={"grey.200"}>
+						({el?.review})
+					</Typography>
 				</Box>
 			</Box>
 		</Box>
 	);
+};
+
+const bottomWrapperStyles = {
+	mt: 1,
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "space-between",
+	px: 1
 };

@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 import { useRouter } from "next/router";
 import Hover from "@/components/Buttons/Hover";
 

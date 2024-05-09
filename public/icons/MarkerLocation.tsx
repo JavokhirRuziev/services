@@ -1,18 +1,32 @@
-export default () => {
-  return (
-    <svg
-      fill="#000000"
-      width="25px"
-      height="25px"
-      viewBox="0 0 8 8"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3 0c-1.66 0-3 1.34-3 3 0 2 3 5 3 5s3-3 3-5c0-1.66-1.34-3-3-3zm0 1c1.11 0 2 .9 2 2 0 1.11-.89 2-2 2-1.1 0-2-.89-2-2 0-1.1.9-2 2-2z"
-        transform="translate(1)"
-      >
-        <circle cx="0" cy="0" r="2" fill="#ffffff" />
-      </path>
-    </svg>
-  );
+export default ({ border, content, color }: any) => {
+	return (
+		<svg
+			width="41"
+			height="41"
+			viewBox="0 0 41 41"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M6.18418 14.5037C9.54959 -0.290453 31.4675 -0.273369 34.8158 14.5208C36.7804 23.1991 31.3821 30.545 26.65 35.0891C23.2163 38.4033 17.7838 38.4033 14.3329 35.0891C9.61793 30.545 4.21959 23.182 6.18418 14.5037Z"
+				fill="url(#paint0_linear_144_529)"
+				stroke={border || "white"}
+				stroke-width="2.5625"
+			/>
+			<text x="20.5" y="24.5">
+				{content}
+			</text>
+			<defs>
+				<linearGradient
+					id="paint0_linear_144_529"
+					x1="20.5"
+					y1="-13.0055"
+					x2="20.5"
+					y2="48.3039"
+					gradientUnits="userSpaceOnUse">
+					<stop offset="0.140112" stop-color="#A0DAFB" />
+					<stop offset="1" stop-color="#0A8ED9" />
+				</linearGradient>
+			</defs>
+		</svg>
+	);
 };

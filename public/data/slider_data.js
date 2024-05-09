@@ -1,18 +1,18 @@
 export const slider_arr = [
-	{
-		name: "first image",
-		img: "/images/slider6.jpeg",
-		description: "Get the perfect fit",
-		buttonText: "Sewing alternations",
-		link: "/"
-	},
 	// {
-	// 	name: "second image",
-	// 	img: "/images/slider7.jpeg",
-	// 	description: "Weekend on a plate",
-	// 	buttonText: "Brunch",
+	// 	name: "first image",
+	// 	img: "/images/slider6.jpeg",
+	// 	description: "Get the perfect fit",
+	// 	buttonText: "Sewing alternations",
 	// 	link: "/"
 	// },
+	{
+		name: "second image",
+		img: "/images/slider7.jpeg",
+		description: "Weekend on a plate",
+		buttonText: "Brunch",
+		link: "/"
+	},
 	{
 		name: "third image",
 		img: "/images/slider3.webp",

@@ -3,13 +3,12 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import { footer_links_arr } from "@/public/data/footer_data";
+import { actions_arr, footer_links_arr } from "@/public/data/footer_data";
 import TooltipClick from "../../Tooltips/TooltipClick";
 import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Title from "./components/Title";
 import Subtitle from "./components/Subtitle";
-import { actions_arr } from "./components/data";
 
 export default () => {
 	const [open, setOpen] = useState({ lang: false, countries: false });

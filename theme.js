@@ -11,19 +11,20 @@ export let theme = createTheme({
 		values: {
 			mobile: 0,
 			tablet: 640,
-			desktop: 1140
+			desktop: 1140,
+			monitor: 1340
 		}
 	},
 	palette: {
 		mode: "light",
 		primary: {
-			main: "#37CB8D",
+			main: "#44CF9D",
 			light: "#3de39e",
 			contrastText: "#fff"
 		},
 		secondary: {
-			main: "#3D6BD6",
-			light: "#4374e6",
+			main: "#0A8ED9",
+			light: "#A0DAFB",
 			contrastText: "#fff"
 		},
 		error: {
@@ -32,7 +33,7 @@ export let theme = createTheme({
 			contrastText: "#fff"
 		},
 		warning: {
-			main: "#ffeb56",
+			main: "#FFBD70",
 			light: "#666",
 			contrastText: "#fff"
 		},
@@ -52,7 +53,8 @@ export let theme = createTheme({
 			300: "#F7F7F7",
 			// 400: "6E7072",
 			500: "#64748B",
-			600: "#717171"
+			600: "#717171",
+			700: "#2D2E2F"
 		}
 	},
 	typography: {
@@ -83,7 +85,8 @@ export let theme = createTheme({
 				// disableElevation: true,
 				// disableFocusRipple: true,
 				// disableRipple: true,
-				variant: "contained"
+				variant: "contained",
+				color: "secondary"
 			},
 			styleOverrides: {
 				root: {
@@ -257,11 +260,11 @@ theme = createTheme(theme, {
 				h4: {
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 18,
-						fontFamily: `"QuickBold", sans-serif`
+						fontFamily: `"PoppinsMedium", sans-serif`
 					},
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 25,
-						fontFamily: `"QuickBold", sans-serif`
+						fontFamily: `"PoppinsMedium", sans-serif`
 					}
 				},
 				h5: {
@@ -322,6 +325,16 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 10,
 						fontFamily: `"PoppinsRegular", sans-serif`
+					}
+				},
+				paragraph: {
+					[theme.breakpoints.down("desktop")]: {
+						fontSize: 10,
+						fontFamily: `"PoppinsThin", sans-serif`
+					},
+					[theme.breakpoints.up("desktop")]: {
+						fontSize: 12,
+						fontFamily: `"PoppinsThin", sans-serif`
 					}
 				}
 			}

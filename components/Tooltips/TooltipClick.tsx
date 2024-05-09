@@ -2,6 +2,7 @@ import breakpoints from "@/utils/breakpoints";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { useEffect, useRef } from "react";
+import Box from "@mui/material/Box";
 
 export default ({
 	children,
@@ -13,7 +14,7 @@ export default ({
 	const { mobile } = breakpoints();
 
 	const tooltipChildren = Array.isArray(children) ? (
-		<div>{children}</div>
+		<Box>{children}</Box>
 	) : (
 		children
 	);

@@ -1,5 +1,5 @@
 import { theme } from "@/theme";
-import { Link, Box } from "@mui/material";
+import Link from "@mui/material/Link";
 
 const Subtitle = ({ children, link }: any) => {
 	return (

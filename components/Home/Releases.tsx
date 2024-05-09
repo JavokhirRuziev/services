@@ -17,14 +17,7 @@ export default () => {
 						width={205}
 						height={88}
 						alt="new"
-						style={{
-							position: "absolute",
-							transform: "rotate(25deg)",
-							right: -80,
-							top: 50,
-							zIndex: -1,
-							opacity: 0.5
-						}}
+						style={imgaeStyles}
 					/>
 					<Typography variant="h2" mb={0.5}>
 						New Releases
@@ -73,4 +66,13 @@ const cardWrapperStyle = {
 	rowGap: "30px",
 	justifyContent: "center",
 	mb: 5
+};
+
+const imgaeStyles: React.CSSProperties = {
+	position: "absolute",
+	transform: "rotate(25deg)",
+	right: -80,
+	top: 50,
+	zIndex: -1,
+	opacity: 0.5
 };

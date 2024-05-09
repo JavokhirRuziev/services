@@ -11,6 +11,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Search from "@/public/icons/Search";
+import ButtonGradient from "../Buttons/ButtonGradient";
 
 export default () => {
 	const { push } = useRouter();
@@ -95,13 +96,12 @@ export default () => {
 								{el?.description}
 							</Typography>
 							<Box>
-								<Button
+								<ButtonGradient
 									onClick={() => handleGoToLink(el?.link)}
-									color="secondary"
-									size="large"
-									startIcon={<Search />}>
+									startIcon={<Search />}
+									size={"large"}>
 									{el?.buttonText}
-								</Button>
+								</ButtonGradient>
 							</Box>
 						</Box>
 					</SwiperSlide>
@@ -129,7 +129,7 @@ const sliderWrapperStyles = {
 		right: 0,
 		bottom: 0,
 		background:
-			"linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
+			"linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))",
 		zIndex: 9
 	},
 

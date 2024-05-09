@@ -5,14 +5,29 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
 import { theme } from "@/theme";
 import Student from "@/public/icons/Student";
 import Sale from "@/public/icons/Sale";
+import ButtonGradient from "../Buttons/ButtonGradient";
 
-const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
+const CardComponent = ({
+	el,
+	isCheap,
+	sale,
+	cashback,
+	voucher,
+	setHoveredCardId,
+	isHoverAble
+}: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
+
+	const handleMouseEnter = () => {
+		setHoveredCardId(el.id);
+	};
+	const handleMouseLeave = () => {
+		setHoveredCardId(null);
+	};
 
 	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
 		if (containerRef.current) {
@@ -24,14 +39,14 @@ const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 	};
 
 	const cardStyles = {
-		maxWidth: 360,
 		":hover": {
 			boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 50px -5px ${theme.palette.grey[400]}`
 		},
 		transition: "none",
 		border: `2px solid ${theme.palette.grey[200]}`,
-		width: "100%",
-		position: "relative"
+		maxWidth: 360,
+		position: "relative",
+		width: "100%"
 	};
 
 	return (
@@ -39,6 +54,10 @@ const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 			ref={containerRef}
 			data-testid="suggestion-card"
 			sx={cardStyles}
+			{...(isHoverAble && {
+				onMouseEnter: handleMouseEnter,
+				onMouseLeave: handleMouseLeave
+			})}
 			onMouseMove={handleMouseMove}>
 			<CardMedia
 				component="img"
@@ -47,19 +66,7 @@ const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 				alt={el?.img}
 			/>
 			{voucher && (
-				<Box
-					sx={{
-						opacity: 0.5,
-						height: 32,
-						position: "absolute",
-						top: 163,
-						right: 0,
-						left: 0,
-						bgcolor: "secondary.main",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center"
-					}}>
+				<Box sx={voucherStyles}>
 					<Typography
 						variant="body2"
 						color={"white"}
@@ -78,11 +85,22 @@ const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 					component={"div"}
 					color={"grey.600"}
 					mb={1}>
-					From{" "}
+					{voucher && (
+						<>
+							From{" "}
+							<Typography
+								component={"span"}
+								variant="subtitle2"
+								color={"grey.600"}
+								sx={{ textDecoration: "line-through" }}>
+								200${" "}
+							</Typography>
+						</>
+					)}
 					<Typography
 						component={"span"}
 						variant="subtitle1"
-						color={"primary.main"}>
+						color={"warning.main"}>
 						$322
 					</Typography>{" "}
 					/ week
@@ -123,30 +141,39 @@ const CardComponent = ({ el, isCheap, sale, cashback, voucher }: any) => {
 				</Box>
 
 				{isCheap && (
-					<Button
-						size="small"
-						color="secondary"
-						disableElevation
-						disableFocusRipple
-						disableRipple
-						disableTouchRipple
-						sx={cheapStyles}>
+					<ButtonGradient {...buttonProps}>
 						Cheapest in the past 10 months
-					</Button>
+					</ButtonGradient>
 				)}
 			</CardContent>
 		</Card>
 	);
 };
 
-export default function SuggestionsCard({
+export default function CardLarge({
 	el,
 	isCheap,
 	sale,
 	cashback,
-	voucher
+	voucher,
+	setHoveredCardId,
+	isHoverAble
 }: any) {
-	return <CardComponent {...{ el, isCheap, sale, cashback, voucher }} />;
+	return (
+		<Box>
+			<CardComponent
+				{...{
+					el,
+					isCheap,
+					sale,
+					cashback,
+					voucher,
+					setHoveredCardId,
+					isHoverAble
+				}}
+			/>
+		</Box>
+	);
 }
 
 const directionStyles = {
@@ -163,4 +190,26 @@ const cheapStyles = {
 		color: "white",
 		boxShadow: "none"
 	}
+};
+
+const voucherStyles = {
+	opacity: 0.5,
+	height: 32,
+	position: "absolute",
+	top: 163,
+	right: 0,
+	left: 0,
+	bgcolor: "secondary.main",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center"
+};
+
+const buttonProps = {
+	size: "small",
+	disableElevation: true,
+	disableFocusRipple: true,
+	disableRipple: true,
+	disableTouchRipple: true,
+	sx: cheapStyles
 };
