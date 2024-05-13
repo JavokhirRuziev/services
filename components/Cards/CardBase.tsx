@@ -10,9 +10,11 @@ import Walk from "@/public/icons/Walk";
 import Car from "@/public/icons/Car";
 import TransPort from "@/public/icons/Transport";
 import ButtonGradient from "../Buttons/ButtonGradient";
+import { useRouter } from "next/router";
 
-const CardComponent = ({ el, voucher }: any) => {
+const CardComponent = ({ el, voucher, maxWidth }: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
+	const { push } = useRouter();
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
 
 	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -23,15 +25,17 @@ const CardComponent = ({ el, voucher }: any) => {
 			setShadowPosition({ x: xOffset, y: yOffset });
 		}
 	};
+	const handleClick = (id: string | number) => push(`/services/${id}`);
 
 	const cardStyles = {
-		maxWidth: 263,
+		maxWidth: maxWidth || 263,
 		":hover": {
 			boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 50px -5px ${theme.palette.grey[400]}`
 		},
 		transition: "none",
 		border: `2px solid ${theme.palette.grey[200]}`,
-		width: "100%"
+		width: "100%",
+		cursor: "pointer"
 	};
 
 	return (
@@ -39,7 +43,8 @@ const CardComponent = ({ el, voucher }: any) => {
 			ref={containerRef}
 			data-testid="suggestion-card"
 			sx={cardStyles}
-			onMouseMove={handleMouseMove}>
+			onMouseMove={handleMouseMove}
+			onClick={() => handleClick(el?.id)}>
 			<CardMedia
 				component="img"
 				height="160"
@@ -103,10 +108,10 @@ const CardComponent = ({ el, voucher }: any) => {
 	);
 };
 
-export default function CardBase({ el, voucher }: any) {
+export default function CardBase({ el, voucher, maxWidth }: any) {
 	return (
 		<Box>
-			<CardComponent {...{ el, voucher }} />
+			<CardComponent {...{ el, voucher, maxWidth }} />
 		</Box>
 	);
 }
@@ -124,7 +129,7 @@ const cheapStyles = {
 	boxShadow: "none",
 	":hover": {
 		bgcolor: "secondary.main",
-		color: "white",
+		color: "common.white",
 		boxShadow: "none"
 	}
 };

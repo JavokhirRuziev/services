@@ -9,6 +9,7 @@ import { theme } from "@/theme";
 import Student from "@/public/icons/Student";
 import Sale from "@/public/icons/Sale";
 import ButtonGradient from "../Buttons/ButtonGradient";
+import { useRouter } from "next/router";
 
 const CardComponent = ({
 	el,
@@ -20,6 +21,7 @@ const CardComponent = ({
 	isHoverAble
 }: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
+	const { push } = useRouter();
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
 
 	const handleMouseEnter = () => {
@@ -38,6 +40,8 @@ const CardComponent = ({
 		}
 	};
 
+	const handleClick = (id: string | number) => push(`/services/${id}`);
+
 	const cardStyles = {
 		":hover": {
 			boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 50px -5px ${theme.palette.grey[400]}`
@@ -46,7 +50,8 @@ const CardComponent = ({
 		border: `2px solid ${theme.palette.grey[200]}`,
 		maxWidth: 360,
 		position: "relative",
-		width: "100%"
+		width: "100%",
+		cursor: "pointer"
 	};
 
 	return (
@@ -58,7 +63,8 @@ const CardComponent = ({
 				onMouseEnter: handleMouseEnter,
 				onMouseLeave: handleMouseLeave
 			})}
-			onMouseMove={handleMouseMove}>
+			onMouseMove={handleMouseMove}
+			onClick={() => handleClick(el?.id)}>
 			<CardMedia
 				component="img"
 				height="195"
@@ -69,7 +75,7 @@ const CardComponent = ({
 				<Box sx={voucherStyles}>
 					<Typography
 						variant="body2"
-						color={"white"}
+						color={"common.white"}
 						sx={{ zIndex: -1 }}>
 						$100 Uber voucher
 					</Typography>
@@ -187,7 +193,7 @@ const cheapStyles = {
 	boxShadow: "none",
 	":hover": {
 		bgcolor: "secondary.main",
-		color: "white",
+		color: "common.white",
 		boxShadow: "none"
 	}
 };

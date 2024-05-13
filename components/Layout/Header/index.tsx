@@ -8,25 +8,21 @@ import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
 import Search from "@/public/icons/Search";
 import Link from "next/link";
-import Logo from "@/public/icons/Logo";
+import Logo from "@/public/icons/LogoText";
 import { rightBlockArr } from "@/public/data/header_data";
+import { theme } from "@/theme";
 
 export default () => {
 	const { pathname } = useRouter();
 	const { mobile, tablet } = breakpoints();
 	const isHome = pathname === "/";
 	const logoColor = mobile
-		? "black"
+		? theme.palette.common.black
 		: tablet
-		? "black"
+		? theme.palette.common.black
 		: isHome
-		? "white"
-		: "black";
-	const logoTextColor = {
-		mobile: "black",
-		tablet: "black",
-		desktop: isHome ? "white" : "black"
-	};
+		? theme.palette.common.white
+		: theme.palette.common.black;
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState("");
 
@@ -101,7 +97,7 @@ const headerContainerStyles = (isHome: boolean) => ({
 
 const logoStyles = {
 	textDecoration: "none",
-	color: "white",
+	color: theme.palette.common.white,
 	display: "flex",
 	columnGap: "10px"
 };

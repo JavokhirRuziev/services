@@ -23,7 +23,7 @@ export let theme = createTheme({
 			contrastText: "#fff"
 		},
 		secondary: {
-			main: "#0A8ED9",
+			main: "#00B2FF",
 			light: "#A0DAFB",
 			contrastText: "#fff"
 		},
@@ -55,10 +55,15 @@ export let theme = createTheme({
 			500: "#64748B",
 			600: "#717171",
 			700: "#2D2E2F"
+		},
+		common: {
+			white: "#fff",
+			black: "#2D2E2F"
 		}
 	},
 	typography: {
-		fontFamily: `"PoppinsRegular", sans-serif`
+		fontFamily: `"PoppinsRegular", sans-serif`,
+		color: "#2D2E2F"
 	},
 	fontFamily: {
 		Bold: `"QuickBold", sans-serif`,
@@ -234,7 +239,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 48,
 						fontFamily: `"PoppinsBold", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				h2: {
 					[theme.breakpoints.down("desktop")]: {
@@ -244,7 +250,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 32,
 						fontFamily: `"PoppinsRegular", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				h3: {
 					[theme.breakpoints.down("desktop")]: {
@@ -254,7 +261,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 34,
 						fontFamily: `"QuickMedium", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 
 				h4: {
@@ -265,7 +273,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 25,
 						fontFamily: `"PoppinsMedium", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				h5: {
 					[theme.breakpoints.down("desktop")]: {
@@ -275,7 +284,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 18,
 						fontFamily: `"PoppinsRegular", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				h6: {
 					[theme.breakpoints.down("desktop")]: {
@@ -285,7 +295,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 16,
 						fontFamily: `"PoppinsMedium", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				body1: {
 					[theme.breakpoints.down("desktop")]: {
@@ -295,7 +306,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 16,
 						fontFamily: `"OpenSansRegular", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				body2: {
 					[theme.breakpoints.down("desktop")]: {
@@ -305,7 +317,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 14,
 						fontFamily: `"PoppinsRegular", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				subtitle1: {
 					[theme.breakpoints.down("desktop")]: {
@@ -315,7 +328,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 14,
 						fontFamily: `"PoppinsMedium", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				subtitle2: {
 					[theme.breakpoints.down("desktop")]: {
@@ -325,7 +339,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 10,
 						fontFamily: `"PoppinsRegular", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				},
 				paragraph: {
 					[theme.breakpoints.down("desktop")]: {
@@ -335,7 +350,8 @@ theme = createTheme(theme, {
 					[theme.breakpoints.up("desktop")]: {
 						fontSize: 12,
 						fontFamily: `"PoppinsThin", sans-serif`
-					}
+					},
+					color: theme.palette.common.black
 				}
 			}
 		}

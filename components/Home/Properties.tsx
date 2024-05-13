@@ -10,7 +10,7 @@ export default () => {
 	return (
 		<Box
 			sx={{
-				bgcolor: "white"
+				bgcolor: "common.white"
 			}}>
 			<Box sx={wrapper}>
 				<Container>

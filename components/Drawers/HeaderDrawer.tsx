@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import Menu from "@/public/icons/Menu";
+import { theme } from "@/theme";
 
 type Anchor = "right";
 
@@ -39,7 +40,7 @@ export default function HeaderDrawer({ children }: any) {
 					color="secondary"
 					variant={"contained"}
 					size="small">
-					<Menu color="white" />
+					<Menu color={theme.palette.common.white} />
 				</Button>
 			</Box>
 			{children}

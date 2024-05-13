@@ -27,9 +27,5 @@ const wrapperStyles = {
 
 	"&:hover": {
 		bgcolor: "secondary.light"
-		// path: { fill: "white" },
-		// "#text": {
-		// 	color: "white"
-		// }
 	}
 };

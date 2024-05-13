@@ -1,3 +1,5 @@
+import { theme } from "@/theme";
+
 export default ({ border, content, color }: any) => {
 	return (
 		<svg
@@ -9,7 +11,7 @@ export default ({ border, content, color }: any) => {
 			<path
 				d="M6.18418 14.5037C9.54959 -0.290453 31.4675 -0.273369 34.8158 14.5208C36.7804 23.1991 31.3821 30.545 26.65 35.0891C23.2163 38.4033 17.7838 38.4033 14.3329 35.0891C9.61793 30.545 4.21959 23.182 6.18418 14.5037Z"
 				fill="url(#paint0_linear_144_529)"
-				stroke={border || "white"}
+				stroke={border || theme.palette.common.white}
 				stroke-width="2.5625"
 			/>
 			<text x="20.5" y="24.5">

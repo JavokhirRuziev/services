@@ -22,7 +22,13 @@ export default ({ el, isHome }: DropDownTypes) => {
 				<Typography {...dynamicColor(isHome)} variant="body2">
 					{el?.name}
 				</Typography>
-				<ArrowBottom color={isHome ? "white" : "black"} />
+				<ArrowBottom
+					color={
+						isHome
+							? theme.palette.common.white
+							: theme.palette.common.black
+					}
+				/>
 			</Box>
 			<Box className="categories">
 				<Categories category={el?.category} />
@@ -55,8 +61,10 @@ const dropDownContainerStyles = {
 
 const dynamicColor = (isHome: boolean) => ({
 	color: {
-		mobile: "black",
-		tablet: "black",
-		desktop: isHome ? "white" : "black"
+		mobile: theme.palette.common.black,
+		tablet: theme.palette.common.black,
+		desktop: isHome
+			? theme.palette.common.white
+			: theme.palette.common.black
 	}
 });

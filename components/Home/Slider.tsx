@@ -91,7 +91,7 @@ export default () => {
 							<Typography
 								variant="h1"
 								fontWeight={"bold"}
-								color={"white"}
+								color={"common.white"}
 								maxWidth={600}>
 								{el?.description}
 							</Typography>

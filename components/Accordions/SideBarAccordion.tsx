@@ -12,7 +12,7 @@ import Hover from "../Buttons/Hover";
 import Business from "@/public/icons/Business";
 import Check from "@/public/icons/Check";
 import LogIn from "@/public/icons/LogIn";
-import Logo from "@/public/icons/Logo";
+import Logo from "@/public/icons/LogoText";
 
 export default function SideBarAccordion() {
 	const [expanded, setExpanded] = React.useState<string | false>("");

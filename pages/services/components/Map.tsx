@@ -16,7 +16,7 @@ const initialViewState = {
 	zoom: 13
 };
 
-export default ({ arr, hoveredCardId }: any) => {
+export default ({ arr, hoveredCardId, height }: any) => {
 	const { mobile } = breakpoints();
 	const [open, setOpen] = useState(false);
 
@@ -28,47 +28,51 @@ export default ({ arr, hoveredCardId }: any) => {
 		setOpen(false);
 	};
 	return (
-		<Map
-			mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
-			{...{ initialViewState }}
-			style={{
-				width: "100%",
-				height: "100vh",
-				position: "sticky",
-				top: 0
-			}}
-			mapStyle="mapbox://styles/mapbox/streets-v10"
-			// onClick={handleMapClick}
-		>
-			{arr?.map((el: any, index: number) => (
-				<Marker longitude={el.position[0]} latitude={el.position[1]}>
-					<Tooltip
-						sx={{ maxWidth: 350 }}
-						title={<TooltipContent {...{ el }} />}
-						placement="top-end"
-						arrow
-						TransitionComponent={Zoom}
-						{...(mobile && {
-							open: open,
-							onClose: handleTooltipClose
-						})}>
-						<Box
-							sx={{
-								...markerStyles,
-								...markerIconStyles(hoveredCardId, el.id)
-							}}
-							{...(mobile && { onClick: handleTooltipOpen })}>
-							<MarkerLocation content={index + 1} />
-						</Box>
-					</Tooltip>
-				</Marker>
-			))}
+		arr && (
+			<Map
+				mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
+				{...{ initialViewState }}
+				style={{
+					width: "100%",
+					height: height || "100vh",
+					position: "sticky",
+					top: 0
+				}}
+				mapStyle="mapbox://styles/mapbox/streets-v10"
+				// onClick={handleMapClick}
+			>
+				{arr?.map((el: any, index: number) => (
+					<Marker
+						longitude={el?.position[0]}
+						latitude={el?.position[1]}>
+						<Tooltip
+							sx={{ maxWidth: 350 }}
+							title={<TooltipContent {...{ el }} />}
+							placement="top-end"
+							arrow
+							TransitionComponent={Zoom}
+							{...(mobile && {
+								open: open,
+								onClose: handleTooltipClose
+							})}>
+							<Box
+								sx={{
+									...markerStyles,
+									...markerIconStyles(hoveredCardId, el.id)
+								}}
+								{...(mobile && { onClick: handleTooltipOpen })}>
+								<MarkerLocation content={index + 1} />
+							</Box>
+						</Tooltip>
+					</Marker>
+				))}
 
-			<Box style={{ position: "absolute", top: 10, right: 10 }}>
-				<NavigationControl />
-				<GeolocateControl />
-			</Box>
-		</Map>
+				<Box style={{ position: "absolute", top: 10, right: 10 }}>
+					<NavigationControl />
+					<GeolocateControl />
+				</Box>
+			</Map>
+		)
 	);
 };
 
@@ -78,7 +82,7 @@ const markerStyles = {
 	":hover": {
 		".icon": {
 			border: `5px solid ${theme.palette.error.main}`,
-			color: "white"
+			color: theme.palette.common.white
 		},
 		".order-text": {
 			color: theme.palette.error.main
@@ -90,7 +94,7 @@ const markerIconStyles = (hoveredCardId: any, id: any) => ({
 	transition: "0.3s",
 	":hover": {
 		path: {
-			fill: "white",
+			fill: theme.palette.common.white,
 			stroke: "#A0DAFB"
 		},
 		text: {
@@ -98,11 +102,11 @@ const markerIconStyles = (hoveredCardId: any, id: any) => ({
 		}
 	},
 	path: {
-		fill: hoveredCardId === id ? "white" : "error.main",
-		stroke: hoveredCardId === id ? "#A0DAFB" : "white"
+		fill: hoveredCardId === id ? theme.palette.common.white : "error.main",
+		stroke: hoveredCardId === id ? "#A0DAFB" : theme.palette.common.white
 	},
 	text: {
-		fill: hoveredCardId === id ? "#A0DAFB" : "white",
+		fill: hoveredCardId === id ? "#A0DAFB" : theme.palette.common.white,
 		fontSize: "17px",
 		fontFamily: '"PoppinsRegular", sans-serif',
 		textAnchor: "middle"

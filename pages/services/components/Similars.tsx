@@ -2,37 +2,26 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { suggestions_arr } from "../../public/data/suggestions_data";
-import CardLarge from "../Cards/CardLarge";
 import React from "react";
-import Image from "next/image";
+import { suggestions_arr } from "@/public/data/suggestions_data";
+import CardLarge from "@/components/Cards/CardLarge";
 
 export default () => {
 	return (
-		<Box bgcolor={"common.white"}>
-			<Box sx={wrapper} className="releases">
-				<Container sx={{ position: "relative", zIndex: 1 }}>
-					<Image
-						src={"/images/new.png"}
-						width={205}
-						height={88}
-						alt="new"
-						style={imgaeStyles}
-					/>
-					<Typography variant="h2" mb={0.5}>
-						New Releases
+		<Box>
+			<Box sx={wrapper}>
+				<Container>
+					<Typography variant="h2" mb={"25px"} ml={4}>
+						Similar properties
 					</Typography>
-					<Typography variant="h5" mb={"25px"} color={"grey.600"}>
-						Get instant updates on new properties, new landlords and
-						re-published popular rooms
-					</Typography>
+
 					<Box sx={cardWrapperStyle}>
-						{suggestions_arr.map((el, index) => {
+						{suggestions_arr.slice(0, 3).map((el, index) => {
 							return (
 								<CardLarge
 									{...{
 										el,
-										voucher: Boolean(index % 2 === 0)
+										voucher: Boolean(index % 2 !== 0)
 									}}
 									key={index}
 									isCheap
@@ -66,13 +55,4 @@ const cardWrapperStyle = {
 	rowGap: "30px",
 	justifyContent: "center",
 	mb: 5
-};
-
-const imgaeStyles: React.CSSProperties = {
-	position: "absolute",
-	transform: "rotate(25deg)",
-	right: -80,
-	top: 50,
-	zIndex: -1,
-	opacity: 0.5
 };

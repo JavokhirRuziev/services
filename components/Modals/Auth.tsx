@@ -6,8 +6,8 @@ import { useSpring, animated } from "@react-spring/web";
 import Typography from "@mui/material/Typography";
 import Registration from "./components/Registration";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
-import Logo from "@/public/icons/Logo";
 import ButtonGradient from "../Buttons/ButtonGradient";
+import LogoText from "@/public/icons/LogoText";
 interface FadeProps {
 	children: React.ReactElement;
 	in?: boolean;
@@ -82,8 +82,7 @@ export default function AuthModal() {
 							<Typography
 								component={"div"}
 								sx={welcomeTextStyles}>
-								Welcome to Solve Me!
-								<Logo />
+								Welcome to <LogoText />
 							</Typography>
 						</Box>
 						<Box sx={{ p: 4, width: "70%" }}>
@@ -127,7 +126,7 @@ const welcomeTextStyles = {
 	mb: 3,
 	width: 150,
 	position: "absolute",
-	color: "white",
+	color: "common.white",
 	textAlign: "center",
 	fontSize: "22px !important",
 	display: "flex",

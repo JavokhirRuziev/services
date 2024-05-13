@@ -8,7 +8,7 @@ import React from "react";
 
 export default () => {
 	return (
-		<Box sx={{ bgcolor: "white" }}>
+		<Box sx={{ bgcolor: "common.white" }}>
 			<Box sx={wrapper}>
 				<Container>
 					<Typography variant="h2" mb={0.5}>

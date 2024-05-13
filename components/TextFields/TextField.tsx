@@ -22,7 +22,7 @@ export default ({
 				"& .MuiOutlinedInput-root": {
 					fontSize: 16,
 					borderRadius: "4px",
-					color: "black",
+					color: "common.black",
 					bgcolor: "common.white",
 					p: 0,
 					"&:hover": {

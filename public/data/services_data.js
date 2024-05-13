@@ -7,9 +7,21 @@ export const services_data = [
 	{
 		name: "Rent",
 		category: [
-			{ name: "Sell", icon: <Sell /> },
-			{ name: "For Business", icon: <ForBusiness /> },
-			{ name: "Rent", icon: <Rent /> }
+			{
+				name: "Sell",
+				icon: <Sell />,
+				link: "/services?type=rent&category=sell"
+			},
+			{
+				name: "For Business",
+				icon: <ForBusiness />,
+				link: "/services?type=rent&category=forbusiness"
+			},
+			{
+				name: "Rent",
+				icon: <Rent />,
+				link: "/services?type=rent&category=rent"
+			}
 		]
 	}
 ];

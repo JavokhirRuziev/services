@@ -5,16 +5,19 @@ import { useRouter } from "next/router";
 import Hover from "@/components/Buttons/Hover";
 
 type categoryTypes = {
-	category: { name: string; icon: JSX.Element }[];
+	category: { name: string; icon: JSX.Element; link: string }[];
 };
 
 export default function Categories({ category }: categoryTypes) {
 	const { push } = useRouter();
-	const handleGo = () => push("/services");
+	const handleGo = (link: string) => push(link);
 	return (
 		<Paper sx={paperStyles({ category })}>
 			{category?.map((el, index) => (
-				<Box role="button" key={index} onClick={handleGo}>
+				<Box
+					role="button"
+					key={index}
+					onClick={() => handleGo(el?.link)}>
 					<Hover text={el?.name}>{el?.icon}</Hover>
 				</Box>
 			))}
@@ -24,7 +27,7 @@ export default function Categories({ category }: categoryTypes) {
 
 const paperStyles = ({ category }: categoryTypes) => {
 	return {
-		background: "white",
+		background: "common.white",
 		padding: "10px",
 		borderTopLeftRadius: 0,
 		display: "grid",

@@ -16,10 +16,10 @@ export default ({
 			color="secondary"
 			sx={{
 				background: "linear-gradient(#A0DAFB, #0A8ED9)",
-				color: "white",
+				color: "common.white",
 				":hover": {
 					background: "linear-gradient(#A0DAFB, #0A8ED9)",
-					color: "white"
+					color: "common.white"
 				},
 				...sx
 			}}

@@ -1,4 +1,5 @@
 import ArrowBack from "@/public/icons/ArrowBack";
+import { theme } from "@/theme";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -9,7 +10,7 @@ export default ({ goBack }: any) => {
 			data-testid="back-button"
 			onClick={goBack}>
 			<Box sx={hoverButtonStyles}>
-				<ArrowBack color="black" />
+				<ArrowBack color={theme.palette.common.black} />
 				<Typography id="text" data-testid="text">
 					Back
 				</Typography>

@@ -26,7 +26,7 @@ export default ({ el }: any) => {
 				<Typography variant="body2" color={"grey.700"}>
 					{el?.name}
 				</Typography>
-				<ArrowBottom color="black" />
+				<ArrowBottom color={theme.palette.common.black} />
 			</Box>
 		</TooltipClick>
 	);

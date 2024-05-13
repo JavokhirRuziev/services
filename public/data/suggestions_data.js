@@ -5,7 +5,8 @@ export const suggestions_arr = [
 		organization_name: "Chilonzor 3-xonali uy",
 		review: 4.5,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 1
 	},
 	{
 		author_name: "Lily",
@@ -13,7 +14,8 @@ export const suggestions_arr = [
 		organization_name: "Xonabod 5-xonali uy",
 		review: 2.5,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 2
 	},
 	{
 		author_name: "Emily",
@@ -21,7 +23,8 @@ export const suggestions_arr = [
 		organization_name: "Mirzo-ulug'bek 2-xonali uy",
 		review: 3,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 3
 	},
 	{
 		author_name: "Sherene",
@@ -29,7 +32,8 @@ export const suggestions_arr = [
 		organization_name: "Zangiota 7-xonali uy",
 		review: 5,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 4
 	},
 	{
 		author_name: "Lenora",
@@ -37,7 +41,8 @@ export const suggestions_arr = [
 		organization_name: "Chilonzor 3-xonali uy",
 		review: 4.5,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 5
 	},
 	{
 		author_name: "Lily",
@@ -45,6 +50,7 @@ export const suggestions_arr = [
 		organization_name: "Xonabod 5-xonali uy",
 		review: 2.5,
 		description:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		id: 6
 	}
 ];

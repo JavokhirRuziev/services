@@ -1,3 +1,5 @@
+import { theme } from "@/theme";
+
 export default () => {
 	return (
 		<svg
@@ -30,7 +32,7 @@ export default () => {
 					<rect
 						width="24"
 						height="24"
-						fill="white"
+						fill={theme.palette.common.white}
 						transform="translate(0 0.5)"
 					/>
 				</clipPath>

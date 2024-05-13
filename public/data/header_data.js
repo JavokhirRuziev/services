@@ -51,7 +51,7 @@ const tooltipContent = (
 		</Hover>
 		<Divider />
 		<Hover text={"Explore SolveMe for Bussiness"}>
-			<Logo color="inherit" />
+			<Logo />
 		</Hover>
 	</Box>
 );

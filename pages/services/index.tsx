@@ -3,13 +3,14 @@ import Box from "@mui/material/Box";
 import Map from "./components/Map";
 import { top_10_arr } from "@/public/data/top_10";
 import { useState } from "react";
-import CardLarge from "@/components/Cards/CardLarge";
 import Filters from "./components/Filters";
 import breakpoints from "@/utils/breakpoints";
 import Typography from "@mui/material/Typography";
 import DropDown from "../../components/DropDowns/ServicesDropDown";
 import { filters } from "@/public/data/services_data";
 import ServicesDrawer from "@/components/Drawers/ServicesDrawer";
+import PaginationBase from "@/components/Paginations/PaginationBase";
+import CardBase from "@/components/Cards/CardBase";
 
 export default () => {
 	const { desktop } = breakpoints();
@@ -25,7 +26,7 @@ export default () => {
 						<Typography
 							variant="h6"
 							component={"span"}
-							color={"black"}>
+							color={"common.black"}>
 							{" "}
 							Rent
 						</Typography>
@@ -45,16 +46,20 @@ export default () => {
 					)}
 					<Box sx={cardWrapperStyles}>
 						{top_10_arr.map((el) => (
-							<CardLarge
-								{...{
-									el,
-									setHoveredCardId,
-									hoveredCardId
-								}}
-								isHoverAble
-							/>
+							<Box width={"100%"} maxWidth={364}>
+								<CardBase
+									{...{
+										el,
+										setHoveredCardId,
+										hoveredCardId,
+										maxWidth: 364
+									}}
+									isHoverAble
+								/>
+							</Box>
 						))}
 					</Box>
+					<PaginationBase />
 				</Box>
 				<Map arr={top_10_arr} hoveredCardId={hoveredCardId} />
 			</Box>
@@ -64,11 +69,12 @@ export default () => {
 
 const cardWrapperStyles = {
 	display: "grid",
-	gridTemplateColumns: { desktop: "480px", monitor: "1fr 1fr" },
+	gridTemplateColumns: { desktop: "1fr", monitor: "1fr" },
 	p: 3,
 	scrollbarWidth: "none",
 	rowGap: "20px",
-	columnGap: "20px"
+	columnGap: "20px",
+	justifyItems: "center"
 };
 
 const wrapperStyles = {
@@ -77,6 +83,6 @@ const wrapperStyles = {
 		mobile: "480px 1fr",
 		tablet: "480px 1fr",
 		desktop: "480px 1fr",
-		monitor: "300px 600px 1fr"
+		monitor: "300px 550px 1fr"
 	}
 };

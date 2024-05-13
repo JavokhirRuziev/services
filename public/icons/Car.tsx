@@ -1,10 +1,12 @@
-export default () => {
+import { theme } from "@/theme";
+
+export default ({ size }: { size?: number | string }) => {
 	return (
 		<svg
-			width="14"
-			height="14"
+			width={size || "14"}
+			height={size || "14"}
 			viewBox="0 0 14 14"
-			fill="none"
+			fill={"none"}
 			xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M9.04742 1.65088H4.95242C3.49992 1.65088 3.17909 2.37421 2.99242 3.26088L2.33325 6.41671H11.6666L11.0074 3.26088C10.8208 2.37421 10.4999 1.65088 9.04742 1.65088Z"
@@ -51,14 +53,14 @@ export default () => {
 			/>
 			<path
 				d="M3.5 8.75H5.25"
-				stroke="white"
+				stroke={theme.palette.common.white}
 				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 			/>
 			<path
 				d="M8.75 8.75H10.5"
-				stroke="white"
+				stroke={theme.palette.common.white}
 				stroke-width="1.5"
 				stroke-linecap="round"
 				stroke-linejoin="round"

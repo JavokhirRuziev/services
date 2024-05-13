@@ -13,8 +13,8 @@ type contentTypes = {
 
 export default ({ el }: contentTypes) => {
 	return (
-		<Box sx={{ width: 267, height: 250, py: "4px" }}>
-			<Box sx={{ width: "100%", height: "85%", position: "relative" }}>
+		<Box sx={{ width: 290, height: "auto", py: "4px" }}>
+			<Box sx={imageWrapper}>
 				<Image
 					src={el?.img}
 					objectFit="cover"
@@ -47,4 +47,11 @@ const bottomWrapperStyles = {
 	alignItems: "center",
 	justifyContent: "space-between",
 	px: 1
+};
+
+const imageWrapper = {
+	width: "100%",
+	height: "85%",
+	position: "relative",
+	minHeight: 200
 };
