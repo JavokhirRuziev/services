@@ -7,7 +7,7 @@ import ArrowBottom from "@/public/icons/ArrowBottom";
 type DropDownTypes = {
 	el: {
 		name: string;
-		category: { name: string; icon: JSX.Element }[];
+		category: { name: string; icon: JSX.Element; link?: string }[];
 	};
 	isHome: boolean;
 };

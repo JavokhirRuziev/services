@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Hover from "@/components/Buttons/Hover";
 
 type categoryTypes = {
-	category: { name: string; icon: JSX.Element; link: string }[];
+	category: { name: string; icon: JSX.Element; link?: string }[];
 };
 
 export default function Categories({ category }: categoryTypes) {
@@ -17,7 +17,7 @@ export default function Categories({ category }: categoryTypes) {
 				<Box
 					role="button"
 					key={index}
-					onClick={() => handleGo(el?.link)}>
+					onClick={() => el?.link && handleGo(el.link)}>
 					<Hover text={el?.name}>{el?.icon}</Hover>
 				</Box>
 			))}
