@@ -35,7 +35,13 @@ export default ({
 					/>
 					{inputSearchActionLogic({ search, mobile, tablet })}
 					{!mobile && (
-						<ButtonGradient size="medium" sx={{ maxWidth: 50 }}>
+						<ButtonGradient
+							size="medium"
+							sx={{
+								maxWidth: 50,
+								border: "none",
+								":hover": { border: "none" }
+							}}>
 							<Search />
 						</ButtonGradient>
 					)}
