@@ -18,6 +18,7 @@
 		"@mui/icons-material": "^5.15.15",
 		"@mui/material": "^5.15.15",
 		"@mui/styled-engine-sc": "^6.0.0-alpha.18",
+		"@next/codemod": "^14.2.3",
 		"@react-spring/web": "^9.7.3",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^15.0.2",

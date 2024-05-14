@@ -83,8 +83,8 @@ export default () => {
 							<Image
 								src={el?.img}
 								alt={el?.img}
-								objectFit="cover"
-								layout="fill"
+								style={{ objectFit: "cover" }}
+								fill
 							/>
 						</Box>
 						<Box sx={sliderTextStyles}>

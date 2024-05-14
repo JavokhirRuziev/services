@@ -45,8 +45,8 @@ export default ({ item }: { item: { images?: string[] } }) => {
 										<Image
 											src={el}
 											alt={el}
-											objectFit="cover"
-											layout="fill"
+											style={{ objectFit: "cover" }}
+											fill
 										/>
 									</Box>
 								</SwiperSlide>

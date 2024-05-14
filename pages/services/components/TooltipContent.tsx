@@ -17,8 +17,8 @@ export default ({ el }: contentTypes) => {
 			<Box sx={imageWrapper}>
 				<Image
 					src={el?.img}
-					objectFit="cover"
-					layout="fill"
+					style={{ objectFit: "cover" }}
+					fill
 					alt="tooltip-image"
 					style={{ borderRadius: 4 }}
 				/>

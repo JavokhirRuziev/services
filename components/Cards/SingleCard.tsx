@@ -43,8 +43,8 @@ export default () => {
 				<Box sx={{ position: "relative", width: 60, height: 60 }}>
 					<Image
 						src={"/images/singleCardImg.png"}
-						objectFit="cover"
-						layout="fill"
+						style={{ objectFit: "cover" }}
+						fill
 						alt="singleCardImg"
 					/>
 				</Box>

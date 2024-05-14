@@ -35,8 +35,8 @@ export default ({ item }: ItemTypes) => {
 							<Image
 								src={el}
 								alt={el}
-								objectFit="cover"
-								layout="fill"
+								style={{ objectFit: "cover" }}
+								fill
 							/>
 						</Box>
 					</SwiperSlide>
