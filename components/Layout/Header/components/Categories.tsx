@@ -10,14 +10,14 @@ type categoryTypes = {
 
 export default function Categories({ category }: categoryTypes) {
 	const { push } = useRouter();
-	const handleGo = (link: string) => push(link);
+	const handleGo = (link?: string) => push(link ?? "");
 	return (
 		<Paper sx={paperStyles({ category })}>
 			{category?.map((el, index) => (
 				<Box
 					role="button"
 					key={index}
-					onClick={() => el?.link && handleGo(el.link)}>
+					onClick={() => handleGo(el.link)}>
 					<Hover text={el?.name}>{el?.icon}</Hover>
 				</Box>
 			))}

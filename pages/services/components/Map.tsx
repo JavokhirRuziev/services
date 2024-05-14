@@ -27,6 +27,9 @@ export default ({ arr, hoveredCardId, height }: any) => {
 	const handleTooltipClose = () => {
 		setOpen(false);
 	};
+
+	console.log(hoveredCardId);
+
 	return (
 		arr && (
 			<Map

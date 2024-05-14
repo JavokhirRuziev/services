@@ -12,7 +12,13 @@ import TransPort from "@/public/icons/Transport";
 import ButtonGradient from "../Buttons/ButtonGradient";
 import { useRouter } from "next/router";
 
-const CardComponent = ({ el, voucher, maxWidth }: any) => {
+const CardComponent = ({
+	el,
+	voucher,
+	maxWidth,
+	setHoveredCardId,
+	isHoverAble
+}: any) => {
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const { push } = useRouter();
 	const [shadowPosition, setShadowPosition] = React.useState({ x: 0, y: 0 });
@@ -24,6 +30,12 @@ const CardComponent = ({ el, voucher, maxWidth }: any) => {
 			const yOffset = (event.clientY - top) / 30;
 			setShadowPosition({ x: xOffset, y: yOffset });
 		}
+	};
+	const handleMouseEnter = () => {
+		setHoveredCardId(el.id);
+	};
+	const handleMouseLeave = () => {
+		setHoveredCardId(null);
 	};
 	const handleClick = (id: string | number) => push(`/services/${id}`);
 
@@ -44,7 +56,11 @@ const CardComponent = ({ el, voucher, maxWidth }: any) => {
 			data-testid="suggestion-card"
 			sx={cardStyles}
 			onMouseMove={handleMouseMove}
-			onClick={() => handleClick(el?.id)}>
+			onClick={() => handleClick(el?.id)}
+			{...(isHoverAble && {
+				onMouseEnter: handleMouseEnter,
+				onMouseLeave: handleMouseLeave
+			})}>
 			<CardMedia
 				component="img"
 				height="160"
@@ -108,10 +124,18 @@ const CardComponent = ({ el, voucher, maxWidth }: any) => {
 	);
 };
 
-export default function CardBase({ el, voucher, maxWidth }: any) {
+export default function CardBase({
+	el,
+	voucher,
+	maxWidth,
+	setHoveredCardId,
+	isHoverAble
+}: any) {
 	return (
-		<Box>
-			<CardComponent {...{ el, voucher, maxWidth }} />
+		<Box sx={{ width: "100%", maxWidth: maxWidth || 263 }}>
+			<CardComponent
+				{...{ el, voucher, maxWidth, setHoveredCardId, isHoverAble }}
+			/>
 		</Box>
 	);
 }

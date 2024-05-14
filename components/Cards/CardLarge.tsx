@@ -163,10 +163,11 @@ export default function CardLarge({
 	cashback,
 	voucher,
 	setHoveredCardId,
-	isHoverAble
+	isHoverAble,
+	maxWidth
 }: any) {
 	return (
-		<Box>
+		<Box sx={{ width: "100%", maxWidth: 360 }}>
 			<CardComponent
 				{...{
 					el,
