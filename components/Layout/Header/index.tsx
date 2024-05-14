@@ -8,9 +8,10 @@ import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
 import Search from "@/public/icons/Search";
 import Link from "next/link";
-import Logo from "@/public/icons/LogoText";
+import Logo from "@/public/icons/Logo";
 import { rightBlockArr } from "@/public/data/header_data";
 import { theme } from "@/theme";
+import { Typography } from "@mui/material";
 
 export default () => {
 	const { pathname } = useRouter();
@@ -39,7 +40,12 @@ export default () => {
 			<Box sx={headerContainerStyles(isHome)}>
 				<Box sx={headerAppbarWrapperStyles}>
 					<Link href={"/"} style={logoStyles}>
-						<Logo color={logoColor} />
+						<Box sx={logoWrapperStyles}>
+							<Logo color={logoColor} size="35" />
+							<Typography variant="subtitle2" color={logoColor}>
+								CityShahar
+							</Typography>
+						</Box>
 					</Link>
 					<SearchInput {...{ search, setSearch, isHome }} />
 					{!mobile && !tablet ? (
@@ -81,7 +87,7 @@ const headerContainerStyles = (isHome: boolean) => ({
 	p: {
 		mobile: "20px 0px 40px",
 		tablet: "20px 0px 40px",
-		desktop: isHome ? "20px 0px" : "20px 0px 45px"
+		desktop: isHome ? "20px 0px" : "20px 0px 40px"
 	},
 	position: {
 		mobile: "relative",
@@ -98,13 +104,22 @@ const headerContainerStyles = (isHome: boolean) => ({
 const logoStyles = {
 	textDecoration: "none",
 	color: theme.palette.common.white,
-	display: "flex",
-	columnGap: "10px"
+	marginTop: 10
 };
 
 const headerAppbarWrapperStyles = {
 	display: "flex",
 	justifyContent: "space-around",
+	alignItems: "center",
+	p: "0px 40px"
+};
+
+const logoWrapperStyles = {
+	display: "flex",
+	columnGap: "10px",
+	rowGap: "10px",
+	flexDirection: "column",
+	justifyContent: "center",
 	alignItems: "center"
 };
 
