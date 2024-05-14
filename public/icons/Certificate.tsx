@@ -26,7 +26,7 @@ export default () => {
 			<path
 				d="M16 10L11.4969 14.8617C11.326 15.0461 11.049 15.0461 10.8781 14.8617L9 12.834"
 				stroke={theme.palette.common.white}
-				stroke-linecap="round"
+				strokeLinecap="round"
 			/>
 		</svg>
 	);

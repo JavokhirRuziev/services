@@ -39,14 +39,14 @@ export default () => {
 							<ServicesDrawer>
 								<Filters />
 							</ServicesDrawer>
-							{filters.map((el) => (
-								<DropDown {...{ el }} />
+							{filters.map((el, index) => (
+								<DropDown key={index} {...{ el }} />
 							))}
 						</Box>
 					)}
 					<Box sx={cardWrapperStyles}>
-						{top_10_arr.map((el) => (
-							<Box width={"100%"} maxWidth={364}>
+						{top_10_arr.map((el, index) => (
+							<Box key={index} width={"100%"} maxWidth={364}>
 								<CardBase
 									{...{
 										el,

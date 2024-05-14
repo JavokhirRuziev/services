@@ -11,10 +11,10 @@ export default () => {
 			<path
 				d="M13.7958 29.26L7.81911 23.2833C7.11328 22.5775 7.11328 21.4225 7.81911 20.7167L13.7958 14.74"
 				stroke="#E7E7E7"
-				stroke-width="1.5"
+				strokeWidth="1.5"
 				stroke-miterlimit="10"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<rect
 				x="52"
@@ -62,10 +62,10 @@ export default () => {
 			<path
 				d="M458.204 14.74L464.181 20.7167C464.887 21.4225 464.887 22.5775 464.181 23.2833L458.204 29.26"
 				stroke="#2D2E2F"
-				stroke-width="1.5"
+				strokeWidth="1.5"
 				stroke-miterlimit="10"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<defs>
 				<linearGradient
@@ -75,8 +75,8 @@ export default () => {
 					x2="74"
 					y2="57.8205"
 					gradientUnits="userSpaceOnUse">
-					<stop offset="0.140112" stop-color="#A0DAFB" />
-					<stop offset="1" stop-color="#0A8ED9" />
+					<stop offset="0.140112" stopColor="#A0DAFB" />
+					<stop offset="1" stopColor="#0A8ED9" />
 				</linearGradient>
 			</defs>
 		</svg>

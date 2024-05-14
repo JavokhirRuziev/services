@@ -28,8 +28,6 @@ export default ({ arr, hoveredCardId, height }: any) => {
 		setOpen(false);
 	};
 
-	console.log(hoveredCardId);
-
 	return (
 		arr && (
 			<Map
@@ -46,6 +44,7 @@ export default ({ arr, hoveredCardId, height }: any) => {
 			>
 				{arr?.map((el: any, index: number) => (
 					<Marker
+						key={index}
 						longitude={el?.position[0]}
 						latitude={el?.position[1]}>
 						<Tooltip
@@ -160,8 +159,6 @@ const markerIconStyles = (hoveredCardId: any, id: any) => ({
 // };
 
 // const { longitude, latitude } = viewport;
-
-// console.log(viewport);
 
 {
 	/* <Marker longitude={longitude} latitude={latitude}>

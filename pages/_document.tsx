@@ -6,7 +6,6 @@ export default function Document() {
 			<Head>
 				<link rel="stylesheet" href="/fonts/stylesheet.css" />
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-				<title>CityShahar</title>
 			</Head>
 			<body>
 				<Main />
