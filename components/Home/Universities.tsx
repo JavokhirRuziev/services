@@ -62,10 +62,12 @@ export default () => {
 						<Box sx={decorationStyles}>
 							<Image
 								src={"/images/TashkentCity.jpeg"}
-								style={{ objectFit: "cover" }}
+								style={{
+									objectFit: "cover",
+									borderRadius: "4px"
+								}}
 								fill
 								alt="decoration"
-								style={{ borderRadius: "4px" }}
 							/>
 							<Box sx={overlayStyles} />
 							<Box
