@@ -3,6 +3,7 @@ import PhoneCheck from "./PhoneCheck";
 import SignUp from "./SignUp";
 import Success from "./Success";
 import Sms from "./Sms";
+import { useState } from "react";
 type StepType = "phonecheck" | "signup" | "sms" | "success";
 
 export default ({
@@ -14,9 +15,10 @@ export default ({
 	setStep: any;
 	handleClose: () => void;
 }) => {
+	const [phone, setPhone] = useState<string>(""); // Specify the type as string
 	const content = {
-		phonecheck: <PhoneCheck {...{ setStep }} />,
-		sms: <Sms {...{ setStep }} />,
+		phonecheck: <PhoneCheck {...{ setStep, setPhone }} />,
+		sms: <Sms {...{ setStep, phone }} />,
 		signup: <SignUp {...{ setStep }} />,
 		success: <Success {...{ handleClose }} />
 	};

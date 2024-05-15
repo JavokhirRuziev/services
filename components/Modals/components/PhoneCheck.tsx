@@ -20,10 +20,11 @@ interface FormValues {
 }
 
 type PhoneCheckTypes = {
-	setStep: (step: StepType) => void; // Update the type definition of setStep
+	setStep: (step: StepType) => void;
+	setPhone: (phone: string) => void;
 };
 
-export default ({ setStep }: PhoneCheckTypes) => {
+export default ({ setStep, setPhone }: PhoneCheckTypes) => {
 	const [sendVerificationCode] = useMutation(SEND_VERIFICATION_CODE);
 
 	const handleSubmit = async (
@@ -36,10 +37,7 @@ export default ({ setStep }: PhoneCheckTypes) => {
 		})
 			.then((res) => {
 				setSubmitting(false);
-				const currentPath = window.location.pathname;
-				const updatedPhone = values?.phone;
-				const updatedUrl = `${currentPath}?phone=${updatedPhone}`;
-				window.history.replaceState(null, "", updatedUrl);
+				setPhone(values.phone!);
 				setStep("sms");
 			})
 			.catch((err) => {
@@ -70,7 +68,7 @@ export default ({ setStep }: PhoneCheckTypes) => {
 					return (
 						<Form>
 							<Typography variant="h4" mb={1}>
-								Entre your phone number
+								Enter your phone number
 							</Typography>
 							<Typography
 								variant="h5"

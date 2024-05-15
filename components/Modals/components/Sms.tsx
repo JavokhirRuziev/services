@@ -1,8 +1,6 @@
-import { Formik, Field, Form } from "formik";
-import FormikField from "@/components/TextFields/FormikField";
+import { Formik, Form } from "formik";
 import Typography from "@mui/material/Typography";
 import { useMutation, gql } from "@apollo/client";
-import { useState } from "react";
 import ButtonGradient from "@/components/Buttons/ButtonGradient";
 import CircularProgress from "@mui/material/CircularProgress";
 import OtpInput from "react-otp-input";
@@ -14,8 +12,10 @@ const VERIFY_CODE = gql`
 	mutation VerifyCode($data: VerifyCodeInput!) {
 		verifyCode(data: $data) {
 			approved
-			exists
 			accessToken
+			user {
+				id
+			}
 		}
 	}
 `;
@@ -27,9 +27,10 @@ interface FormValues {
 
 type PhoneCheckTypes = {
 	setStep: (step: StepType) => void;
+	phone: string;
 };
 
-export default ({ setStep }: PhoneCheckTypes) => {
+export default ({ setStep, phone }: PhoneCheckTypes) => {
 	const { query } = useRouter();
 	const [VerifyCode] = useMutation(VERIFY_CODE);
 
@@ -42,7 +43,7 @@ export default ({ setStep }: PhoneCheckTypes) => {
 		await VerifyCode({
 			variables: {
 				data: {
-					phoneNumber: query?.phone,
+					phoneNumber: phone,
 					code: values.code
 				}
 			}
@@ -55,7 +56,6 @@ export default ({ setStep }: PhoneCheckTypes) => {
 			.catch((err) => {
 				setSubmitting(false);
 				console.log(err);
-				setStep("signup");
 			});
 	};
 
@@ -86,7 +86,7 @@ export default ({ setStep }: PhoneCheckTypes) => {
 								variant="h5"
 								mb={"30px"}
 								color={"grey.600"}>
-								{`To confirm the phone number, the 5-digit code was sent to ${query?.phone}`}
+								{`To confirm the phone number, the 5-digit code was sent to ${phone}`}
 							</Typography>
 							<Box sx={otpWrapperStyles}>
 								<OtpInput

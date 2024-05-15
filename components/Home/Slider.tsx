@@ -5,7 +5,6 @@ import Image from "next/image";
 import { slider_arr } from "../../public/data/slider_data";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { theme } from "@/theme";
 import { Autoplay, Pagination } from "swiper/modules";
 import { useState } from "react";
@@ -51,16 +50,17 @@ export default () => {
 	};
 
 	for (let i = 1; i <= completedSlides; i++) {
-		activeBulletStyles[`.swiper-pagination-bullet:nth-child(${i - 1})`] = {
-			position: "relative",
-			backgroundColor: theme.palette.common.white,
-			width: "10px",
-			height: "90px",
-			pointerEvents: "auto",
-			borderRadius: 10,
-			overflow: "hidden",
-			opacity: 1
-		};
+		activeBulletStyles[`.swiper-pagination-bullet:nth-of-type(${i - 1})`] =
+			{
+				position: "relative",
+				backgroundColor: theme.palette.common.white,
+				width: "10px",
+				height: "90px",
+				pointerEvents: "auto",
+				borderRadius: 10,
+				overflow: "hidden",
+				opacity: 1
+			};
 	}
 
 	return (
