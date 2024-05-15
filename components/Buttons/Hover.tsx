@@ -26,6 +26,6 @@ const wrapperStyles = {
 	cursor: "pointer",
 
 	"&:hover": {
-		bgcolor: "secondary.light"
+		bgcolor: "grey.400"
 	}
 };

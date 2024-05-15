@@ -2,49 +2,60 @@ import { Formik, Field, Form } from "formik";
 import FormikField from "@/components/TextFields/FormikField";
 import Typography from "@mui/material/Typography";
 import { useMutation, gql } from "@apollo/client";
+import { useState } from "react";
 import ButtonGradient from "@/components/Buttons/ButtonGradient";
 import CircularProgress from "@mui/material/CircularProgress";
+import OtpInput from "react-otp-input";
 import { theme } from "@/theme";
+import Box from "@mui/material/Box";
+import { useRouter } from "next/router";
 
-const SEND_VERIFICATION_CODE = gql`
-	mutation SendVerificationCode($data: VerifyCodeInput!) {
-		sendVerificationCode(data: $data)
+const VERIFY_CODE = gql`
+	mutation VerifyCode($data: VerifyCodeInput!) {
+		verifyCode(data: $data) {
+			approved
+			exists
+			accessToken
+		}
 	}
 `;
-
 type StepType = "phonecheck" | "signup" | "sms" | "success";
-
 interface FormValues {
 	phone?: string;
 	code?: string;
 }
 
 type PhoneCheckTypes = {
-	setStep: (step: StepType) => void; // Update the type definition of setStep
+	setStep: (step: StepType) => void;
 };
 
 export default ({ setStep }: PhoneCheckTypes) => {
-	const [sendVerificationCode] = useMutation(SEND_VERIFICATION_CODE);
+	const { query } = useRouter();
+	const [VerifyCode] = useMutation(VERIFY_CODE);
 
 	const handleSubmit = async (
 		values: FormValues,
 		setSubmitting: (isSubmitting: boolean) => void
 	) => {
 		setSubmitting(true);
-		await sendVerificationCode({
-			variables: { data: { phoneNumber: values.phone } }
+
+		await VerifyCode({
+			variables: {
+				data: {
+					phoneNumber: query?.phone,
+					code: values.code
+				}
+			}
 		})
 			.then((res) => {
 				setSubmitting(false);
-				const currentPath = window.location.pathname;
-				const updatedPhone = values?.phone;
-				const updatedUrl = `${currentPath}?phone=${updatedPhone}`;
-				window.history.replaceState(null, "", updatedUrl);
-				setStep("sms");
+				console.log(res);
+				setStep("signup");
 			})
 			.catch((err) => {
 				setSubmitting(false);
 				console.log(err);
+				setStep("signup");
 			});
 	};
 
@@ -54,13 +65,12 @@ export default ({ setStep }: PhoneCheckTypes) => {
 				Login / Sign Up
 			</Typography>
 			<Formik<FormValues>
-				initialValues={{ phone: "" }}
+				initialValues={{ code: "" }}
 				validate={(values) => {
 					const errors: FormValues = {};
-					if (!values.phone) {
+					if (!values?.code) {
 						errors.phone = "Required";
 					}
-
 					return errors;
 				}}
 				onSubmit={(values, { setSubmitting }) => {
@@ -70,20 +80,37 @@ export default ({ setStep }: PhoneCheckTypes) => {
 					return (
 						<Form>
 							<Typography variant="h4" mb={1}>
-								Entre your phone number
+								Enter the code
 							</Typography>
 							<Typography
 								variant="h5"
 								mb={"30px"}
 								color={"grey.600"}>
-								We send the confirmation code via SMS
+								{`To confirm the phone number, the 5-digit code was sent to ${query?.phone}`}
 							</Typography>
-							<Field
-								component={FormikField}
-								type="phone"
-								name="phone"
-								placeholder="+998XX XXX XX XX"
-							/>
+							<Box sx={otpWrapperStyles}>
+								<OtpInput
+									inputStyle={otpInputStyles}
+									inputType="number"
+									value={values.code}
+									onChange={(code) =>
+										handleChange({
+											target: {
+												name: "code",
+												value: code
+											}
+										})
+									}
+									numInputs={6}
+									renderSeparator={
+										<span>&nbsp;&nbsp;&nbsp;</span>
+									}
+									renderInput={(props) => (
+										<input name="code" {...props} />
+									)}
+								/>
+							</Box>
+
 							<ButtonGradient
 								color="secondary"
 								type="submit"

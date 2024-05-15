@@ -64,7 +64,7 @@ export default () => {
 								src={"/images/TashkentCity.jpeg"}
 								style={{
 									objectFit: "cover",
-									borderRadius: "4px"
+									borderRadius: "10px"
 								}}
 								fill
 								alt="decoration"
@@ -132,7 +132,7 @@ const decorationStyles = {
 	height: 314,
 	position: "relative",
 	width: "100%",
-	borderRadius: "4px"
+	borderRadius: "10px"
 };
 
 const overlayStyles = {
@@ -143,7 +143,7 @@ const overlayStyles = {
 	left: 0,
 	right: 0,
 	zIndex: 0,
-	borderRadius: "4px"
+	borderRadius: "10px"
 };
 
 const buttonStyles = {

@@ -27,10 +27,10 @@ const hoverButtonStyles = {
 	cursor: "pointer",
 	":hover": {
 		"#text": {
-			color: "grey.300"
+			color: "grey.600"
 		},
 		"#arrow-back": {
-			fill: "grey"
+			fill: theme.palette.grey[600]
 		}
 	},
 	width: "auto"

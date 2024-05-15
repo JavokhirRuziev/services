@@ -51,7 +51,8 @@ const CardComponent = ({
 		maxWidth: 360,
 		position: "relative",
 		width: "100%",
-		cursor: "pointer"
+		cursor: "pointer",
+		borderRadius: "10px"
 	};
 
 	return (
@@ -163,8 +164,7 @@ export default function CardLarge({
 	cashback,
 	voucher,
 	setHoveredCardId,
-	isHoverAble,
-	maxWidth
+	isHoverAble
 }: any) {
 	return (
 		<Box sx={{ width: "100%", maxWidth: 360 }}>

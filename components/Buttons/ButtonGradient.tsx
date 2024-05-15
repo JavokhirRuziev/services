@@ -10,7 +10,8 @@ export default ({
 	disableRipple,
 	disableTouchRipple,
 	fullWidth,
-	onChange
+	onChange,
+	type
 }: any) => {
 	return (
 		<Button
@@ -33,7 +34,8 @@ export default ({
 				disableRipple,
 				disableTouchRipple,
 				fullWidth,
-				onChange
+				onChange,
+				type
 			}}>
 			{children}
 		</Button>

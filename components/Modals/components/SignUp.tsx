@@ -1,30 +1,28 @@
 import { Formik, Field, Form } from "formik";
 import FormikField from "@/components/TextFields/FormikField";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
-import BackButton from "@/components/Buttons/BackButton";
+import ButtonGradient from "@/components/Buttons/ButtonGradient";
 
 interface FormValues {
 	phone?: string;
-	code?: string;
 	firstname?: string;
 	lastname?: string;
 }
+type PhoneCheckTypes = {
+	setStep: (step: StepType) => void;
+};
 
-export default ({ goBack }: any) => {
+type StepType = "phonecheck" | "signup" | "sms" | "success";
+
+export default ({ setStep }: PhoneCheckTypes) => {
 	return (
 		<>
 			<Typography variant="h3" textAlign={"center"} mb={5}>
 				SignUp
 			</Typography>
-			<BackButton {...{ goBack }} />
 			<Formik<FormValues>
 				initialValues={{
 					phone: "",
-					code: "",
 					firstname: "",
 					lastname: ""
 				}}
@@ -38,7 +36,7 @@ export default ({ goBack }: any) => {
 					return errors;
 				}}
 				onSubmit={(values) => {
-					alert("working");
+					setStep("success");
 				}}>
 				{({}) => {
 					return (
@@ -49,56 +47,26 @@ export default ({ goBack }: any) => {
 								name="phone"
 								placeholder="+998XX XXX XX XX"
 							/>
-							<Box
-								sx={{
-									display: "flex",
-									columnGap: 1,
-									width: "100%"
-								}}>
-								<Field
-									component={FormikField}
-									type="number"
-									name="code"
-									placeholder="Verification code"
-								/>
-								<Box>
-									<Button size="large" color="secondary">
-										Send
-									</Button>
-								</Box>
-							</Box>
-							<Box sx={{ display: "flex", columnGap: 2 }}>
-								<Field
-									component={FormikField}
-									type="text"
-									name="firstname"
-									placeholder="First name"
-								/>
-								<Field
-									component={FormikField}
-									type="text"
-									name="lastname"
-									placeholder="Last name"
-								/>
-							</Box>
-							<FormControlLabel
-								control={
-									<Checkbox
-										defaultChecked
-										color="secondary"
-									/>
-								}
-								label="By continuing, I accept the Terms of use Acceptable use policy Privacy policy and Cookie policy"
-								sx={{ mb: 3, color: "grey.300" }}
+							<Field
+								component={FormikField}
+								type="text"
+								name="firstname"
+								placeholder="First name"
 							/>
-							<Button
+							<Field
+								component={FormikField}
+								type="text"
+								name="lastname"
+								placeholder="Last name"
+							/>
+							<ButtonGradient
 								color="secondary"
 								type="submit"
 								fullWidth
 								size="large"
 								sx={{ mt: 1 }}>
 								Sign Up
-							</Button>
+							</ButtonGradient>
 						</Form>
 					);
 				}}

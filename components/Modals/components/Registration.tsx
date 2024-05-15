@@ -1,52 +1,25 @@
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import GoogleIcon from "@mui/icons-material/Google";
-import Image from "next/image";
 import PhoneCheck from "./PhoneCheck";
 import SignUp from "./SignUp";
-import Login from "./Login";
-type StepType = "phonecheck" | "signup" | "login";
+import Success from "./Success";
+import Sms from "./Sms";
+type StepType = "phonecheck" | "signup" | "sms" | "success";
 
-export default ({ step, setStep }: { step: StepType; setStep: any }) => {
-	const handleGoBack = () => {
-		setStep("phonecheck");
-	};
-
+export default ({
+	step,
+	setStep,
+	handleClose
+}: {
+	step: StepType;
+	setStep: any;
+	handleClose: () => void;
+}) => {
 	const content = {
-		phonecheck: <PhoneCheck />,
-		signup: <SignUp goBack={handleGoBack} />,
-		login: <Login goBack={handleGoBack} />
+		phonecheck: <PhoneCheck {...{ setStep }} />,
+		sms: <Sms {...{ setStep }} />,
+		signup: <SignUp {...{ setStep }} />,
+		success: <Success {...{ handleClose }} />
 	};
 
-	return (
-		<Box sx={{ px: 5, py: 2 }}>
-			{content[step]}
-			<Divider sx={{ mt: 4 }}>
-				<Typography>Or</Typography>
-			</Divider>
-			<Box sx={bottomStyles}>
-				<IconButton sx={{ mb: 4 }}>
-					<GoogleIcon />
-				</IconButton>
-				<Image
-					src={"/images/qrcode.png"}
-					width={80}
-					height={80}
-					alt="qrcode"
-				/>
-				<Typography>Scan the QR code to download our App</Typography>
-			</Box>
-		</Box>
-	);
-};
-
-const bottomStyles = {
-	display: "flex",
-	justifyContent: "center",
-	mt: 2,
-	flexDirection: "column",
-	alignItems: "center",
-	rowGap: 2
+	return <Box>{content[step]}</Box>;
 };

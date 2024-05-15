@@ -12,6 +12,7 @@ import Logo from "@/public/icons/Logo";
 import { rightBlockArr } from "@/public/data/header_data";
 import { theme } from "@/theme";
 import { Typography } from "@mui/material";
+import LogoText from "@/public/icons/LogoText";
 
 export default () => {
 	const { pathname } = useRouter();
@@ -41,10 +42,7 @@ export default () => {
 				<Box sx={headerAppbarWrapperStyles}>
 					<Link href={"/"} style={logoStyles}>
 						<Box sx={logoWrapperStyles}>
-							<Logo color={logoColor} size="35" />
-							<Typography variant="subtitle2" color={logoColor}>
-								CityShahar
-							</Typography>
+							<LogoText color={logoColor} />
 						</Box>
 					</Link>
 					<SearchInput {...{ search, setSearch, isHome }} />
@@ -111,7 +109,7 @@ const headerAppbarWrapperStyles = {
 	display: "flex",
 	justifyContent: "space-around",
 	alignItems: "center",
-	p: "0px 40px"
+	p: "0px 38px"
 };
 
 const logoWrapperStyles = {
@@ -120,7 +118,8 @@ const logoWrapperStyles = {
 	rowGap: "10px",
 	flexDirection: "column",
 	justifyContent: "center",
-	alignItems: "center"
+	alignItems: "center",
+	mr: "48px"
 };
 
 const headerWrapperStyles = (isHome: boolean) => ({

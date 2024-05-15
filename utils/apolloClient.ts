@@ -3,13 +3,14 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { createClient } from "graphql-ws";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 
-// https://f22a-95-214-211-159.ngrok-free.app/graphql apiurl
+// https://lobster-app-mak35.ondigitalocean.app/graphql
+
 const httpLink = new HttpLink({
-	uri: "https://f22a-95-214-211-159.ngrok-free.app/graphql apiurl"
+	uri: "https://lobster-app-mak35.ondigitalocean.app/graphql"
 });
 
 const wsClient = createClient({
-	url: "wss://f22a-95-214-211-159.ngrok-free.app/graphql apiurl"
+	url: "wss://lobster-app-mak35.ondigitalocean.app/graphql"
 });
 
 const wsLink = new GraphQLWsLink(wsClient);

@@ -3,11 +3,8 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useSpring, animated } from "@react-spring/web";
-import Typography from "@mui/material/Typography";
 import Registration from "./components/Registration";
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import ButtonGradient from "../Buttons/ButtonGradient";
-import LogoText from "@/public/icons/LogoText";
 interface FadeProps {
 	children: React.ReactElement;
 	in?: boolean;
@@ -56,13 +53,13 @@ export default function AuthModal() {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-	const [step, setStep] = React.useState<"phonecheck" | "signup" | "login">(
-		"phonecheck"
-	);
+	const [step, setStep] = React.useState<
+		"phonecheck" | "signup" | "sms" | "success"
+	>("phonecheck");
 
 	return (
 		<>
-			<ButtonGradient onClick={handleOpen}>LogIn / SignUp</ButtonGradient>
+			<ButtonGradient onClick={handleOpen}>LogIn</ButtonGradient>
 			<Modal
 				aria-labelledby="spring-modal-title"
 				aria-describedby="spring-modal-description"
@@ -76,17 +73,9 @@ export default function AuthModal() {
 					}
 				}}>
 				<Fade in={open}>
-					<Box sx={modalStyles(step)}>
-						<Box sx={leftBlockStyles}>
-							<ChatBubbleRoundedIcon sx={iconStyles} />
-							<Typography
-								component={"div"}
-								sx={welcomeTextStyles}>
-								Welcome to <LogoText />
-							</Typography>
-						</Box>
-						<Box sx={{ p: 4, width: "70%" }}>
-							<Registration {...{ step, setStep }} />
+					<Box sx={modalStyles}>
+						<Box sx={{ p: "30px", width: "100%" }}>
+							<Registration {...{ step, setStep, handleClose }} />
 						</Box>
 					</Box>
 				</Fade>
@@ -95,47 +84,16 @@ export default function AuthModal() {
 	);
 }
 
-const modalStyles = (step: string) => ({
+const modalStyles = {
 	position: "absolute" as "absolute",
 	top: "50%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
-	maxWidth: 800,
+	maxWidth: 486,
 	bgcolor: "background.paper",
 	boxShadow: 24,
 	width: "100%",
-	borderRadius: "4px",
+	borderRadius: "12px",
 	overflowY: "auto",
-	maxHeight: step === "signup" ? 900 : 700,
-	display: "flex",
-	height: "100%"
-});
-
-const leftBlockStyles = {
-	bgcolor: "secondary.main",
-	width: "30%",
-	display: "flex",
-	justifyContent: "center",
-	alignItems: "center",
-	position: "sticky",
-	borderRadius: "4px 0px 0px 4px",
-	top: 0
-};
-
-const welcomeTextStyles = {
-	mb: 3,
-	width: 150,
-	position: "absolute",
-	color: "common.white",
-	textAlign: "center",
-	fontSize: "22px !important",
-	display: "flex",
-	alignItems: "center",
-	flexDirection: "column"
-};
-
-const iconStyles = {
-	width: 200,
-	height: 200,
-	color: "secondary.light"
+	display: "flex"
 };

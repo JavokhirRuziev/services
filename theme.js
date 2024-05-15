@@ -123,6 +123,7 @@ theme = createTheme(theme, {
 					backgroundColor: theme.palette.common.white,
 					color: "rgba(0, 0, 0, 0.87)",
 					boxShadow: theme.shadows[1],
+					borderRadius: "8px",
 					"&:hover": {
 						boxShadow: theme.shadows[2]
 					},
@@ -167,6 +168,7 @@ theme = createTheme(theme, {
 			styleOverrides: {
 				root: {
 					boxShadow: theme.shadows[1],
+					borderRadius: "8px",
 					"&:hover": {
 						boxShadow: theme.shadows[2]
 					}
@@ -176,7 +178,7 @@ theme = createTheme(theme, {
 		MuiButton: {
 			styleOverrides: {
 				sizeSmall: {
-					borderRadius: "4px",
+					borderRadius: "8px",
 					paddingRight: "10px",
 					paddingLeft: "10px",
 					paddingTop: "3px",
@@ -192,7 +194,7 @@ theme = createTheme(theme, {
 					}
 				},
 				sizeMedium: {
-					borderRadius: "4px",
+					borderRadius: "8px",
 					paddingRight: "16px",
 					paddingLeft: "16px",
 					paddingTop: "8px",
@@ -207,11 +209,11 @@ theme = createTheme(theme, {
 					}
 				},
 				sizeLarge: {
-					borderRadius: "4px",
+					borderRadius: "8px",
 					paddingRight: "32px",
 					paddingLeft: "32px",
-					paddingTop: "12px",
-					paddingBottom: "12px",
+					paddingTop: "15px",
+					paddingBottom: "15px",
 					[theme.breakpoints.down("desktop")]: {
 						fontSize: 14,
 						fontFamily: `"PoppinsRegular", sans-serif`

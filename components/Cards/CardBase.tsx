@@ -47,7 +47,8 @@ const CardComponent = ({
 		transition: "none",
 		border: `2px solid ${theme.palette.grey[200]}`,
 		width: "100%",
-		cursor: "pointer"
+		cursor: "pointer",
+		borderRadius: "10px"
 	};
 
 	return (
