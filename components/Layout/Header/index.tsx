@@ -8,32 +8,24 @@ import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
 import Search from "@/public/icons/Search";
 import Link from "next/link";
-import Logo from "@/public/icons/Logo";
 import { rightBlockArr } from "@/public/data/header_data";
 import { theme } from "@/theme";
-import { Typography } from "@mui/material";
 import LogoText from "@/public/icons/LogoText";
+import LogoDarkText from "@/public/icons/LogoDarkText";
 
 export default () => {
-	const { pathname } = useRouter();
+	const { pathname, push } = useRouter();
 	const { mobile, tablet } = breakpoints();
 	const isHome = pathname === "/";
-	const logoColor = mobile
-		? theme.palette.common.black
-		: tablet
-		? theme.palette.common.black
-		: isHome
-		? theme.palette.common.white
-		: theme.palette.common.black;
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState({ business: false, account: false });
 	const [search, setSearch] = useState("");
 
-	const handleTooltipClose = () => {
-		setOpen(false);
+	const handleTooltipClose = (key: string) => {
+		setOpen({ ...open, [key]: false });
 	};
 
-	const handleTooltipOpen = () => {
-		setOpen(true);
+	const handleTooltipOpen = (key: string) => {
+		setOpen({ ...open, [key]: true });
 	};
 
 	return (
@@ -42,7 +34,7 @@ export default () => {
 				<Box sx={headerAppbarWrapperStyles}>
 					<Link href={"/"} style={logoStyles}>
 						<Box sx={logoWrapperStyles}>
-							<LogoText color={logoColor} />
+							{isHome ? <LogoText /> : <LogoDarkText />}
 						</Box>
 					</Link>
 					<SearchInput {...{ search, setSearch, isHome }} />
@@ -54,7 +46,8 @@ export default () => {
 								open,
 								handleTooltipClose,
 								handleTooltipOpen,
-								isHome
+								isHome,
+								push
 							}).map((el, index) => (
 								<React.Fragment key={index}>
 									{el}

@@ -130,7 +130,8 @@ theme = createTheme(theme, {
 					fontSize: 11,
 					".MuiTooltip-arrow": {
 						color: theme.palette.common.white
-					}
+					},
+					padding: "10px"
 				}
 			}
 		},

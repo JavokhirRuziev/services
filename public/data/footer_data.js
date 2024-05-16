@@ -76,6 +76,5 @@ const tooltipContentStyles = {
 	width: 200,
 	display: "flex",
 	flexDirection: "column",
-	rowGap: 1,
-	p: 1
+	rowGap: 1
 };

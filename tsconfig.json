@@ -20,6 +20,12 @@
 			"@/pages/*": ["pages/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "babel.config.js"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"babel.config.js",
+		"public/data/header_data.js"
+	],
 	"exclude": ["node_modules"]
 }

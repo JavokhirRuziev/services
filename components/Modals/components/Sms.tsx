@@ -21,7 +21,6 @@ const VERIFY_CODE = gql`
 `;
 type StepType = "phonecheck" | "signup" | "sms" | "success";
 interface FormValues {
-	phone?: string;
 	code?: string;
 }
 
@@ -36,7 +35,8 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 
 	const handleSubmit = async (
 		values: FormValues,
-		setSubmitting: (isSubmitting: boolean) => void
+		setSubmitting: (isSubmitting: boolean) => void,
+		setErrors: (code: object) => void
 	) => {
 		setSubmitting(true);
 
@@ -50,12 +50,14 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 		})
 			.then((res) => {
 				setSubmitting(false);
-				console.log(res);
-				setStep("signup");
+				if (Number(res?.extensions?.code) > 205) {
+				} else {
+					setStep("signup");
+				}
 			})
 			.catch((err) => {
 				setSubmitting(false);
-				console.log(err);
+				// setErrors({ code: err?.message });
 			});
 	};
 
@@ -69,14 +71,16 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 				validate={(values) => {
 					const errors: FormValues = {};
 					if (!values?.code) {
-						errors.phone = "Required";
+						errors.code = "Required!";
 					}
 					return errors;
 				}}
-				onSubmit={(values, { setSubmitting }) => {
-					handleSubmit(values, setSubmitting);
+				onSubmit={(values, { setSubmitting, setErrors }) => {
+					handleSubmit(values, setSubmitting, setErrors);
 				}}>
-				{({ values, isSubmitting, handleChange }) => {
+				{({ values, isSubmitting, handleChange, touched, errors }) => {
+					console.log(errors);
+
 					return (
 						<Form>
 							<Typography variant="h4" mb={1}>
@@ -101,7 +105,7 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 											}
 										})
 									}
-									numInputs={6}
+									numInputs={4}
 									renderSeparator={
 										<span>&nbsp;&nbsp;&nbsp;</span>
 									}
@@ -109,6 +113,11 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 										<input name="code" {...props} />
 									)}
 								/>
+								{touched["code"] && errors["code"] && (
+									<Typography sx={validationTextStyles}>
+										{errors?.code}
+									</Typography>
+								)}
 							</Box>
 
 							<ButtonGradient
@@ -117,7 +126,7 @@ export default ({ setStep, phone }: PhoneCheckTypes) => {
 								fullWidth
 								size="large"
 								sx={{ mt: 1 }}
-								disabled={!Boolean(values.phone)}>
+								disabled={!Boolean(values.code)}>
 								{isSubmitting ? (
 									<CircularProgress color="info" />
 								) : (
@@ -142,5 +151,13 @@ const otpInputStyles = {
 const otpWrapperStyles = {
 	display: "flex",
 	justifyContent: "center",
-	mb: "50px"
+	mb: "50px",
+	position: "relative"
+};
+
+const validationTextStyles = {
+	position: "absolute",
+	bottom: -25,
+	color: "error.main",
+	transition: "0.3s"
 };

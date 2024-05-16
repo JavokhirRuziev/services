@@ -6,6 +6,8 @@ import { theme } from "@/theme";
 import { ApolloProvider } from "@apollo/client";
 import { apolloClient } from "@/utils/apolloClient";
 import Head from "next/head";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -14,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<Head>
 					<title>CityShahar</title>
 				</Head>
+				<ToastContainer />
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</ApolloProvider>

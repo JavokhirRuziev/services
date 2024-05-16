@@ -52,7 +52,7 @@ export default function FormikField({
 				onChange={handleChange}
 			/>
 			{touched[field.name] && errors[field.name] && (
-				<Typography sx={validationTextStyles}>
+				<Typography sx={validationTextStyles} variant="subtitle2">
 					{errors[field.name]}
 				</Typography>
 			)}
@@ -62,7 +62,8 @@ export default function FormikField({
 
 const validationTextStyles = {
 	position: "absolute",
-	bottom: -25,
+	bottom: -22,
 	color: "error.main",
-	transition: "0.3s"
+	transition: "0.3s",
+	fontSize: "12px !important"
 };

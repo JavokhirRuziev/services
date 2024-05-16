@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default ({ children, text, onClick, sx }: any) => {
+export default ({ children, text, onClick, sx, sxContainer }: any) => {
 	return (
-		<Box sx={wrapperStyles} {...{ onClick }}>
+		<Box sx={wrapperStyles(sxContainer)} {...{ onClick }}>
 			{children && children}
 			<Typography
 				id="text"
@@ -16,16 +16,16 @@ export default ({ children, text, onClick, sx }: any) => {
 	);
 };
 
-const wrapperStyles = {
+const wrapperStyles = (sxContainer: any) => ({
 	display: "flex",
-	columnGap: "5px",
-	padding: "10px 16px",
+	columnGap: "12px",
+	padding: "5px",
 	borderRadius: "4px",
 	alignItems: "center",
 	opacity: 0.8,
 	cursor: "pointer",
-
 	"&:hover": {
 		bgcolor: "grey.400"
-	}
-};
+	},
+	...sxContainer
+});

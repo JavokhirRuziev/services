@@ -5,6 +5,7 @@ import { useMutation, gql } from "@apollo/client";
 import ButtonGradient from "@/components/Buttons/ButtonGradient";
 import CircularProgress from "@mui/material/CircularProgress";
 import { theme } from "@/theme";
+import { error, success } from "@/utils/notifications";
 
 const SEND_VERIFICATION_CODE = gql`
 	mutation SendVerificationCode($data: VerifyCodeInput!) {
@@ -29,7 +30,8 @@ export default ({ setStep, setPhone }: PhoneCheckTypes) => {
 
 	const handleSubmit = async (
 		values: FormValues,
-		setSubmitting: (isSubmitting: boolean) => void
+		setSubmitting: (isSubmitting: boolean) => void,
+		setErrors: (phone: any) => void
 	) => {
 		setSubmitting(true);
 		await sendVerificationCode({
@@ -42,7 +44,8 @@ export default ({ setStep, setPhone }: PhoneCheckTypes) => {
 			})
 			.catch((err) => {
 				setSubmitting(false);
-				console.log(err);
+				// setErrors({ phone: err?.message });
+				error(err?.message);
 			});
 	};
 
@@ -61,8 +64,8 @@ export default ({ setStep, setPhone }: PhoneCheckTypes) => {
 
 					return errors;
 				}}
-				onSubmit={(values, { setSubmitting }) => {
-					handleSubmit(values, setSubmitting);
+				onSubmit={(values, { setSubmitting, setErrors }) => {
+					handleSubmit(values, setSubmitting, setErrors);
 				}}>
 				{({ values, isSubmitting, handleChange }) => {
 					return (
