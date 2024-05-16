@@ -57,14 +57,17 @@ export default () => {
 				</Box>
 			</Box>
 			<Box>
-				{optionsArr?.map((el, index) => (
-					<>
-						<Hover text={el?.name} sxContainer={{ mb: 1 }}>
-							{el?.icon}
-						</Hover>
-						{index + 1 !== optionsArr?.length && <Divider />}
-					</>
-				))}
+				{optionsArr?.map((el, index) => {
+					const isntLast = index + 1 !== optionsArr?.length;
+					return (
+						<>
+							<Hover text={el?.name} sxContainer={{ my: 1 }}>
+								{el?.icon}
+							</Hover>
+							{isntLast && <Divider />}
+						</>
+					);
+				})}
 			</Box>
 		</Box>
 	);
