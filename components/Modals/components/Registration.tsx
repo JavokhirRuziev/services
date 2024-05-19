@@ -23,5 +23,5 @@ export default ({
 		success: <Success {...{ handleClose }} />
 	};
 
-	return <Box>{content[step]}</Box>;
+	return <Box sx={{ width: "100%" }}>{content[step]}</Box>;
 };

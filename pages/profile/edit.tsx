@@ -1,16 +1,17 @@
+import BreadcrumbBase from "@/components/Breadcrumbs/BreadcrumbBase";
 import Layout from "@/components/Layout";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import SideBar from "./components/SideBar";
-import Content from "./components/Content";
+import SideBarEdit from "./components/SideBarEdit";
+import EditContent from "./components/EditContent";
 
-export default function profile() {
+export default function edit() {
 	return (
 		<Layout>
 			<Container>
 				<Box sx={wrapperStyles}>
-					<SideBar />
-					<Content />
+					<SideBarEdit />
+					<EditContent />
 				</Box>
 			</Container>
 		</Layout>
@@ -20,5 +21,5 @@ export default function profile() {
 const wrapperStyles = {
 	m: "30px auto 200px",
 	display: "flex",
-	columnGap: "70px"
+	columnGap: "36px"
 };

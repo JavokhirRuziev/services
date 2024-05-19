@@ -11,8 +11,9 @@ import { filters } from "@/public/data/services_data";
 import ServicesDrawer from "@/components/Drawers/ServicesDrawer";
 import PaginationBase from "@/components/Paginations/PaginationBase";
 import CardBase from "@/components/Cards/CardBase";
+import BreadcrumbBase from "@/components/Breadcrumbs/BreadcrumbBase";
 
-export default () => {
+export default function services() {
 	const { desktop } = breakpoints();
 	const [hoveredCardId, setHoveredCardId] = useState(null);
 
@@ -21,16 +22,7 @@ export default () => {
 			<Box sx={wrapperStyles}>
 				{!desktop && <Filters />}
 				<Box sx={{ py: "27px", px: "25px" }}>
-					<Typography variant="body1" mb={"14px"} color={"grey.400"}>
-						CityShahar /
-						<Typography
-							variant="h6"
-							component={"span"}
-							color={"common.black"}>
-							{" "}
-							Rent
-						</Typography>
-					</Typography>
+					<BreadcrumbBase array={[" / Rent"]} />
 					<Typography variant="h4" mb={"27px"}>
 						Top 10 Rent houses Tashkent, Chilonzor{" "}
 					</Typography>
@@ -65,7 +57,7 @@ export default () => {
 			</Box>
 		</Layout>
 	);
-};
+}
 
 const cardWrapperStyles = {
 	display: "grid",

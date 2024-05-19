@@ -105,16 +105,3 @@ export default ({ setStep, setPhone }: PhoneCheckTypes) => {
 		</>
 	);
 };
-
-const otpInputStyles = {
-	borderRadius: "5px",
-	padding: "15px 15px",
-	border: `1px solid ${theme.palette.grey[400]}`,
-	background: theme.palette.grey[100]
-};
-
-const otpWrapperStyles = {
-	display: "flex",
-	justifyContent: "center",
-	mb: "50px"
-};

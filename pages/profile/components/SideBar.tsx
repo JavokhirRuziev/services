@@ -14,10 +14,15 @@ import About from "@/public/icons/About";
 import Help from "@/public/icons/Help";
 import LogOut from "@/public/icons/LogOut";
 import { Divider } from "@mui/material";
+import BreadcrumbBase from "@/components/Breadcrumbs/BreadcrumbBase";
+import IconButtonGrey from "@/components/Buttons/IconButtonGrey";
+import { useRouter } from "next/router";
 
 export default () => {
+	const { push } = useRouter();
 	return (
 		<Box>
+			<BreadcrumbBase array={[" / View Profile"]} />
 			<Box sx={accountCardWrapperStyles}>
 				<Box sx={accountInfoWrapperStyles}>
 					<Avatar sx={avatarStyles}>
@@ -46,9 +51,13 @@ export default () => {
 					}}>
 					{accountActionsArr.map((el) => (
 						<Box sx={actionButtonsWrapperStyles}>
-							<IconButton sx={{ bgcolor: "grey.200" }}>
+							<IconButtonGrey
+								isHome={false}
+								props={{
+									onClick: () => push("/profile/edit")
+								}}>
 								{el?.icon}
-							</IconButton>
+							</IconButtonGrey>
 							<Typography variant="body2" color={"grey.600"}>
 								{el?.name}
 							</Typography>

@@ -25,7 +25,7 @@ const wrapperStyles = (sxContainer: any) => ({
 	opacity: 0.8,
 	cursor: "pointer",
 	"&:hover": {
-		bgcolor: "grey.400"
+		bgcolor: "grey.100"
 	},
 	...sxContainer
 });

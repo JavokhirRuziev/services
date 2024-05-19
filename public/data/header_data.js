@@ -8,7 +8,7 @@ import LogIn from "@/public/icons/LogIn";
 import Avatar from "@mui/material/Avatar";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Logo from "@/public/icons/Logo";
-// import AuthModal from "@/components/Modals/Auth";
+import AuthModal from "@/components/Modals/Auth";
 import TooltipClick from "@/components/Tooltips/TooltipClick";
 import Notification from "../icons/Notification";
 import Saved from "../icons/Saved";
@@ -21,6 +21,8 @@ import Help from "../icons/Help";
 import About from "../icons/About";
 import LogOut from "../icons/LogOut";
 import { theme } from "@/theme";
+import IconButtonGrey from "@/components/Buttons/IconButtonGrey";
+import ButtonInfo from "@/components/Buttons/ButtonInfo";
 
 export const rightBlockArr = ({
 	open,
@@ -35,23 +37,25 @@ export const rightBlockArr = ({
 			handleTooltipClose: () => handleTooltipClose("business"),
 			content: bussinessContent
 		}}>
-		<Button
-			variant="outlined"
-			color="info"
-			onClick={() => handleTooltipOpen("business")}
-			sx={buttonStyles(isHome)}>
-			CityShahar for Bussiness
-			<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
-		</Button>
+		<Box>
+			<ButtonInfo
+				isHome={isHome}
+				onClick={() => handleTooltipOpen("business")}>
+				CityShahar for Bussiness
+				<KeyboardArrowDownIcon sx={{ color: "inherit" }} />
+			</ButtonInfo>
+		</Box>
 	</TooltipClick>,
-	<Button variant="outlined" color="info" sx={buttonStyles(isHome)}>
-		Write a Review
-	</Button>,
+	<ButtonInfo isHome={isHome}>Write a Review</ButtonInfo>,
 	// <AuthModal />
 	<Box sx={accountWrapperStyles}>
 		<Box sx={iconWrapperStyles(isHome)}>
-			<Notification />
-			<Saved />
+			<IconButtonGrey isHome={isHome}>
+				<Notification />
+			</IconButtonGrey>
+			<IconButtonGrey isHome={isHome}>
+				<Saved />
+			</IconButtonGrey>
 		</Box>
 		<TooltipClick
 			{...{
@@ -61,7 +65,7 @@ export const rightBlockArr = ({
 				placement: "bottom-start"
 			}}>
 			<Avatar
-				sx={{ position: "relative", cursor: "pointer" }}
+				sx={avatarStyles}
 				onClick={() => handleTooltipOpen("account")}>
 				<Image
 					src={"/images/profile.jpg"}
@@ -74,24 +78,18 @@ export const rightBlockArr = ({
 	</Box>
 ];
 
+const avatarStyles = {
+	position: "relative",
+	cursor: "pointer",
+	width: 44,
+	height: 44
+};
+
 const contentStyles = (sx) => ({
 	display: "flex",
 	flexDirection: "column",
 	rowGap: 1,
 	...sx
-});
-
-const buttonStyles = (isHome) => ({
-	border: "none",
-	boxShadow: "none",
-	color: isHome ? "#fff" : "#000",
-	":hover": {
-		border: "none",
-		boxShadow: "none",
-		bgcolor: isHome ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)",
-		color: isHome ? "#fff" : "#000"
-	},
-	fontSize: "14px !important"
 });
 
 const accountWrapperStyles = {
