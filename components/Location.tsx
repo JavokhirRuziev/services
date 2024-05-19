@@ -1,5 +1,8 @@
 // components/Location.js
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import LocationModal from "./LocationModal";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const Location = () => {
 	const [location, setLocation] = useState<{
@@ -7,6 +10,11 @@ const Location = () => {
 		longitude: number;
 	} | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [modalOpen, setModalOpen] = useState(false);
+
+	useEffect(() => {
+		setModalOpen(true);
+	}, []);
 
 	const getLocation = () => {
 		if (navigator.geolocation) {
@@ -14,11 +22,11 @@ const Location = () => {
 				(position) => {
 					const { latitude, longitude } = position.coords;
 					setLocation({ latitude, longitude });
-					setError(null); // Clear any previous errors
+					setError(null);
 				},
 				(error) => {
 					setError(error.message);
-					setLocation(null); // Clear previous location if error occurs
+					setLocation(null);
 				}
 			);
 		} else {
@@ -26,17 +34,27 @@ const Location = () => {
 		}
 	};
 
+	const handleModalConfirm = () => {
+		setModalOpen(false);
+		getLocation();
+	};
+
 	return (
-		<div>
-			<button onClick={getLocation}>Get Location</button>
+		<Box>
 			{location && (
-				<div>
-					<p>Latitude: {location.latitude}</p>
-					<p>Longitude: {location.longitude}</p>
-				</div>
+				<Box>
+					<Typography>Latitude: {location.latitude}</Typography>
+					<Typography>Longitude: {location.longitude}</Typography>
+				</Box>
 			)}
-			{error && <p>Error: {error}</p>}
-		</div>
+			{error && <Typography>Error: {error}</Typography>}
+
+			<LocationModal
+				open={modalOpen}
+				handleClose={() => setModalOpen(false)}
+				handleConfirm={handleModalConfirm}
+			/>
+		</Box>
 	);
 };
 
