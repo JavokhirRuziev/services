@@ -9,8 +9,8 @@ export default () => {
 			<path
 				d="M26.3985 13.1993L13.1992 26.3987M26.3985 26.3987L13.1992 13.1993"
 				stroke="black"
-				stroke-width="2"
-				stroke-linecap="round"
+				strokeWidth="2"
+				strokeLinecap="round"
 			/>
 		</svg>
 	);

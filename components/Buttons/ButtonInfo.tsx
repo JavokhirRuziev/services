@@ -1,14 +1,12 @@
 import Button from "@mui/material/Button";
 
-export default ({
-	isHome,
-	onClick,
-	children
-}: {
+type ButtonInfoProps = {
 	isHome: boolean;
-	onClick: any;
-	children: any;
-}) => {
+	onClick?: () => void;
+	children: React.ReactNode;
+};
+
+export default ({ isHome, onClick, children }: ButtonInfoProps) => {
 	return (
 		<Button
 			variant="outlined"

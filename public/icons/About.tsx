@@ -12,13 +12,13 @@ export default () => {
 					cy="8.00016"
 					r="6.66667"
 					stroke="#2D2E2F"
-					stroke-width="1.5"
+					strokeWidth="1.5"
 				/>
 				<path
 					d="M8 4.6665V8.6665"
 					stroke="#2D2E2F"
-					stroke-width="1.5"
-					stroke-linecap="round"
+					strokeWidth="1.5"
+					strokeLinecap="round"
 				/>
 				<mask id="path-3-inside-1_365_3380" fill="white">
 					<ellipse

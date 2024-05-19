@@ -1,19 +1,19 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import SearchInput from "./components/SearchInput";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import breakpoints from "utils/breakpoints";
+import breakpoints from "@/utils/breakpoints";
 import HeaderDrawer from "@/components/Drawers/HeaderDrawer";
 import SideBarAccordion from "@/components/Accordions/SideBarAccordion";
-import Search from "@/public/icons/Search";
 import Link from "next/link";
-import { rightBlockArr } from "@/public/data/header_data";
 import { theme } from "@/theme";
 import LogoText from "@/public/icons/LogoText";
 import LogoDarkText from "@/public/icons/LogoDarkText";
+import SearchInput from "./components/SearchInput";
+import Search from "@/public/icons/Search";
+import { rightBlockArr } from "@/public/data/header_data";
 
-export default () => {
+const HomePage = () => {
 	const { pathname, push } = useRouter();
 	const { mobile, tablet } = breakpoints();
 	const isHome = pathname === "/";
@@ -32,7 +32,7 @@ export default () => {
 		<Box sx={headerWrapperStyles(isHome)} data-testid="header-component">
 			<Box sx={headerContainerStyles(isHome)}>
 				<Box sx={headerAppbarWrapperStyles}>
-					<Link href={"/"} style={logoStyles}>
+					<Link href="/" style={logoStyles}>
 						<Box sx={logoWrapperStyles}>
 							{isHome ? <LogoText /> : <LogoDarkText />}
 						</Box>
@@ -74,6 +74,9 @@ export default () => {
 		</Box>
 	);
 };
+
+export default HomePage;
+
 const headerContainerStyles = (isHome: boolean) => ({
 	p: {
 		mobile: "20px 0px 40px",
@@ -127,6 +130,7 @@ const rightBlockClasses = {
 	alignItems: "center",
 	whiteSpace: "nowrap"
 };
+
 const drawerClasses = {
 	display: "flex",
 	columnGap: 2,

@@ -7,7 +7,7 @@ export default ({
 }: {
 	isHome: boolean;
 	children: any;
-	props: any;
+	props?: any;
 }) => {
 	return (
 		<IconButton {...props} sx={iconButtonStyles(isHome)}>
